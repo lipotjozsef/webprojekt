@@ -1,0 +1,106 @@
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36" version="24.8.8">
+  <diagram name="1 oldal" id="aF6ez5jJWSz7ExASw3fL">
+    <mxGraphModel grid="0" page="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" pageScale="1" pageWidth="827" pageHeight="1169" background="#f2f2f2" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="PkJ0hWwf3vTzd-RoCqL3-3" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;labelBackgroundColor=none;strokeColor=#23445D;fontColor=default;" edge="1" parent="1" source="PkJ0hWwf3vTzd-RoCqL3-1" target="PkJ0hWwf3vTzd-RoCqL3-2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="PkJ0hWwf3vTzd-RoCqL3-1" value="Esc gomb megynyomására" style="rounded=1;whiteSpace=wrap;html=1;labelBackgroundColor=none;fillColor=#182E3E;strokeColor=#FFFFFF;fontColor=#FFFFFF;" vertex="1" parent="1">
+          <mxGeometry x="260" y="170" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="PkJ0hWwf3vTzd-RoCqL3-15" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;labelBackgroundColor=none;strokeColor=#23445D;fontColor=default;" edge="1" parent="1" source="PkJ0hWwf3vTzd-RoCqL3-2" target="PkJ0hWwf3vTzd-RoCqL3-13">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="PkJ0hWwf3vTzd-RoCqL3-16" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;labelBackgroundColor=none;strokeColor=#23445D;fontColor=default;" edge="1" parent="1" source="PkJ0hWwf3vTzd-RoCqL3-2" target="PkJ0hWwf3vTzd-RoCqL3-10">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="PkJ0hWwf3vTzd-RoCqL3-17" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;labelBackgroundColor=none;strokeColor=#23445D;fontColor=default;" edge="1" parent="1" source="PkJ0hWwf3vTzd-RoCqL3-2" target="PkJ0hWwf3vTzd-RoCqL3-12">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="PkJ0hWwf3vTzd-RoCqL3-18" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;labelBackgroundColor=none;strokeColor=#23445D;fontColor=default;" edge="1" parent="1" source="PkJ0hWwf3vTzd-RoCqL3-2" target="PkJ0hWwf3vTzd-RoCqL3-14">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="PkJ0hWwf3vTzd-RoCqL3-2" value="Menu megynilik a képernyő közepén&lt;div&gt;(háttér elmosodik)&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;labelBackgroundColor=none;fillColor=#182E3E;strokeColor=#FFFFFF;fontColor=#FFFFFF;" vertex="1" parent="1">
+          <mxGeometry x="260" y="300" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="PkJ0hWwf3vTzd-RoCqL3-26" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;labelBackgroundColor=none;strokeColor=#23445D;fontColor=default;" edge="1" parent="1" source="PkJ0hWwf3vTzd-RoCqL3-10" target="PkJ0hWwf3vTzd-RoCqL3-22">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="555" y="550" />
+              <mxPoint x="585" y="550" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="PkJ0hWwf3vTzd-RoCqL3-27" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;labelBackgroundColor=none;strokeColor=#23445D;fontColor=default;" edge="1" parent="1" source="PkJ0hWwf3vTzd-RoCqL3-10" target="PkJ0hWwf3vTzd-RoCqL3-20">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="555" y="550" />
+              <mxPoint x="700" y="550" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="PkJ0hWwf3vTzd-RoCqL3-28" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;labelBackgroundColor=none;strokeColor=#23445D;fontColor=default;" edge="1" parent="1" source="PkJ0hWwf3vTzd-RoCqL3-10" target="PkJ0hWwf3vTzd-RoCqL3-21">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="555" y="550" />
+              <mxPoint x="835" y="550" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="PkJ0hWwf3vTzd-RoCqL3-35" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;labelBackgroundColor=none;strokeColor=#23445D;fontColor=default;" edge="1" parent="1" source="PkJ0hWwf3vTzd-RoCqL3-10" target="PkJ0hWwf3vTzd-RoCqL3-23">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="555" y="550" />
+              <mxPoint x="462" y="550" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="PkJ0hWwf3vTzd-RoCqL3-10" value="Settings" style="rounded=1;whiteSpace=wrap;html=1;labelBackgroundColor=none;fillColor=#182E3E;strokeColor=#FFFFFF;fontColor=#FFFFFF;" vertex="1" parent="1">
+          <mxGeometry x="520" y="460" width="70" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="PkJ0hWwf3vTzd-RoCqL3-12" value="Edit character" style="rounded=1;whiteSpace=wrap;html=1;labelBackgroundColor=none;fillColor=#182E3E;strokeColor=#FFFFFF;fontColor=#FFFFFF;" vertex="1" parent="1">
+          <mxGeometry x="620" y="460" width="70" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="PkJ0hWwf3vTzd-RoCqL3-31" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;labelBackgroundColor=none;strokeColor=#23445D;fontColor=default;" edge="1" parent="1" source="PkJ0hWwf3vTzd-RoCqL3-13" target="PkJ0hWwf3vTzd-RoCqL3-29">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="PkJ0hWwf3vTzd-RoCqL3-13" value="Resume Game" style="rounded=1;whiteSpace=wrap;html=1;labelBackgroundColor=none;fillColor=#182E3E;strokeColor=#FFFFFF;fontColor=#FFFFFF;" vertex="1" parent="1">
+          <mxGeometry x="414" y="460" width="70" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="PkJ0hWwf3vTzd-RoCqL3-33" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;labelBackgroundColor=none;strokeColor=#23445D;fontColor=default;" edge="1" parent="1" source="PkJ0hWwf3vTzd-RoCqL3-14">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1000" y="450" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="PkJ0hWwf3vTzd-RoCqL3-14" value="Leave Game" style="rounded=1;whiteSpace=wrap;html=1;labelBackgroundColor=none;fillColor=#182E3E;strokeColor=#FFFFFF;fontColor=#FFFFFF;" vertex="1" parent="1">
+          <mxGeometry x="710" y="460" width="70" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="PkJ0hWwf3vTzd-RoCqL3-20" value="Hangerő módosítása" style="rounded=1;whiteSpace=wrap;html=1;labelBackgroundColor=none;fillColor=#182E3E;strokeColor=#FFFFFF;fontColor=#FFFFFF;" vertex="1" parent="1">
+          <mxGeometry x="660" y="631.25" width="80" height="52.5" as="geometry" />
+        </mxCell>
+        <mxCell id="PkJ0hWwf3vTzd-RoCqL3-21" value="Ugrás bindelése (2 opció bal click/ space)" style="rounded=1;whiteSpace=wrap;html=1;labelBackgroundColor=none;fillColor=#182E3E;strokeColor=#FFFFFF;fontColor=#FFFFFF;" vertex="1" parent="1">
+          <mxGeometry x="780" y="617.5" width="110" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="PkJ0hWwf3vTzd-RoCqL3-22" value="Fps gomb&lt;span style=&quot;color: rgba(0, 0, 0, 0); font-family: monospace; font-size: 0px; text-align: start; text-wrap-mode: nowrap;&quot;&gt;%3CmxGraphModel%3E%3Croot%3E%3CmxCell%20id%3D%220%22%2F%3E%3CmxCell%20id%3D%221%22%20parent%3D%220%22%2F%3E%3CmxCell%20id%3D%222%22%20value%3D%22(Teljes%20k%C3%A9perny%C5%91)%22%20style%3D%22rounded%3D0%3BwhiteSpace%3Dwrap%3Bhtml%3D1%3B%22%20vertex%3D%221%22%20parent%3D%221%22%3E%3CmxGeometry%20x%3D%22560%22%20y%3D%22545%22%20width%3D%2270%22%20height%3D%2240%22%20as%3D%22geometry%22%2F%3E%3C%2FmxCell%3E%3C%2Froot%3E%3C%2FmxGraphModel%3E&lt;/span&gt;" style="rounded=1;whiteSpace=wrap;html=1;labelBackgroundColor=none;fillColor=#182E3E;strokeColor=#FFFFFF;fontColor=#FFFFFF;" vertex="1" parent="1">
+          <mxGeometry x="540" y="578.75" width="90" height="52.5" as="geometry" />
+        </mxCell>
+        <mxCell id="PkJ0hWwf3vTzd-RoCqL3-23" value="Név megváltoztatása" style="rounded=1;whiteSpace=wrap;html=1;labelBackgroundColor=none;fillColor=#182E3E;strokeColor=#FFFFFF;fontColor=#FFFFFF;" vertex="1" parent="1">
+          <mxGeometry x="414" y="585" width="96" height="62.5" as="geometry" />
+        </mxCell>
+        <mxCell id="PkJ0hWwf3vTzd-RoCqL3-29" value="Vissza a játékba" style="rounded=1;whiteSpace=wrap;html=1;labelBackgroundColor=none;fillColor=#182E3E;strokeColor=#FFFFFF;fontColor=#FFFFFF;" vertex="1" parent="1">
+          <mxGeometry x="285" y="577.5" width="70" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="PkJ0hWwf3vTzd-RoCqL3-34" value="Kilépés a játékból" style="rounded=1;whiteSpace=wrap;html=1;labelBackgroundColor=none;fillColor=#182E3E;strokeColor=#FFFFFF;fontColor=#FFFFFF;" vertex="1" parent="1">
+          <mxGeometry x="960" y="410" width="70" height="40" as="geometry" />
+        </mxCell>
+        <UserObject label="Menu terv figmaban&#xa;https://www.figma.com/design/M062oZA8D6N74Ejt42AmiP/Menu?t=UgCaBeRCo0Pg2uDM-1" link="https://www.figma.com/design/M062oZA8D6N74Ejt42AmiP/Menu?t=UgCaBeRCo0Pg2uDM-1" id="ThzEgekt1Sqbeqq67R9o-1">
+          <mxCell style="text;whiteSpace=wrap;fontSize=13;labelBackgroundColor=none;fontColor=#000000;rounded=1;" vertex="1" parent="1">
+            <mxGeometry x="510" y="120" width="680" height="90" as="geometry" />
+          </mxCell>
+        </UserObject>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

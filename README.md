@@ -1,22 +1,34 @@
-# webprojekt
+```
+ _____ _        _    ____  ______   __  ____ ___ ____  ____  
+|  ___| |      / \  |  _ \|  _ \ \ / / | __ )_ _|  _ \|  _ \ 
+| |_  | |     / _ \ | |_) | |_) \ V /  |  _ \| || |_) | | | |
+|  _| | |___ / ___ \|  __/|  __/ | |   | |_) | ||  _ <| |_| |
+|_|   |_____/_/   \_\_|   |_|    |_|   |____/___|_| \_\____/ 
+```
 
-## kollaborátorok
-### Lipót József Zoltán
-- *madár animáció*
-### Horváth Márk
-- *menü*
-### Mezei Renáta
-- *kozmetikus menü*
+`Ezen az oldalon a híres Flappy Bird játék rekrációját/-újragondolását- készítettük el.`
 
-  
-## funkciók
-## flappy bird clone
-- menük, gombok
+## == A WEBOLDAL ==
 
-## kozmetikák
-## javascript eventek
-- onchange
-- press
-- onclick
-- drag / drag & drop
+- Rengeteg *javascript event*
+- Újszerű játékélmény
+- Remek elérhetőség (telefon/számítógép)
+- *Új karakterek* és kinézeti opciók
+- Különleges funckciók
+
+## == KOLLABORÁTOROK == 
+
+### | Lipót József Zoltán
+- Játék logikája
+- Javascript
+
+### | Horváth Márk
+- Menü layoutok
+- Beállítások tervezése
+
+### | Mezei Renáta
+- Weboldal layout
+- Kinézetek / kozmetikumok tervezése
+
+> A weboldal forrásaként használt oldal: [https://flappybird.io/]
   

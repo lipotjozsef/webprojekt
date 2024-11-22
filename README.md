@@ -3,8 +3,6 @@
 ### kollaborátorok
 - Lipót József Zoltán
   madár animáció
-  
-- 
 - Horváth Márk
   menü
 - Mezei Renáta
@@ -21,4 +19,4 @@
 - press
 - onclick
 - drag / drag & drop
-- 
+  

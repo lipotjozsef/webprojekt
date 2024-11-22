@@ -1,20 +1,20 @@
 # webprojekt
 
-### kollaborátorok
-- Lipót József Zoltán
-  madár animáció
-- Horváth Márk
-  menü
-- Mezei Renáta
-  kozmetikus menü
+## kollaborátorok
+### Lipót József Zoltán
+- *madár animáció*
+### Horváth Márk
+- *menü*
+### Mezei Renáta
+- *kozmetikus menü*
 
   
-### funkciók
-### flappy bird clone
+## funkciók
+## flappy bird clone
 - menük, gombok
 
-### kozmetikák
-### javascript eventek
+## kozmetikák
+## javascript eventek
 - onchange
 - press
 - onclick

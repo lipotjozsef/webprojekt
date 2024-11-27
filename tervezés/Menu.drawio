@@ -1,6 +1,6 @@
-<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36" version="24.8.4">
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36" version="24.9.1">
   <diagram name="1 oldal" id="aF6ez5jJWSz7ExASw3fL">
-    <mxGraphModel dx="1195" dy="650" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" background="#f2f2f2" math="0" shadow="0">
+    <mxGraphModel dx="1434" dy="780" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" background="#f2f2f2" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -95,15 +95,15 @@
         <mxCell id="PkJ0hWwf3vTzd-RoCqL3-34" value="Kilépés a játékból" style="rounded=1;whiteSpace=wrap;html=1;labelBackgroundColor=none;fillColor=#182E3E;strokeColor=#FFFFFF;fontColor=#FFFFFF;" parent="1" vertex="1">
           <mxGeometry x="960" y="410" width="70" height="40" as="geometry" />
         </mxCell>
-        <UserObject label="Menu terv figmaban&#xa;https://www.figma.com/design/M062oZA8D6N74Ejt42AmiP/Menu?t=UgCaBeRCo0Pg2uDM-1" link="https://www.figma.com/design/M062oZA8D6N74Ejt42AmiP/Menu?t=UgCaBeRCo0Pg2uDM-1" id="ThzEgekt1Sqbeqq67R9o-1">
-          <mxCell style="text;whiteSpace=wrap;fontSize=13;labelBackgroundColor=none;fontColor=#000000;rounded=1;" parent="1" vertex="1">
-            <mxGeometry x="510" y="120" width="680" height="90" as="geometry" />
+        <UserObject label="    Menu terv figmaban&#xa;    https://www.figma.com/design/M062oZA8D6N74Ejt42AmiP/Menu?t=UgCaBeRCo0Pg2uDM-1&#xa;&#xa;    Settings terv figmaban&#xa;    https://www.figma.com/design/M062oZA8D6N74Ejt42AmiP/Menu?node-id=10-2&amp;node-type=canvas&amp;t=knrEQfHkjW22pSHA-0" link="https://www.figma.com/design/M062oZA8D6N74Ejt42AmiP/Menu?t=UgCaBeRCo0Pg2uDM-1" id="ThzEgekt1Sqbeqq67R9o-1">
+          <mxCell style="text;whiteSpace=wrap;fontSize=13;labelBackgroundColor=none;fontColor=#000000;rounded=1;fillColor=#E6E6E6;strokeColor=#314354;" parent="1" vertex="1">
+            <mxGeometry x="461" y="89" width="807" height="103" as="geometry" />
           </mxCell>
         </UserObject>
-        <mxCell id="LX9e9KuQA0IY-Zd5HaNY-1" value="Grafika set (low, medium, high)" style="rounded=1;whiteSpace=wrap;html=1;labelBackgroundColor=none;fillColor=#182E3E;strokeColor=#FFFFFF;fontColor=#FFFFFF;" vertex="1" parent="1">
+        <mxCell id="LX9e9KuQA0IY-Zd5HaNY-1" value="Grafika set (low, medium, high)" style="rounded=1;whiteSpace=wrap;html=1;labelBackgroundColor=none;fillColor=#182E3E;strokeColor=#FFFFFF;fontColor=#FFFFFF;" parent="1" vertex="1">
           <mxGeometry x="947" y="621" width="80" height="52.5" as="geometry" />
         </mxCell>
-        <mxCell id="LX9e9KuQA0IY-Zd5HaNY-3" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;labelBackgroundColor=none;strokeColor=#23445D;fontColor=default;" edge="1" parent="1" target="LX9e9KuQA0IY-Zd5HaNY-1">
+        <mxCell id="LX9e9KuQA0IY-Zd5HaNY-3" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;labelBackgroundColor=none;strokeColor=#23445D;fontColor=default;" parent="1" target="LX9e9KuQA0IY-Zd5HaNY-1" edge="1">
           <mxGeometry relative="1" as="geometry">
             <Array as="points">
               <mxPoint x="555" y="550" />

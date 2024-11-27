@@ -20,6 +20,18 @@ footer {
     bottom: 0;
 }
 
+.collider {
+    position: absolute;
+}
+
+.debugCollider {
+    border: 1px solid yellowgreen;
+}
+
+.debugColliderColliding {
+    border: 3px dashed red;
+}
+
 .objectSprite {
     display: block;
     margin: auto;

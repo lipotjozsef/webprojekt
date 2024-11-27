@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="hu">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Flappy Bird</title>
+    <link rel="stylesheet" href="styles/main.css" />
+  </head>
+  <body>
+  <style>
+    body{
+      background-image: url("kepek/background.png");
+      background-repeat: no-repeat;
+      background-size: 120%;
+    }
+
+    #gameContainer{
+        width: 70%;
+    }
+    #CosmeticMenu{
+      width:30%;
+    }
+  </style>
+    <header id="title">
+      <div style="  
+      margin:auto;
+      margin-top:-10px;
+      height: 90px;
+      width: 600px;
+      border:2px solid black;
+      box-shadow: 0 0 25px 1px;
+      border-radius: 0 0 60vh 60vh;
+      background-color: green;
+      margin-bottom:25px;
+      ">
+      <img src="kepek/title.png" alt="" style="width:150px; margin-top:10px;">   
+    </div>
+     
+    </header>
+    <!-- ///////////// HEADER ///////////// -->
+     
+    <main>
+
+ <div style="display:flex;flex-wrap:nowrap">
+   
+     <section class="menu" id="CosmeticMenu" style="color:black;">
+       <p>aaa</p>
+       Lorem ipsum dolor sit amet.
+     </section>
+     <div id="gameContainer" style="border-radius:5vh;border:5px solid black;">
+       <section id="PlayArea"></section>
+       <section class="menu" id="PauseMenu"></section>
+       <section class="menu" id="StartMenu"></section>
+     </div>
+ </div>
+
+
+    </main>
+    <!-- ///////////// MAIN ///////////// -->
+     
+    <footer>
+      <p>Jedlik 2024 - Web</p>
+    </footer>
+    <!-- ///////////// FOOTER ///////////// -->
+    <script src="scriptek/game.js"></script>
+  </body>
+</html>

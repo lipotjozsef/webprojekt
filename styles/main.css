@@ -9,7 +9,24 @@ header {
     position: relative;
 }
 
+#PlayArea {
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
 footer {
     position: absolute;
     bottom: 0;
+}
+
+.objectSprite {
+    display: block;
+    margin: auto;
+}
+
+.object {
+    position: absolute;
+    width: 100px;
+    height: 100px;
 }

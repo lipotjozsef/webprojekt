@@ -68,7 +68,6 @@ class Object extends BaseObject {
         this.divROOT.appendChild(this.sprite_image.imgROOT)
 
         this.setRotation(this.rotation);
-        AddToScene(this);
     }
 
     move() {
@@ -78,21 +77,87 @@ class Object extends BaseObject {
 }
 
 class Collider extends BaseObject {
-    constructor() {
-        if (DEBUGMODE) {
-            super("div",  [""])
+    constructor(size = new Vector2()) {
+        super("div", ["collider"], size);
+        this.colliderROOT = this.root;
+        this.colliding = false;
+    }
+    isColliding(withObject) {
+        let r1TopRight = withObject.position.x + (withObject.size.y / 2) + (withObject.size.x / 2);
+        console.log("r1TopRight:", r1TopRight);
+        let r1TopLeft = withObject.position.x + (withObject.size.x / 2) - (withObject.size.x / 2);
+        console.log("r1TopLeft:", r1TopLeft);
+        let r1BottomRight = withObject.position.x - (withObject.size.x / 2) + (withObject.size.x / 2);
+        let r1BottomLeft = withObject.position.x - (withObject.size.x / 2) - (withObject.size.x / 2);
+
+        let r2TopRight = this.position.x + (this.size.y / 2) + (this.size.x / 2);
+        let r2TopLeft = this.position.x + (this.size.y / 2) - (this.size.x / 2);
+        
+        let r2BottomRight = this.position.x - (this.size.x / 2) + (this.size.x / 2);
+        let r2BottomLeft = this.position.x - (this.size.x / 2) - (this.size.x / 2);
+        if (r1TopRight >= r2TopLeft &&
+            r1TopLeft <= r2TopRight &&
+            r1BottomRight >= r2BottomLeft &&
+            r1BottomLeft <= r2BottomRight
+        ) {
+                this.colliding = true;
+                return true;
         }
-        super("div", )
+        this.colliding = false;
+        return false;
+    }
+    debugDraw() {
+        if (this.colliderROOT.classList.contains("debugCollider")) {
+            if (this.colliding) {
+                this.colliderROOT.classList.remove("debugCollider");
+                this.colliderROOT.classList.add("debugColliderColliding");
+            }
+            else {
+                this.colliderROOT.classList.add("debugCollider");
+                this.colliderROOT.classList.remove("debugColliderColliding");
+            }
+        }
+        else {
+            this.colliderROOT.classList.add("debugCollider");
+        }
     }
 }
 
 function AddToScene(object) {
-    const ROOT = object.divROOT;
+    const ROOT = object.root;
     globalObjectList.push(object);
     
     GAMECONTAINER.appendChild(ROOT);
     if (DEBUGMODE) console.log("Added a new object: ", ROOT);
 }
 
+function addChildToRoot(childObject, parentObject) {
+    if (!childObject)
+    {
+        console.assert("No child was given!");
+        return;
+    }
+    childObject.position = parentObject.position;
+    childObject.size = parentObject.size;
+    parentObject.root.appendChild(childObject.root);
+}
+
 const birdIMAGE = new SpriteImage("kepek/bird.png");
-const PLAYER = new Object(birdIMAGE, new Vector2(100, 50), new Vector2(50, 300), 45.0);
+const pipeIMAGE = new SpriteImage("kepek/pipe.png")
+
+
+const PLAYER = new Object(birdIMAGE, new Vector2(100, 50), new Vector2(50, 300), 0.0);
+const TESTPIPE = new Object(pipeIMAGE, new Vector2(100, 100), new Vector2(100, 400), 0);
+AddToScene(PLAYER);
+const TESTCOLLIDER = new Collider(new Vector2(100, 100));
+addChildToRoot(TESTCOLLIDER, TESTPIPE);
+AddToScene(TESTPIPE);
+console.log(PLAYER.position.x+PLAYER.size.x)
+
+function _process() {
+    TESTCOLLIDER.debugDraw();
+    TESTCOLLIDER.isColliding(PLAYER);
+    requestAnimationFrame(_process)
+}
+
+_process()

@@ -11,12 +11,21 @@ class Vector2 {
 }
 
 class BaseObject {
-    constructor(elementName = "", classNameList = [""], size = new Vector2()) {
+    constructor(elementName = "", classNameList = [""], size = new Vector2(), position = new Vector2(), rotation = 0.0) {
         this.root = document.createElement(elementName);
         this.root.classList.add(classNameList);
         this.size = size;
+        this.position = position;
 
+        this.setRotation(rotation)
         this.setSize(size);
+        this.setPosition(position);
+    }
+
+    setPosition(newPos = new Vector2()) {
+        if (DEBUGMODE) console.info(`[.] (${newPos.x}, ${newPos.y}) new position has been set for ${this.divROOT}`)
+        this.root.style.left = this.position.x + "px";
+        this.root.style.top = this.position.y + "px";
     }
 
     setSize(newSize = new Vector2()) {
@@ -25,11 +34,16 @@ class BaseObject {
         this.root.style.height = this.size.y + "px";
         this.root.style.width = this.size.x + "px";
     }
+
+    setRotation(newRot = 0.0) {
+        if (DEBUGMODE) console.info(`[.] (${newRot}) new rotation has been set for ${this.divROOT}`)
+        this.root.style.transform = "rotate(" + this.rotation + "deg)";
+    }
 }
 
 class SpriteImage extends BaseObject{
     constructor(imagePath = "", size = new Vector2()) {
-        super("img", ["objectSprite"], size)
+        super("img", ["objectSprite"], size, new Vector2(), 0.0)
         this.imgROOT = this.root;
         this.imagePath = imagePath;
         this.imgROOT.src = this.imagePath;
@@ -43,10 +57,9 @@ class SpriteImage extends BaseObject{
 
 class Object extends BaseObject {
     constructor(sprite_image = new SpriteImage(), size = new Vector2(), position = new Vector2(), rotationDeg = 0.0) {
-        super("div", ["object"], size)
+        super("div", ["object"], size, position, rotationDeg)
         
-        this.sprite_image = sprite_image;    
-        this.position = position;
+        this.sprite_image = sprite_image;
         this.rotation = rotationDeg;
         this.velocity = new Vector2();
         this.acceleration = new Vector2();
@@ -54,26 +67,23 @@ class Object extends BaseObject {
         this.divROOT = this.root;
         this.divROOT.appendChild(this.sprite_image.imgROOT)
 
-        this.setPosition(this.position);
         this.setRotation(this.rotation);
         AddToScene(this);
-    }
-
-    setPosition(newPos = new Vector2()) {
-        if (DEBUGMODE) console.info(`[.] (${newPos.x}, ${newPos.y}) new position has been set for ${this.divROOT}`)
-        this.divROOT.style.left = this.position.x + "px";
-        this.divROOT.style.top = this.position.y + "px";
-    }
-
-    setRotation(newRot = 0.0) {
-        if (DEBUGMODE) console.info(`[.] (${newRot}) new rotation has been set for ${this.divROOT}`)
-        this.divROOT.style.transform = "rotate(" + this.rotation + "deg)";
     }
 
     move() {
         // balra fog elmozogni
     } 
 
+}
+
+class Collider extends BaseObject {
+    constructor() {
+        if (DEBUGMODE) {
+            super("div",  [""])
+        }
+        super("div", )
+    }
 }
 
 function AddToScene(object) {

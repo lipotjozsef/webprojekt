@@ -14,8 +14,6 @@ class BaseObject {
     constructor(elementName = "", classNameList = [""], size = new Vector2(), position = new Vector2(), rotation = 0.0) {
         this.root = document.createElement(elementName);
         this.root.classList.add(classNameList);
-        this.size = size;
-        this.position = position;
 
         this.setRotation(rotation)
         this.setSize(size);
@@ -24,6 +22,7 @@ class BaseObject {
 
     setPosition(newPos = new Vector2()) {
         if (DEBUGMODE) console.info(`[.] (${newPos.x}, ${newPos.y}) new position has been set for ${this.divROOT}`)
+        this.position = newPos;
         this.root.style.left = this.position.x + "px";
         this.root.style.top = this.position.y + "px";
     }
@@ -31,14 +30,28 @@ class BaseObject {
     setSize(newSize = new Vector2()) {
         if (newSize.y == 0) return;
         if (DEBUGMODE) console.info(`[.] (${newSize.x}, ${newSize.y}) new size has been set for ${this.root}`)
+        this.size = newSize;
         this.root.style.height = this.size.y + "px";
         this.root.style.width = this.size.x + "px";
     }
 
     setRotation(newRot = 0.0) {
         if (DEBUGMODE) console.info(`[.] (${newRot}) new rotation has been set for ${this.divROOT}`)
+        this.rotation = newRot;
         this.root.style.transform = "rotate(" + this.rotation + "deg)";
     }
+
+    addChildToRoot(childObject) {
+        if (!childObject)
+        {
+            console.assert("No child was given!");
+            return;
+        }
+        childObject.position = this.position;
+        childObject.setRotation(this.rotation);
+        this.root.appendChild(childObject.root);
+    }
+    
 }
 
 class SpriteImage extends BaseObject{
@@ -66,8 +79,6 @@ class Object extends BaseObject {
 
         this.divROOT = this.root;
         this.divROOT.appendChild(this.sprite_image.imgROOT)
-
-        this.setRotation(this.rotation);
     }
 
     move() {
@@ -83,23 +94,18 @@ class Collider extends BaseObject {
         this.colliding = false;
     }
     isColliding(withObject) {
-        let r1TopRight = withObject.position.x + (withObject.size.y / 2) + (withObject.size.x / 2);
-        console.log("r1TopRight:", r1TopRight);
-        let r1TopLeft = withObject.position.x + (withObject.size.x / 2) - (withObject.size.x / 2);
-        console.log("r1TopLeft:", r1TopLeft);
-        let r1BottomRight = withObject.position.x - (withObject.size.x / 2) + (withObject.size.x / 2);
-        let r1BottomLeft = withObject.position.x - (withObject.size.x / 2) - (withObject.size.x / 2);
+        let r1xRight = withObject.position.x + (withObject.size.x / 2);
+        let r1yRight = withObject.position.y + (withObject.size.y / 2);
 
-        let r2TopRight = this.position.x + (this.size.y / 2) + (this.size.x / 2);
-        let r2TopLeft = this.position.x + (this.size.y / 2) - (this.size.x / 2);
-        
-        let r2BottomRight = this.position.x - (this.size.x / 2) + (this.size.x / 2);
-        let r2BottomLeft = this.position.x - (this.size.x / 2) - (this.size.x / 2);
-        if (r1TopRight >= r2TopLeft &&
-            r1TopLeft <= r2TopRight &&
-            r1BottomRight >= r2BottomLeft &&
-            r1BottomLeft <= r2BottomRight
+        let r2xRight = this.position.x + (this.size.x / 2);
+        let r2yRight = this.position.y + (this.size.y / 2);
+        console.log(withObject.position.y-1 <= r2yRight)
+        if (r1xRight >= this.position.x &&
+            withObject.position.x <= r2xRight &&
+            r1yRight >= this.position.y &&
+            withObject.position.y-withObject.size.y <= r2yRight
         ) {
+                withObject.colliding = true
                 this.colliding = true;
                 return true;
         }
@@ -131,32 +137,27 @@ function AddToScene(object) {
     if (DEBUGMODE) console.log("Added a new object: ", ROOT);
 }
 
-function addChildToRoot(childObject, parentObject) {
-    if (!childObject)
-    {
-        console.assert("No child was given!");
-        return;
-    }
-    childObject.position = parentObject.position;
-    childObject.size = parentObject.size;
-    parentObject.root.appendChild(childObject.root);
-}
 
 const birdIMAGE = new SpriteImage("kepek/bird.png");
 const pipeIMAGE = new SpriteImage("kepek/pipe.png")
 
 
-const PLAYER = new Object(birdIMAGE, new Vector2(100, 50), new Vector2(50, 300), 0.0);
-const TESTPIPE = new Object(pipeIMAGE, new Vector2(100, 100), new Vector2(100, 400), 0);
+const PLAYER = new Object(birdIMAGE, new Vector2(80, 50), new Vector2(100, 300), 0.0);
+
+const PLAYER_COLL = new Collider(new Vector2(20, 20));
+PLAYER.addChildToRoot(PLAYER_COLL);
+const TESTPIPE = new Object(pipeIMAGE, new Vector2(100, 100), new Vector2(50, 200), 0);
 AddToScene(PLAYER);
 const TESTCOLLIDER = new Collider(new Vector2(100, 100));
-addChildToRoot(TESTCOLLIDER, TESTPIPE);
+TESTPIPE.addChildToRoot(TESTCOLLIDER);
+
 AddToScene(TESTPIPE);
 console.log(PLAYER.position.x+PLAYER.size.x)
 
 function _process() {
     TESTCOLLIDER.debugDraw();
-    TESTCOLLIDER.isColliding(PLAYER);
+    PLAYER_COLL.debugDraw();
+    TESTCOLLIDER.isColliding(PLAYER_COLL);
     requestAnimationFrame(_process)
 }
 

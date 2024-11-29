@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="menu.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 
 <body>
@@ -19,19 +20,47 @@
                 <label for="name">Change Name</label>
                 <input type="text" id="myInput" name="name" onclick="removeBorder()" value="Kolompar007"><br>
             </form>
-            <td>FPS</td>
-            <td>Quality</td>
-            <td>Volume</td>
-            <td>Jump button</td>
+            <form class="settings-menu-item-2">
+                <label for="fps">FPS</label>
+                <div class="number">
+
+                    <div class="gombok">
+                        <button id="decrease">&#11207;</button>
+                        <span id="fps">30</span>
+                        <button id="increase">&#11208;</button>
+                    </div>
+                </div>
+            </form>
+            <form class="menu-3">
+                <label for="quality">Quality</label>
+                <select id="priority" name="priority">
+                    <option value="low">Alacsony</option>
+                    <option value="medium">Közepes</option>
+                    <option value="high">Magas</option>
+                </select>
+
+            </form>
+            <form class="volume-form">
+                <div class="volume">
+                    <label for="volume">Volume</label>
+                </div>
+                <div class="volume-2">
+                    <input type="range" id="volumeControl" min="0" max="100" value="50">
+                    <span id="volumeValue">50</span>
+                </div>
+            </form>
+            <form class="jump">
+                <label for="jump">Jump button</label>
+                <div class="number">
+
+                    <button id="csökken">&#11207;</button>
+                    <span id="space">Space</span>
+                    <button id="növekszik">&#11208;</button>
+                </div>
+            </form>
         </div>
     </div>
-    <script>
-        // Az onclick eseményhez tartozó JavaScript funkció
-        function removeBorder() {
-            document.getElementById("myInput").style.border = "none";
-        }
-    </script>
-
+    <script src="menu.js"></script>
 </body>
 
 </html>

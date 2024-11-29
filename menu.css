@@ -34,3 +34,43 @@ body {
 .game-menu{
     border-bottom: 2px solid #6B6B6B;
 }
+.settings-menu {
+    height: 600px;
+    width: 700px;
+    border: 2px solid #6B6B6B;
+    border-radius: 30px;
+    margin: auto;
+    text-align: center;
+    margin-top: 200px;
+    background-image: url("kepek/flappybird-bg.png");
+    background-size: 160%;
+}
+.settings-menu-head {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 30px;
+    border-bottom: 2px solid #585858;
+}
+.settings-menu-item {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+#myInput {
+    background: none;
+    border: none;
+    text-align: center;
+}
+.item-section {
+    margin: 30px;
+}
+.item-section label,input {
+    margin: 0 60px;
+}
+input {
+    font-size: 1.1rem;
+
+}
+#myInput:focus {
+    border: none;
+}

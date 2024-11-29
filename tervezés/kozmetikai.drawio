@@ -1,6 +1,6 @@
-<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:132.0) Gecko/20100101 Firefox/132.0" version="24.9.3">
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36" version="24.9.3">
   <diagram name="1 oldal" id="QYdgEBbsVcUCG-ujK8hS">
-    <mxGraphModel dx="722" dy="659" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+    <mxGraphModel dx="1195" dy="750" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -77,7 +77,7 @@
         <mxCell id="8zbj0TCe3Ao7vJJMAtbc-18" value="Felhők &amp;amp; egyéb" style="rounded=1;whiteSpace=wrap;html=1;arcSize=47;" parent="1" vertex="1">
           <mxGeometry x="120" y="470" width="70" height="30" as="geometry" />
         </mxCell>
-        <mxCell id="8zbj0TCe3Ao7vJJMAtbc-21" value="" style="endArrow=none;html=1;rounded=0;exitX=0.157;exitY=0.1;exitDx=0;exitDy=0;exitPerimeter=0;" parent="1" edge="1" source="8zbj0TCe3Ao7vJJMAtbc-22">
+        <mxCell id="8zbj0TCe3Ao7vJJMAtbc-21" value="" style="endArrow=none;html=1;rounded=0;exitX=0.157;exitY=0.1;exitDx=0;exitDy=0;exitPerimeter=0;" parent="1" source="8zbj0TCe3Ao7vJJMAtbc-22" edge="1">
           <mxGeometry width="50" height="50" relative="1" as="geometry">
             <mxPoint x="320" y="470" as="sourcePoint" />
             <mxPoint x="240" y="440" as="targetPoint" />
@@ -143,17 +143,84 @@
         <mxCell id="FIiSvsP0klJ8uUupAeLC-5" value="(Csakis csoportokban változtatható, nem lehet egyesével)" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
           <mxGeometry x="71.56" y="640" width="242.13" height="30" as="geometry" />
         </mxCell>
-        <mxCell id="WKevLPyTuVeD6zWAOzt7-1" value="&lt;div&gt;onclick vagy onchange&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;bevágott háttérkép megváltoztatása&lt;br&gt; &lt;/div&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontColor=#FF1F0F;" vertex="1" parent="1">
+        <mxCell id="WKevLPyTuVeD6zWAOzt7-1" value="&lt;div&gt;onclick vagy onchange&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;bevágott háttérkép megváltoztatása&lt;br&gt; &lt;/div&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontColor=#FF1F0F;" parent="1" vertex="1">
           <mxGeometry x="30" y="395" width="130" height="30" as="geometry" />
         </mxCell>
-        <mxCell id="WKevLPyTuVeD6zWAOzt7-4" value="&lt;div&gt;Gombra kattintás&lt;/div&gt;&lt;div&gt;-&amp;gt; megjelenik oldalon&amp;nbsp; menü + közelített nézet Flappy Bird-re&lt;br&gt;&lt;/div&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontColor=#FF1F0F;" vertex="1" parent="1">
+        <mxCell id="z2ELiaSzZbBEMJXZgtFt-15" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="WKevLPyTuVeD6zWAOzt7-4">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="620" y="155" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="WKevLPyTuVeD6zWAOzt7-4" value="&lt;div&gt;Gombra kattintás&lt;/div&gt;&lt;div&gt;-&amp;gt; megjelenik oldalon&amp;nbsp; menü + közelített nézet Flappy Bird-re&lt;br&gt;&lt;/div&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontColor=#FF1F0F;" parent="1" vertex="1">
           <mxGeometry x="454" y="140" width="130" height="30" as="geometry" />
         </mxCell>
-        <mxCell id="WKevLPyTuVeD6zWAOzt7-6" value="&lt;div&gt;Drag &amp;amp; drop&lt;/div&gt;&lt;div&gt;(draggable akkor ha megjelenik a menü, és fel van oldva)&lt;br&gt;&lt;/div&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontColor=#FF1F0F;" vertex="1" parent="1">
+        <mxCell id="WKevLPyTuVeD6zWAOzt7-6" value="&lt;div&gt;Drag &amp;amp; drop&lt;/div&gt;&lt;div&gt;(draggable akkor ha megjelenik a menü, és fel van oldva)&lt;br&gt;&lt;/div&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontColor=#FF1F0F;" parent="1" vertex="1">
           <mxGeometry x="444" y="502.5" width="130" height="30" as="geometry" />
         </mxCell>
-        <mxCell id="WKevLPyTuVeD6zWAOzt7-7" value="A keret színbeállításait megváltoztatja az előző beállításoktól függően" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontColor=#FF1F0F;" vertex="1" parent="1">
+        <mxCell id="WKevLPyTuVeD6zWAOzt7-7" value="A keret színbeállításait megváltoztatja az előző beállításoktól függően" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontColor=#FF1F0F;" parent="1" vertex="1">
           <mxGeometry x="641" y="402.5" width="130" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="z2ELiaSzZbBEMJXZgtFt-1" value="" style="endArrow=none;html=1;rounded=0;" edge="1" parent="1" target="z2ELiaSzZbBEMJXZgtFt-2">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="413.71" y="620" as="sourcePoint" />
+            <mxPoint x="413.71" y="580" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="z2ELiaSzZbBEMJXZgtFt-2" value="VÁSÁRLÁS" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="383.71000000000026" y="565" width="60" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="z2ELiaSzZbBEMJXZgtFt-4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="z2ELiaSzZbBEMJXZgtFt-3">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="500" y="640" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="z2ELiaSzZbBEMJXZgtFt-3" value="Szárnyak/ kalapok elrendezve" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="363.5" y="625" width="101" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="z2ELiaSzZbBEMJXZgtFt-6" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="z2ELiaSzZbBEMJXZgtFt-5">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="650" y="640" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="z2ELiaSzZbBEMJXZgtFt-5" value="Sötét réteg + ár" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="508.75" y="625" width="101" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="z2ELiaSzZbBEMJXZgtFt-8" value="onclick -&amp;gt; megnézi hogy van-e elég pénze" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="655.5" y="625" width="101" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="z2ELiaSzZbBEMJXZgtFt-9" value="" style="endArrow=none;html=1;rounded=0;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="670" y="730" as="sourcePoint" />
+            <mxPoint x="705.71" y="670" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="670" y="710" />
+              <mxPoint x="706" y="710" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="z2ELiaSzZbBEMJXZgtFt-10" value="" style="endArrow=none;html=1;rounded=0;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="705.71" y="710" as="sourcePoint" />
+            <mxPoint x="750" y="730" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="750" y="710" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="z2ELiaSzZbBEMJXZgtFt-11" value="Nincs:&lt;div&gt;alert&lt;/div&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="609.75" y="730" width="101" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="z2ELiaSzZbBEMJXZgtFt-12" value="Van:&amp;nbsp;&lt;div&gt;-sötét réteg eltűnik&lt;/div&gt;&lt;div&gt;-&quot;Draggable&quot; lesz a tárgy&lt;/div&gt;&lt;div&gt;-pénzösszegből levon&lt;/div&gt;&lt;div&gt;-új pénzösszeget kiírja, eltárolja&lt;/div&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="685.25" y="770" width="130" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="z2ELiaSzZbBEMJXZgtFt-16" value="-&quot;Visibility&quot; beállítások változnak" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="629.25" y="130" width="119.75" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="z2ELiaSzZbBEMJXZgtFt-17" value="Vissza gomb (mindig jelen)" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="363.5" y="770" width="131" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="z2ELiaSzZbBEMJXZgtFt-18" value="-&quot;Visibility&quot; beállítások változnak" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="363.5" y="820" width="119.75" height="30" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>

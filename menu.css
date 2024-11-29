@@ -1,7 +1,8 @@
 .menu-border {
-    background-color: black;
-    height: 400px;
-    width: 350px;
+    background-image: url("kepek/flappybird-bg.png");
+    background-size: 180%;
+    height: 500px;
+    width: 500px;
     border-radius: 30px;
     margin: auto;
     border: 2px solid #6B6B6B;
@@ -18,13 +19,58 @@
     
 }
 .menu-item {
-    width: 300px;
-    border: 2px solid #6B6B6B;
-    margin: 17px;
-    height: 40px;
-    
+    margin: 30px 0;
+}
+.menu-item a {
+    color: #585858;
+    font-weight: bold;
+    text-decoration: none;
 
 }
 body {
-    background-color: black;
+    background-image: url("kepek/background.png");
+    font-family: cursive;
+}
+.game-menu{
+    border-bottom: 2px solid #6B6B6B;
+}
+.settings-menu {
+    height: 600px;
+    width: 700px;
+    border: 2px solid #6B6B6B;
+    border-radius: 30px;
+    margin: auto;
+    text-align: center;
+    margin-top: 200px;
+    background-image: url("kepek/flappybird-bg.png");
+    background-size: 160%;
+}
+.settings-menu-head {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 30px;
+    border-bottom: 2px solid #585858;
+}
+.settings-menu-item {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+#myInput {
+    background: none;
+    border: none;
+    text-align: center;
+}
+.item-section {
+    margin: 30px;
+}
+.item-section label,input {
+    margin: 0 60px;
+}
+input {
+    font-size: 1.1rem;
+
+}
+#myInput:focus {
+    border: none;
 }

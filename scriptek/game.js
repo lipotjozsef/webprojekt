@@ -1,12 +1,18 @@
 let globalObjectList = [];
 const GAMECONTAINER = document.getElementById("PlayArea");
 
-const DEBUGMODE = true;
+const DEBUGMODE = false;
 
 class Vector2 {
     constructor(posX = 0, posY = 0) {
         this.x = posX;
         this.y = posY;
+    }
+    check(cVec2 = new Vector2()) {
+        if (cVec2.x != this.x && cVec2.y != this.y) {
+            return false
+        }
+        return true
     }
 }
 
@@ -21,7 +27,7 @@ class BaseObject {
     }
 
     setPosition(newPos = new Vector2()) {
-        if (DEBUGMODE) console.info(`[.] (${newPos.x}, ${newPos.y}) new position has been set for ${this.divROOT}`)
+        if (DEBUGMODE) console.info(`[.] (${newPos.x}, ${newPos.y}) new position has been set for ${this.root}`)
         this.position = newPos;
         this.root.style.left = this.position.x + "px";
         this.root.style.top = this.position.y + "px";
@@ -36,7 +42,7 @@ class BaseObject {
     }
 
     setRotation(newRot = 0.0) {
-        if (DEBUGMODE) console.info(`[.] (${newRot}) new rotation has been set for ${this.divROOT}`)
+        if (DEBUGMODE) console.info(`[.] (${newRot}) new rotation has been set for ${this.root}`)
         this.rotation = newRot;
         this.root.style.transform = "rotate(" + this.rotation + "deg)";
     }
@@ -49,6 +55,12 @@ class BaseObject {
         }
         childObject.position = this.position;
         childObject.setRotation(this.rotation);
+        if (!childObject.size.check(this.size)) {
+            childObject.root.style.left = "50%";
+            childObject.root.style.top = "50%";
+            childObject.root.style.transform = "translate(-50%, -50%)";
+            if(DEBUGMODE) console.warn("A child object been centered.", childObject);
+        }
         this.root.appendChild(childObject.root);
     }
     
@@ -60,8 +72,8 @@ class SpriteImage extends BaseObject{
         this.imgROOT = this.root;
         this.imagePath = imagePath;
         this.imgROOT.src = this.imagePath;
-        if (size.y == 0) {
-            console.warn("[!] An Image size has not been set: " + this.imagePath + "\nSize set to inherit 100%");
+        if (size.check(new Vector2())) {
+            if(DEBUGMODE) console.warn("[!] An Image size has not been set: " + this.imagePath + "\nSize set to inherit 100%");
             this.imgROOT.style.width = "100%";
             this.imgROOT.style.height = "100%";
         }
@@ -72,7 +84,7 @@ class Object extends BaseObject {
     constructor(sprite_image = new SpriteImage(), size = new Vector2(), position = new Vector2(), rotationDeg = 0.0) {
         super("div", ["object"], size, position, rotationDeg)
         
-        this.sprite_image = sprite_image;
+        this.sprite_image = new SpriteImage(sprite_image.imagePath, sprite_image.size);
         this.rotation = rotationDeg;
         this.velocity = new Vector2();
         this.acceleration = new Vector2();
@@ -88,10 +100,12 @@ class Object extends BaseObject {
 }
 
 class Collider extends BaseObject {
-    constructor(size = new Vector2()) {
-        super("div", ["collider"], size);
+    constructor(size = new Vector2(), pos = new Vector2()) {
+        super("div", ["collider"], size, pos);
         this.colliderROOT = this.root;
         this.colliding = false;
+
+        this.setPosition(pos)
     }
     isColliding(withObject) {
         let r1xRight = withObject.position.x + (withObject.size.x / 2);
@@ -99,13 +113,13 @@ class Collider extends BaseObject {
 
         let r2xRight = this.position.x + (this.size.x / 2);
         let r2yRight = this.position.y + (this.size.y / 2);
-        console.log(withObject.position.y-1 <= r2yRight)
+        //console.log(withObject.position.y-1 <= r2yRight)
         if (r1xRight >= this.position.x &&
             withObject.position.x <= r2xRight &&
             r1yRight >= this.position.y &&
             withObject.position.y-withObject.size.y <= r2yRight
         ) {
-                withObject.colliding = true
+                if(withObject instanceof Collider) withObject.colliding = true;
                 this.colliding = true;
                 return true;
         }
@@ -113,19 +127,105 @@ class Collider extends BaseObject {
         return false;
     }
     debugDraw() {
-        if (this.colliderROOT.classList.contains("debugCollider")) {
-            if (this.colliding) {
-                this.colliderROOT.classList.remove("debugCollider");
-                this.colliderROOT.classList.add("debugColliderColliding");
-            }
-            else {
-                this.colliderROOT.classList.add("debugCollider");
-                this.colliderROOT.classList.remove("debugColliderColliding");
-            }
+        if (this.colliderROOT.classList.contains("debugCollider") && this.colliding) {
+            this.colliderROOT.classList.add("debugColliderColliding");
         }
         else {
+            if(this.colliderROOT.classList.contains("debugColliderColliding")) this.colliderROOT.classList.remove("debugColliderColliding");
             this.colliderROOT.classList.add("debugCollider");
         }
+    }
+}
+
+class Pipe extends Object {
+    constructor(sprite_image = new SpriteImage(), size = new Vector2(), position = new Vector2(), rotationDeg = 0.0) {
+        super(sprite_image, size, position, rotationDeg)
+        this.pipeRoot = this.root;
+        this.pipeCollider = new Collider(size);
+        this.addChildToRoot(this.pipeCollider);
+
+        this.acceleration = new Vector2(-5, 0);
+    }
+    move () {
+        if(this.acceleration) {
+            this.velocity.x = this.acceleration.x;
+            this.velocity.y = this.acceleration.y;
+        }
+        this.position.x += this.velocity.x
+        this.position.y += this.velocity.y
+
+        this.setPosition(this.position);
+
+    }
+}
+
+class Player extends Object {
+    constructor(sprite_image = new SpriteImage(), size = new Vector2(), position = new Vector2(), rotationDeg = 0.0, collider) {
+        super(sprite_image, size, position, rotationDeg)
+        this.pipeRoot = this.root;
+        this.pipeCollider = collider;
+        this.addChildToRoot(this.pipeCollider);
+
+        this.gravity = 8;
+
+        this.acceleration.y = this.gravity;
+        this.jumpForce = -6;
+        this.isDead = false;
+        this.isFalling = true;
+        this.needToFall = false;
+        this.isJumping = false;
+        this.x = 0;
+    }
+
+    move() {
+        if(this.acceleration && !this.isJumping) {
+            if (!this.isFalling) {
+                this.acceleration.y += 0.4;
+                if(this.acceleration.y >= 1) {
+                    this.isFalling = true;
+                }
+            }
+        } else if(this.isJumping && !this.needToFall) {
+            if(this.isFalling) this.acceleration.y = 0;
+            if ((this.acceleration.y >= this.jumpForce)) this.acceleration.y -= Math.pow(3*this.x, 2);
+            else {
+                this.needToFall = true;
+                this.isJumping = false;
+                return;
+            }
+            //console.log(this.acceleration.y)
+            this.isFalling = false
+        }
+        if(this.isFalling) {
+            if(this.acceleration.y <= this.gravity) this.acceleration.y += 0.4;
+        }
+        this.velocity.y = this.acceleration.y;
+        this.position.y += this.velocity.y;
+
+        this.setPosition(this.position);
+    }
+
+    _input(keyboardEvent) {
+        if(keyboardEvent.type == "keydown") {
+            switch(keyboardEvent.keyCode) {
+                case 32:
+                    if(this.needToFall) return;
+                    //console.log("Jumping");
+                    this.x+=0.4;
+                    this.isJumping = true;
+            }
+        }
+        else 
+        {
+            switch(keyboardEvent.keyCode) {
+                case 32:
+                    if(this.needToFall) this.needToFall = false;
+                    //console.log("NotJumping");
+                    this.x=0;
+                    this.isJumping = false;
+            }
+        }
+        
     }
 }
 
@@ -137,27 +237,38 @@ function AddToScene(object) {
     if (DEBUGMODE) console.log("Added a new object: ", ROOT);
 }
 
-
 const birdIMAGE = new SpriteImage("kepek/bird.png");
 const pipeIMAGE = new SpriteImage("kepek/pipe.png")
 
 
-const PLAYER = new Object(birdIMAGE, new Vector2(80, 50), new Vector2(100, 300), 0.0);
-
-const PLAYER_COLL = new Collider(new Vector2(20, 20));
-PLAYER.addChildToRoot(PLAYER_COLL);
-const TESTPIPE = new Object(pipeIMAGE, new Vector2(100, 100), new Vector2(50, 200), 0);
+const PLAYER_COLL = new Collider(new Vector2(50, 30));
+const PLAYER = new Player(birdIMAGE, new Vector2(80, 50), new Vector2(100, 0), 0.0, PLAYER_COLL);
 AddToScene(PLAYER);
-const TESTCOLLIDER = new Collider(new Vector2(100, 100));
-TESTPIPE.addChildToRoot(TESTCOLLIDER);
 
-AddToScene(TESTPIPE);
-console.log(PLAYER.position.x+PLAYER.size.x)
+document.addEventListener("keydown", (ev) => {
+    PLAYER._input(ev);
+})
+
+document.addEventListener("keyup", (ev) => {
+    PLAYER._input(ev);
+})
+
+const UpperPipe1 = new Pipe(pipeIMAGE, new Vector2(100, 200), new Vector2(600, 0), 0);
+const UpperPipe2 = new Pipe(pipeIMAGE, new Vector2(100, 200), new Vector2(603, 400), 180);
+const scoreCounterColl = new Collider(new Vector2(45, 180), new Vector2(630, 210));
+AddToScene(scoreCounterColl);
+AddToScene(UpperPipe1);
+AddToScene(UpperPipe2);
 
 function _process() {
-    TESTCOLLIDER.debugDraw();
+
+    globalObjectList.forEach((obj) => {
+        if (obj instanceof Object) obj.move();
+        if(obj instanceof Pipe && DEBUGMODE) obj.pipeCollider.debugDraw();
+    })
+    scoreCounterColl.debugDraw();
+    scoreCounterColl.setPosition(new Vector2(UpperPipe1.position.x, scoreCounterColl.position.y));
     PLAYER_COLL.debugDraw();
-    TESTCOLLIDER.isColliding(PLAYER_COLL);
     requestAnimationFrame(_process)
 }
 

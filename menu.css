@@ -1,7 +1,8 @@
 .menu-border {
-    background-color: black;
-    height: 400px;
-    width: 350px;
+    background-image: url("kepek/flappybird-bg.png");
+    background-size: 180%;
+    height: 500px;
+    width: 500px;
     border-radius: 30px;
     margin: auto;
     border: 2px solid #6B6B6B;
@@ -18,13 +19,18 @@
     
 }
 .menu-item {
-    width: 300px;
-    border: 2px solid #6B6B6B;
-    margin: 17px;
-    height: 40px;
-    
+    margin: 30px 0;
+}
+.menu-item a {
+    color: #585858;
+    font-weight: bold;
+    text-decoration: none;
 
 }
 body {
-    background-color: black;
+    background-image: url("kepek/background.png");
+    font-family: cursive;
+}
+.game-menu{
+    border-bottom: 2px solid #6B6B6B;
 }

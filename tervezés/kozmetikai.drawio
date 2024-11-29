@@ -1,6 +1,6 @@
-<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36" version="24.9.1">
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:132.0) Gecko/20100101 Firefox/132.0" version="24.9.3">
   <diagram name="1 oldal" id="QYdgEBbsVcUCG-ujK8hS">
-    <mxGraphModel dx="989" dy="538" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+    <mxGraphModel dx="722" dy="659" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -77,26 +77,17 @@
         <mxCell id="8zbj0TCe3Ao7vJJMAtbc-18" value="Felhők &amp;amp; egyéb" style="rounded=1;whiteSpace=wrap;html=1;arcSize=47;" parent="1" vertex="1">
           <mxGeometry x="120" y="470" width="70" height="30" as="geometry" />
         </mxCell>
-        <mxCell id="8zbj0TCe3Ao7vJJMAtbc-19" value="" style="endArrow=none;html=1;rounded=0;" parent="1" edge="1">
-          <mxGeometry width="50" height="50" relative="1" as="geometry">
-            <mxPoint x="240" y="480" as="sourcePoint" />
-            <mxPoint x="240" y="440" as="targetPoint" />
-          </mxGeometry>
-        </mxCell>
-        <mxCell id="8zbj0TCe3Ao7vJJMAtbc-20" value="Akadályok" style="rounded=1;whiteSpace=wrap;html=1;arcSize=47;" parent="1" vertex="1">
-          <mxGeometry x="205.5" y="480" width="70" height="30" as="geometry" />
-        </mxCell>
-        <mxCell id="8zbj0TCe3Ao7vJJMAtbc-21" value="" style="endArrow=none;html=1;rounded=0;" parent="1" edge="1">
+        <mxCell id="8zbj0TCe3Ao7vJJMAtbc-21" value="" style="endArrow=none;html=1;rounded=0;exitX=0.157;exitY=0.1;exitDx=0;exitDy=0;exitPerimeter=0;" parent="1" edge="1" source="8zbj0TCe3Ao7vJJMAtbc-22">
           <mxGeometry width="50" height="50" relative="1" as="geometry">
             <mxPoint x="320" y="470" as="sourcePoint" />
             <mxPoint x="240" y="440" as="targetPoint" />
             <Array as="points">
-              <mxPoint x="320" y="440" />
+              <mxPoint x="240" y="470" />
             </Array>
           </mxGeometry>
         </mxCell>
         <mxCell id="8zbj0TCe3Ao7vJJMAtbc-22" value="Ég" style="rounded=1;whiteSpace=wrap;html=1;arcSize=47;" parent="1" vertex="1">
-          <mxGeometry x="291" y="470" width="70" height="30" as="geometry" />
+          <mxGeometry x="205.5" y="470" width="70" height="30" as="geometry" />
         </mxCell>
         <mxCell id="8zbj0TCe3Ao7vJJMAtbc-23" value="" style="endArrow=none;html=1;rounded=0;" parent="1" edge="1">
           <mxGeometry width="50" height="50" relative="1" as="geometry">
@@ -111,7 +102,7 @@
           <mxGeometry x="20" y="480" width="70" height="30" as="geometry" />
         </mxCell>
         <mxCell id="8zbj0TCe3Ao7vJJMAtbc-26" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;" parent="1" vertex="1">
-          <mxGeometry x="45.25" y="525" width="294.75" height="45" as="geometry" />
+          <mxGeometry x="45.25" y="525" width="224.75" height="45" as="geometry" />
         </mxCell>
         <mxCell id="8zbj0TCe3Ao7vJJMAtbc-27" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#70635A;strokeColor=#6D1F00;fontColor=#ffffff;" parent="1" vertex="1">
           <mxGeometry x="47.75" y="530" width="42.25" height="35" as="geometry" />
@@ -119,14 +110,11 @@
         <mxCell id="8zbj0TCe3Ao7vJJMAtbc-28" value="" style="rounded=0;whiteSpace=wrap;html=1;strokeColor=#7EA6E0;" parent="1" vertex="1">
           <mxGeometry x="130" y="530" width="42.25" height="35" as="geometry" />
         </mxCell>
-        <mxCell id="8zbj0TCe3Ao7vJJMAtbc-29" value="" style="rounded=0;whiteSpace=wrap;html=1;strokeColor=#9673a6;fillColor=#E78BE7;" parent="1" vertex="1">
+        <mxCell id="8zbj0TCe3Ao7vJJMAtbc-30" value="" style="rounded=0;whiteSpace=wrap;html=1;strokeColor=#9673a6;fillColor=#e1d5e7;" parent="1" vertex="1">
           <mxGeometry x="219.38" y="530" width="42.25" height="35" as="geometry" />
         </mxCell>
-        <mxCell id="8zbj0TCe3Ao7vJJMAtbc-30" value="" style="rounded=0;whiteSpace=wrap;html=1;strokeColor=#9673a6;fillColor=#e1d5e7;" parent="1" vertex="1">
-          <mxGeometry x="293" y="530" width="42.25" height="35" as="geometry" />
-        </mxCell>
         <mxCell id="8zbj0TCe3Ao7vJJMAtbc-36" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#3399FF;strokeColor=#040608;" parent="1" vertex="1">
-          <mxGeometry x="45.25" y="585" width="294.75" height="45" as="geometry" />
+          <mxGeometry x="45.25" y="585" width="224.75" height="45" as="geometry" />
         </mxCell>
         <mxCell id="8zbj0TCe3Ao7vJJMAtbc-38" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;" parent="1" vertex="1">
           <mxGeometry x="47.75" y="590" width="42.25" height="35" as="geometry" />
@@ -134,11 +122,8 @@
         <mxCell id="8zbj0TCe3Ao7vJJMAtbc-39" value="" style="rounded=0;whiteSpace=wrap;html=1;strokeColor=#7EA6E0;" parent="1" vertex="1">
           <mxGeometry x="130" y="590" width="42.25" height="35" as="geometry" />
         </mxCell>
-        <mxCell id="8zbj0TCe3Ao7vJJMAtbc-40" value="" style="rounded=0;whiteSpace=wrap;html=1;strokeColor=#2D7600;fillColor=#60a917;fontColor=#ffffff;" parent="1" vertex="1">
-          <mxGeometry x="219.37" y="590" width="42.25" height="35" as="geometry" />
-        </mxCell>
         <mxCell id="8zbj0TCe3Ao7vJJMAtbc-41" value="" style="rounded=0;whiteSpace=wrap;html=1;strokeColor=#0B0F14;fillColor=#3399FF;" parent="1" vertex="1">
-          <mxGeometry x="291" y="590" width="42.25" height="35" as="geometry" />
+          <mxGeometry x="219.38" y="590" width="42.25" height="35" as="geometry" />
         </mxCell>
         <mxCell id="8zbj0TCe3Ao7vJJMAtbc-48" value="" style="endArrow=none;html=1;rounded=0;" parent="1" edge="1">
           <mxGeometry width="50" height="50" relative="1" as="geometry">
@@ -146,20 +131,29 @@
             <mxPoint x="413.93" y="440" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="FIiSvsP0klJ8uUupAeLC-1" value="Vásárolható dolgokat lehet ráhúzni Flappy bird modelljére, ezáltal egyedi kinézetet varázsolni a madárnak" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+        <mxCell id="FIiSvsP0klJ8uUupAeLC-1" value="Vásárolható dolgokat lehet ráhúzni Flappy bird modelljére, ezáltal egyedi kinézetet varázsolni a madárnak" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
           <mxGeometry x="319.25" y="387.5" width="189.5" height="30" as="geometry" />
         </mxCell>
-        <mxCell id="FIiSvsP0klJ8uUupAeLC-2" value="Kalapok" style="rounded=1;whiteSpace=wrap;html=1;arcSize=47;" vertex="1" parent="1">
-          <mxGeometry x="384" y="490" width="70" height="30" as="geometry" />
+        <mxCell id="FIiSvsP0klJ8uUupAeLC-2" value="Kalapok" style="rounded=1;whiteSpace=wrap;html=1;arcSize=47;" parent="1" vertex="1">
+          <mxGeometry x="379" y="490" width="70" height="30" as="geometry" />
         </mxCell>
-        <mxCell id="FIiSvsP0klJ8uUupAeLC-3" value="Színek" style="rounded=1;whiteSpace=wrap;html=1;arcSize=47;" vertex="1" parent="1">
-          <mxGeometry x="384" y="532.5" width="70" height="30" as="geometry" />
+        <mxCell id="FIiSvsP0klJ8uUupAeLC-4" value="szárnyak" style="rounded=1;whiteSpace=wrap;html=1;arcSize=47;" parent="1" vertex="1">
+          <mxGeometry x="379" y="532.5" width="70" height="30" as="geometry" />
         </mxCell>
-        <mxCell id="FIiSvsP0klJ8uUupAeLC-4" value="szárnyak" style="rounded=1;whiteSpace=wrap;html=1;arcSize=47;" vertex="1" parent="1">
-          <mxGeometry x="384" y="580" width="70" height="30" as="geometry" />
-        </mxCell>
-        <mxCell id="FIiSvsP0klJ8uUupAeLC-5" value="(Csakis csoportokban változtatható, nem lehet egyesével)" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+        <mxCell id="FIiSvsP0klJ8uUupAeLC-5" value="(Csakis csoportokban változtatható, nem lehet egyesével)" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
           <mxGeometry x="71.56" y="640" width="242.13" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="WKevLPyTuVeD6zWAOzt7-1" value="&lt;div&gt;onclick vagy onchange&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;bevágott háttérkép megváltoztatása&lt;br&gt; &lt;/div&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontColor=#FF1F0F;" vertex="1" parent="1">
+          <mxGeometry x="30" y="395" width="130" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="WKevLPyTuVeD6zWAOzt7-4" value="&lt;div&gt;Gombra kattintás&lt;/div&gt;&lt;div&gt;-&amp;gt; megjelenik oldalon&amp;nbsp; menü + közelített nézet Flappy Bird-re&lt;br&gt;&lt;/div&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontColor=#FF1F0F;" vertex="1" parent="1">
+          <mxGeometry x="454" y="140" width="130" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="WKevLPyTuVeD6zWAOzt7-6" value="&lt;div&gt;Drag &amp;amp; drop&lt;/div&gt;&lt;div&gt;(draggable akkor ha megjelenik a menü, és fel van oldva)&lt;br&gt;&lt;/div&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontColor=#FF1F0F;" vertex="1" parent="1">
+          <mxGeometry x="444" y="502.5" width="130" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="WKevLPyTuVeD6zWAOzt7-7" value="A keret színbeállításait megváltoztatja az előző beállításoktól függően" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontColor=#FF1F0F;" vertex="1" parent="1">
+          <mxGeometry x="641" y="402.5" width="130" height="30" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>

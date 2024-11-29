@@ -8,21 +8,32 @@
   </head>
   <body>
   <style>
+    
     body{
+      font-family:'Segoe UI', Tahoma, Verdana, sans-serif;
       background-image: url("kepek/background.png");
       background-repeat: no-repeat;
       background-size: 120%;
+      background-repeat: repeat-y;
     }
 
-    #gameContainer{
-        width: 70%;
+    button #gomb{
+      width:40px;
+      height:30px;
+      background-color: rgb(54, 52, 52);
+      border-radius: 5vh;
+      margin-left:0;
+      margin-right:75px;
     }
-    #CosmeticMenu{
-      width:30%;
+    button{
+      border-radius:5vh;
+      background-color:gray;
+      border:0;
+      padding:5px;
     }
-  </style>
-    <header id="title">
-      <div style="  
+
+
+    #title div{
       margin:auto;
       margin-top:-10px;
       height: 90px;
@@ -32,30 +43,119 @@
       border-radius: 0 0 60vh 60vh;
       background-color: green;
       margin-bottom:25px;
-      ">
+    }
+
+    ::-webkit-scrollbar {
+      width: 10px;
+      
+    }
+    ::-webkit-scrollbar-track {
+      box-shadow: inset 0 0 10px 10px lightgray;
+      border: solid 3px transparent;
+    }
+
+    ::-webkit-scrollbar-thumb {
+      box-shadow: inset 0 0 10px 10px rgb(98, 95, 95);
+      border: solid 2px transparent;
+      background: lightgray; 
+      border-radius: 10px;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+      background: #8c8c8c; 
+    }
+
+    .keretCosmetic{
+      font-size: 5px;
+    }
+
+    .keret span{
+      color:orange;
+      -webkit-text-stroke-color: rgb(238, 255, 4);
+      font-weight:bolder;
+    }
+
+    .keret{
+      border-bottom:4px solid black;
+      padding-top:1px;
+      background-color: gray;
+      
+      border-top-left-radius:4.5vh;
+      border-top-right-radius:4.5vh; 
+    }
+    .keret p{
+      font-size:20px;
+      padding-left:25px;
+      color:white;
+      font-weight:bold;
+      -webkit-text-stroke-width: 1px;
+      -webkit-text-stroke-color: black;
+    }
+
+    #gameContainer{
+        width: 65%;
+        border-radius:5vh;
+        border:5px solid black;
+        background-image: url(kepek/flappybird-bg.png);
+        background-size:100%;
+        background-position-y: bottom;
+    }
+    #CosmeticMenu{
+      width: 20%;
+      margin-left:100px;
+      border:4px solid black;
+      border-radius: 5vh;
+      margin-right:20px;
+      background-color: lightgray;
+    }
+  </style>
+    <header id="title">
+      <div>
       <img src="kepek/title.png" alt="" style="width:150px; margin-top:10px;">   
     </div>
      
     </header>
     <!-- ///////////// HEADER ///////////// -->
      
-    <main>
+  <main>
 
- <div style="display:flex;flex-wrap:nowrap">
-   
-     <section class="menu" id="CosmeticMenu" style="color:black;">
-       <p>aaa</p>
-       Lorem ipsum dolor sit amet.
-     </section>
-     <div id="gameContainer" style="border-radius:5vh;border:5px solid black;">
-       <section id="PlayArea"></section>
-       <section class="menu" id="PauseMenu"></section>
-       <section class="menu" id="StartMenu"></section>
-     </div>
- </div>
+ <div style="display:flex;flex-wrap:nowrap; margin-top:45px;">
+    <section class="menu" id="CosmeticMenu">
+      <div class="keret" style="display:flex; justify-content: space-between;">
+        <img src="kepek/kozmetikai_logo.png" alt="" width="40px" style="padding:5px 5px 20px 20px;">
+        <div>
+          <span style="font-size:30px;font-weight:bold;color:white">0</span>
+          <img src="kepek/coin.png" alt="" height="50px" width="55px" style="padding-right:15px;">
+        </div>
+      </div>
+      <div class="CosmeticOptions">
+        <div style="display:flex;justify-content: space-evenly; ">
+          <label for="gomb" style="font-size:25px;margin-top:25px;">sötétmód</label>
+          <button onclick="animacio()" style="margin-top:25px;" >
+            <div id="gomb"></div>
+          </button>
+        </div>
+        <label for=""></label>
+      </div>
+      <div style="overflow-y: scroll; height:365px;">
+      </div>
+    </section>
+  
+    <div id="gameContainer" >
+         <div class="keret">
+           <p>HIGHSCORE - <span>1</span></p>
+           <section id="PlayArea"></section>
+           <section class="menu" id="PauseMenu"></section>
+           <section class="menu" id="StartMenu"></section>
+          </div>
+
+    </div>
+  </div>
+ 
+ 
 
 
-    </main>
+  </main>
     <!-- ///////////// MAIN ///////////// -->
      
     <footer>
@@ -63,5 +163,26 @@
     </footer>
     <!-- ///////////// FOOTER ///////////// -->
     <script src="scriptek/game.js"></script>
+    <script>
+    function animacio()
+      {
+          const div = document.getElementById("gomb");
+          if (div.style.marginRight == "75px"){
+              div.style.marginLeft = "75px";
+              div.style.marginRight = "0";
+
+              document.querySelector('label[for="gomb"]').innerText = "világosmód";
+
+          }
+          else {
+              div.style.marginLeft = "0";
+              div.style.marginRight = "75px";
+
+              document.querySelector('label[for="gomb"]').innerText = "sötétmód";
+          }
+      }
+      
+    
+      </script>
   </body>
 </html>

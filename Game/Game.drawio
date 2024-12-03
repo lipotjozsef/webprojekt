@@ -1,6 +1,6 @@
-<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36" version="24.9.1">
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:133.0) Gecko/20100101 Firefox/133.0" version="24.8.8">
   <diagram name="1 oldal" id="F84CMAl41vV3lFAe94_o">
-    <mxGraphModel dx="2261" dy="780" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+    <mxGraphModel dx="2787" dy="1029" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -57,7 +57,7 @@
         <mxCell id="Hs7LZAgPFVkhUPFHDNcM-23" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="1" source="Hs7LZAgPFVkhUPFHDNcM-20" target="Hs7LZAgPFVkhUPFHDNcM-22" edge="1">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="yK2t4Wrt2LYm6RnuAMui-28" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="Hs7LZAgPFVkhUPFHDNcM-20" target="yK2t4Wrt2LYm6RnuAMui-24">
+        <mxCell id="yK2t4Wrt2LYm6RnuAMui-28" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="1" source="Hs7LZAgPFVkhUPFHDNcM-20" target="yK2t4Wrt2LYm6RnuAMui-24" edge="1">
           <mxGeometry relative="1" as="geometry">
             <Array as="points">
               <mxPoint x="1247" y="207.5" />
@@ -68,7 +68,7 @@
         <mxCell id="Hs7LZAgPFVkhUPFHDNcM-20" value="Ameddig a játékos életben van" style="rhombus;whiteSpace=wrap;html=1;fillColor=#1ba1e2;fontColor=#ffffff;strokeColor=#006EAF;" parent="1" vertex="1">
           <mxGeometry x="1200" y="90" width="95" height="95" as="geometry" />
         </mxCell>
-        <mxCell id="yK2t4Wrt2LYm6RnuAMui-9" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="Hs7LZAgPFVkhUPFHDNcM-22" target="yK2t4Wrt2LYm6RnuAMui-7">
+        <mxCell id="yK2t4Wrt2LYm6RnuAMui-9" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="Hs7LZAgPFVkhUPFHDNcM-22" target="yK2t4Wrt2LYm6RnuAMui-7" edge="1">
           <mxGeometry relative="1" as="geometry">
             <Array as="points">
               <mxPoint x="1145" y="527.5" />
@@ -97,25 +97,25 @@
         <mxCell id="Hs7LZAgPFVkhUPFHDNcM-34" value="position: absolute;&lt;br&gt;width: ?px;&lt;br&gt;height: ?px;&amp;nbsp;" style="whiteSpace=wrap;html=1;aspect=fixed;" parent="1" vertex="1">
           <mxGeometry x="600" y="697.5" width="160" height="160" as="geometry" />
         </mxCell>
-        <mxCell id="yK2t4Wrt2LYm6RnuAMui-6" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="yK2t4Wrt2LYm6RnuAMui-3" target="yK2t4Wrt2LYm6RnuAMui-5">
+        <mxCell id="yK2t4Wrt2LYm6RnuAMui-6" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="yK2t4Wrt2LYm6RnuAMui-3" target="yK2t4Wrt2LYm6RnuAMui-5" edge="1">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="yK2t4Wrt2LYm6RnuAMui-23" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="yK2t4Wrt2LYm6RnuAMui-3" target="yK2t4Wrt2LYm6RnuAMui-22">
+        <mxCell id="yK2t4Wrt2LYm6RnuAMui-23" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="yK2t4Wrt2LYm6RnuAMui-3" target="yK2t4Wrt2LYm6RnuAMui-22" edge="1">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="yK2t4Wrt2LYm6RnuAMui-3" value="Meghívja a &quot;Player&quot;&lt;br&gt;&quot;_input()&quot; functionjét." style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fixedSize=1;" vertex="1" parent="1">
+        <mxCell id="yK2t4Wrt2LYm6RnuAMui-3" value="Meghívja a &quot;Player&quot;&lt;br&gt;&quot;_input()&quot; functionjét." style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fixedSize=1;" parent="1" vertex="1">
           <mxGeometry x="1050" y="710" width="200" height="100" as="geometry" />
         </mxCell>
-        <mxCell id="yK2t4Wrt2LYm6RnuAMui-21" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="yK2t4Wrt2LYm6RnuAMui-5" target="yK2t4Wrt2LYm6RnuAMui-20">
+        <mxCell id="yK2t4Wrt2LYm6RnuAMui-21" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="yK2t4Wrt2LYm6RnuAMui-5" target="yK2t4Wrt2LYm6RnuAMui-20" edge="1">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="yK2t4Wrt2LYm6RnuAMui-5" value="Figyeli, hogy megnyomja a &quot;space&quot; gombot" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
+        <mxCell id="yK2t4Wrt2LYm6RnuAMui-5" value="Figyeli, hogy megnyomja a &quot;space&quot; gombot" style="whiteSpace=wrap;html=1;" parent="1" vertex="1">
           <mxGeometry x="1289.5" y="787.5" width="130" height="70" as="geometry" />
         </mxCell>
-        <mxCell id="yK2t4Wrt2LYm6RnuAMui-10" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="yK2t4Wrt2LYm6RnuAMui-7" target="yK2t4Wrt2LYm6RnuAMui-3">
+        <mxCell id="yK2t4Wrt2LYm6RnuAMui-10" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="yK2t4Wrt2LYm6RnuAMui-7" target="yK2t4Wrt2LYm6RnuAMui-3" edge="1">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="yK2t4Wrt2LYm6RnuAMui-11" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="yK2t4Wrt2LYm6RnuAMui-7" target="Hs7LZAgPFVkhUPFHDNcM-20">
+        <mxCell id="yK2t4Wrt2LYm6RnuAMui-11" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="yK2t4Wrt2LYm6RnuAMui-7" target="Hs7LZAgPFVkhUPFHDNcM-20" edge="1">
           <mxGeometry relative="1" as="geometry">
             <mxPoint x="1340" y="127.5" as="targetPoint" />
             <Array as="points">
@@ -124,28 +124,28 @@
             </Array>
           </mxGeometry>
         </mxCell>
-        <mxCell id="yK2t4Wrt2LYm6RnuAMui-7" value="Meghívja a &quot;Player&quot;&lt;br&gt;&quot;isDead()&quot; functionjét." style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fixedSize=1;" vertex="1" parent="1">
+        <mxCell id="yK2t4Wrt2LYm6RnuAMui-7" value="Meghívja a &quot;Player&quot;&lt;br&gt;&quot;isDead()&quot; functionjét." style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fixedSize=1;" parent="1" vertex="1">
           <mxGeometry x="1057.5" y="590" width="185" height="92.5" as="geometry" />
         </mxCell>
-        <mxCell id="yK2t4Wrt2LYm6RnuAMui-30" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="yK2t4Wrt2LYm6RnuAMui-13" target="yK2t4Wrt2LYm6RnuAMui-15">
+        <mxCell id="yK2t4Wrt2LYm6RnuAMui-30" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="1" source="yK2t4Wrt2LYm6RnuAMui-13" target="yK2t4Wrt2LYm6RnuAMui-15" edge="1">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="yK2t4Wrt2LYm6RnuAMui-31" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="yK2t4Wrt2LYm6RnuAMui-13" target="yK2t4Wrt2LYm6RnuAMui-17">
+        <mxCell id="yK2t4Wrt2LYm6RnuAMui-31" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="1" source="yK2t4Wrt2LYm6RnuAMui-13" target="yK2t4Wrt2LYm6RnuAMui-17" edge="1">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="yK2t4Wrt2LYm6RnuAMui-13" value="Megjeleníti a restart képernyőt." style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fixedSize=1;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="1">
+        <mxCell id="yK2t4Wrt2LYm6RnuAMui-13" value="Megjeleníti a restart képernyőt." style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fixedSize=1;fillColor=#f8cecc;strokeColor=#b85450;" parent="1" vertex="1">
           <mxGeometry x="1276.6399999999999" y="327.5" width="209.5" height="110" as="geometry" />
         </mxCell>
-        <mxCell id="yK2t4Wrt2LYm6RnuAMui-15" value="Újrakezdi a játékot." style="rhombus;whiteSpace=wrap;html=1;fillColor=#1ba1e2;fontColor=#ffffff;strokeColor=#006EAF;" vertex="1" parent="1">
+        <mxCell id="yK2t4Wrt2LYm6RnuAMui-15" value="Újrakezdi a játékot." style="rhombus;whiteSpace=wrap;html=1;fillColor=#1ba1e2;fontColor=#ffffff;strokeColor=#006EAF;" parent="1" vertex="1">
           <mxGeometry x="1276.8899999999999" y="470" width="95" height="100" as="geometry" />
         </mxCell>
-        <mxCell id="yK2t4Wrt2LYm6RnuAMui-17" value="Kilép a főmenübe." style="rhombus;whiteSpace=wrap;html=1;fillColor=#1ba1e2;fontColor=#ffffff;strokeColor=#006EAF;" vertex="1" parent="1">
+        <mxCell id="yK2t4Wrt2LYm6RnuAMui-17" value="Kilép a főmenübe." style="rhombus;whiteSpace=wrap;html=1;fillColor=#1ba1e2;fontColor=#ffffff;strokeColor=#006EAF;" parent="1" vertex="1">
           <mxGeometry x="1396.1399999999999" y="470" width="90" height="100" as="geometry" />
         </mxCell>
-        <mxCell id="yK2t4Wrt2LYm6RnuAMui-20" value="Felfelé menő sebbeséget ad a játékosnak." style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
+        <mxCell id="yK2t4Wrt2LYm6RnuAMui-20" value="Felfelé menő sebbeséget ad a játékosnak." style="whiteSpace=wrap;html=1;" parent="1" vertex="1">
           <mxGeometry x="1465" y="792.5" width="120" height="60" as="geometry" />
         </mxCell>
-        <mxCell id="yK2t4Wrt2LYm6RnuAMui-25" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fillColor=#d80073;strokeColor=#A50040;" edge="1" parent="1" source="yK2t4Wrt2LYm6RnuAMui-22" target="yK2t4Wrt2LYm6RnuAMui-24">
+        <mxCell id="yK2t4Wrt2LYm6RnuAMui-25" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fillColor=#d80073;strokeColor=#A50040;" parent="1" source="yK2t4Wrt2LYm6RnuAMui-22" target="yK2t4Wrt2LYm6RnuAMui-24" edge="1">
           <mxGeometry relative="1" as="geometry">
             <Array as="points">
               <mxPoint x="1510" y="717.5" />
@@ -153,26 +153,44 @@
             </Array>
           </mxGeometry>
         </mxCell>
-        <mxCell id="yK2t4Wrt2LYm6RnuAMui-22" value="Figyeli, hogy megnyomja az &quot;escape&quot; gombot" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
+        <mxCell id="yK2t4Wrt2LYm6RnuAMui-22" value="Figyeli, hogy megnyomja az &quot;escape&quot; gombot" style="whiteSpace=wrap;html=1;" parent="1" vertex="1">
           <mxGeometry x="1289.5" y="682.5" width="130" height="70" as="geometry" />
         </mxCell>
-        <mxCell id="yK2t4Wrt2LYm6RnuAMui-29" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="yK2t4Wrt2LYm6RnuAMui-24" target="yK2t4Wrt2LYm6RnuAMui-13">
+        <mxCell id="yK2t4Wrt2LYm6RnuAMui-29" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="1" source="yK2t4Wrt2LYm6RnuAMui-24" target="yK2t4Wrt2LYm6RnuAMui-13" edge="1">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="yK2t4Wrt2LYm6RnuAMui-24" value="Megállítja a játékot" style="ellipse;whiteSpace=wrap;html=1;fillColor=#d80073;fontColor=#ffffff;strokeColor=#A50040;" vertex="1" parent="1">
+        <mxCell id="yK2t4Wrt2LYm6RnuAMui-24" value="Megállítja a játékot" style="ellipse;whiteSpace=wrap;html=1;fillColor=#d80073;fontColor=#ffffff;strokeColor=#A50040;" parent="1" vertex="1">
           <mxGeometry x="1341.3899999999999" y="227.5" width="80" height="80" as="geometry" />
         </mxCell>
-        <mxCell id="yK2t4Wrt2LYm6RnuAMui-32" value="SpriteImage&amp;nbsp;&lt;span style=&quot;background-color: initial;&quot;&gt;Class&lt;/span&gt;" style="ellipse;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;" vertex="1" parent="1">
+        <mxCell id="yK2t4Wrt2LYm6RnuAMui-32" value="SpriteImage&amp;nbsp;&lt;span style=&quot;background-color: initial;&quot;&gt;Class&lt;/span&gt;" style="ellipse;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;" parent="1" vertex="1">
           <mxGeometry x="92" y="462.5" width="120" height="80" as="geometry" />
         </mxCell>
-        <mxCell id="yK2t4Wrt2LYm6RnuAMui-33" value="A &quot;SpriteImage&quot; osztály a különféle elemeknek képe. BaseObject alosztálya.&lt;div&gt;&lt;br&gt;&lt;b&gt;Attribútumai:&lt;/b&gt;&lt;div&gt;- rootElement (IMG ELEMENT)&lt;b&gt;&lt;br&gt;&lt;/b&gt;&lt;div&gt;- Kép elérési útja (string)&lt;/div&gt;&lt;div&gt;- nagysága (Vec2)&lt;/div&gt;&lt;div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;&lt;b&gt;Constructor:&lt;/b&gt;&lt;/div&gt;&lt;/div&gt;&lt;div&gt;-&amp;nbsp;&lt;span style=&quot;background-color: initial;&quot;&gt;Kép elérési útja&lt;/span&gt;&lt;/div&gt;&lt;div&gt;- (Kép nagysága)&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;" style="whiteSpace=wrap;html=1;aspect=fixed;align=left;verticalAlign=top;spacingTop=5;spacingLeft=5;spacingRight=5;fillColor=#ffe6cc;strokeColor=#d79b00;" vertex="1" parent="1">
+        <mxCell id="yK2t4Wrt2LYm6RnuAMui-33" value="A &quot;SpriteImage&quot; osztály a különféle elemeknek képe. BaseObject alosztálya.&lt;div&gt;&lt;br&gt;&lt;b&gt;Attribútumai:&lt;/b&gt;&lt;div&gt;- rootElement (IMG ELEMENT)&lt;b&gt;&lt;br&gt;&lt;/b&gt;&lt;div&gt;- Kép elérési útja (string)&lt;/div&gt;&lt;div&gt;- nagysága (Vec2)&lt;/div&gt;&lt;div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;&lt;b&gt;Constructor:&lt;/b&gt;&lt;/div&gt;&lt;/div&gt;&lt;div&gt;-&amp;nbsp;&lt;span style=&quot;background-color: initial;&quot;&gt;Kép elérési útja&lt;/span&gt;&lt;/div&gt;&lt;div&gt;- (Kép nagysága)&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;" style="whiteSpace=wrap;html=1;aspect=fixed;align=left;verticalAlign=top;spacingTop=5;spacingLeft=5;spacingRight=5;fillColor=#ffe6cc;strokeColor=#d79b00;" parent="1" vertex="1">
           <mxGeometry x="59.5" y="557.5" width="195" height="195" as="geometry" />
         </mxCell>
-        <mxCell id="yK2t4Wrt2LYm6RnuAMui-34" value="BaseObject Class" style="ellipse;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;" vertex="1" parent="1">
+        <mxCell id="yK2t4Wrt2LYm6RnuAMui-34" value="BaseObject Class" style="ellipse;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;" parent="1" vertex="1">
           <mxGeometry x="-290" y="17.5" width="120" height="80" as="geometry" />
         </mxCell>
-        <mxCell id="yK2t4Wrt2LYm6RnuAMui-35" value="A &quot;BaseObject&quot; osztály minden játék elemnek a főosztálya.&lt;br&gt;&lt;b&gt;Attribútumai:&lt;/b&gt;&lt;div&gt;&lt;b&gt;- &lt;/b&gt;elementName (string)&lt;/div&gt;&lt;div&gt;- classNames (string[])&lt;br&gt;&lt;div&gt;- Mérete&amp;nbsp;(Vec2)&lt;/div&gt;&lt;div&gt;&lt;div&gt;- rootElement (DIV ELEMENT)&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;&lt;b&gt;Functionjei:&lt;/b&gt;&lt;/div&gt;&lt;div&gt;- setSize(newSize? Vec2) : void -&amp;gt; beállítja a rootElement méretét&lt;span style=&quot;background-color: initial;&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;&lt;b&gt;Constructor:&lt;/b&gt;&lt;/div&gt;&lt;/div&gt;&lt;div&gt;- elementName&lt;/div&gt;&lt;div&gt;- classNameList&lt;/div&gt;&lt;div&gt;- mérete&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;/div&gt;" style="whiteSpace=wrap;html=1;aspect=fixed;align=left;verticalAlign=top;spacingTop=5;spacingLeft=5;spacingRight=5;fillColor=#ffe6cc;strokeColor=#d79b00;" vertex="1" parent="1">
+        <mxCell id="yK2t4Wrt2LYm6RnuAMui-35" value="A &quot;BaseObject&quot; osztály minden játék elemnek a főosztálya.&lt;br&gt;&lt;b&gt;Attribútumai:&lt;/b&gt;&lt;div&gt;&lt;b&gt;- &lt;/b&gt;elementName (string)&lt;/div&gt;&lt;div&gt;- classNames (string[])&lt;br&gt;&lt;div&gt;- Mérete&amp;nbsp;(Vec2)&lt;/div&gt;&lt;div&gt;&lt;div&gt;- rootElement (DIV ELEMENT)&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;&lt;b&gt;Functionjei:&lt;/b&gt;&lt;/div&gt;&lt;div&gt;- setSize(newSize? Vec2) : void -&amp;gt; beállítja a rootElement méretét&lt;span style=&quot;background-color: initial;&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;&lt;b&gt;Constructor:&lt;/b&gt;&lt;/div&gt;&lt;/div&gt;&lt;div&gt;- elementName&lt;/div&gt;&lt;div&gt;- classNameList&lt;/div&gt;&lt;div&gt;- mérete&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;/div&gt;" style="whiteSpace=wrap;html=1;aspect=fixed;align=left;verticalAlign=top;spacingTop=5;spacingLeft=5;spacingRight=5;fillColor=#ffe6cc;strokeColor=#d79b00;" parent="1" vertex="1">
           <mxGeometry x="-402.5" y="110" width="345" height="345" as="geometry" />
+        </mxCell>
+        <mxCell id="3yAuIP4Ww2o2UDmv17cw-2" value="Pipe Manager Class" style="ellipse;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;" vertex="1" parent="1">
+          <mxGeometry x="-689.38" y="490" width="120" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="3yAuIP4Ww2o2UDmv17cw-3" value="Az &quot;Pipe Manager&quot; osztály a játékban mozgó akadályokat menedzselő logikát tartalmazza.&lt;br&gt;&lt;b&gt;Attribútumai:&lt;/b&gt;&lt;div&gt;- Akadályok Lista(Array)&lt;/div&gt;&lt;div&gt;- Nehézség (int)&lt;/div&gt;&lt;div&gt;- Akadályok közti távolság (int)&lt;/div&gt;&lt;div&gt;- Rés (int)&lt;/div&gt;&lt;div&gt;- Éppen első akadály száma (int)&lt;br&gt;&lt;/div&gt;&lt;div&gt;- Pont számláló (Collider)&lt;br&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;&lt;b&gt;Functionjei:&lt;/b&gt;&lt;/div&gt;&lt;div&gt;- &lt;i&gt;_SpawnPipes() : void -&amp;gt; leidézi az alap akadályokat a kezdéskor, a &quot;nehézség&quot; attribútumhoz mérve&lt;br&gt;&lt;/i&gt;&lt;/div&gt;&lt;div&gt;&lt;i&gt;- _checkOffPipes() : void -&amp;gt; ellenőrzi, hogy az adott akadály végig ment a pályán és újra pozicionálásra van-e szüksége&lt;br&gt;&lt;/i&gt;&lt;/div&gt;&lt;/div&gt;&lt;div&gt;- _positionScoreCounter() : void -&amp;gt;&amp;nbsp; &lt;i&gt;elhelyezi a &quot;Pont számláló&quot;-t a megfelelő helyére&lt;/i&gt;&lt;/div&gt;" style="whiteSpace=wrap;html=1;aspect=fixed;align=left;verticalAlign=top;spacingTop=5;spacingLeft=5;spacingRight=5;fillColor=#ffe6cc;strokeColor=#d79b00;" vertex="1" parent="1">
+          <mxGeometry x="-780" y="588.75" width="301.25" height="301.25" as="geometry" />
+        </mxCell>
+        <mxCell id="3yAuIP4Ww2o2UDmv17cw-4" value="Nehézség Rendszer" style="ellipse;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;" vertex="1" parent="1">
+          <mxGeometry x="190.13" y="930" width="120" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="3yAuIP4Ww2o2UDmv17cw-5" value="&lt;div&gt;Flappy Bird nehézség faktorát adó attribútumok:&lt;/div&gt;&lt;div&gt;- Akadályok gyorsasága - közepes faktor&lt;br&gt;&lt;/div&gt;&lt;div&gt;- Akadályok közti rés nagysága - nagy faktor&lt;br&gt;&lt;/div&gt;&lt;div&gt;- Akadályok forgása - kisebb faktor&lt;br&gt;&lt;/div&gt;&lt;div&gt;- Akadályok sűrűsége - kisebb faktor&lt;br&gt;&lt;/div&gt;&lt;div&gt;- Akadályok random mozgása - nagy faktor&lt;br&gt;&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;Ahogy egyre tovább megy a játékos annál nagyobbra nő a nehézség szinte és könnyebb lesz meghalni, de ahhoz, hogy egy ne tűnjön &lt;span class=&quot;SvKTZc&quot;&gt;&lt;span lang=&quot;hu&quot; class=&quot;hrcAhc&quot;&gt;igazságtalan, lineárisan növekedve kell haladni a nehézséggel, viszont időközben kihívásokkal ugyanúgy ellátni, hogy ne legyen unalmas.&lt;/span&gt;&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span class=&quot;SvKTZc&quot;&gt;&lt;span lang=&quot;hu&quot; class=&quot;hrcAhc&quot;&gt;&lt;br&gt;&lt;/span&gt;&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span class=&quot;SvKTZc&quot;&gt;&lt;span lang=&quot;hu&quot; class=&quot;hrcAhc&quot;&gt;10 szint lenne:&lt;br&gt;&lt;/span&gt;&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span class=&quot;SvKTZc&quot;&gt;&lt;span lang=&quot;hu&quot; class=&quot;hrcAhc&quot;&gt;1-3. szint ( Kisebb faktorú attribútumok fognak változni)&lt;/span&gt;&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span class=&quot;SvKTZc&quot;&gt;&lt;span lang=&quot;hu&quot; class=&quot;hrcAhc&quot;&gt;4. szint ( Egy nagy faktorú attribútum fog változni )&lt;/span&gt;&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span class=&quot;SvKTZc&quot;&gt;&lt;span lang=&quot;hu&quot; class=&quot;hrcAhc&quot;&gt;5-6. szint ( Közepes faktorú attribútum fog változni )&lt;/span&gt;&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span class=&quot;SvKTZc&quot;&gt;&lt;span lang=&quot;hu&quot; class=&quot;hrcAhc&quot;&gt;7-8. szint ( Egy nagy faktorú attribútumok fognak változni )&lt;br&gt;&lt;/span&gt;&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span class=&quot;SvKTZc&quot;&gt;&lt;span lang=&quot;hu&quot; class=&quot;hrcAhc&quot;&gt;9-10. szint ( Minden attribútum változni fog, annyira, hogy ne legyen lehetetlen )&lt;br&gt;&lt;/span&gt;&lt;/span&gt;&lt;/div&gt;" style="whiteSpace=wrap;html=1;aspect=fixed;align=left;verticalAlign=top;spacingTop=5;spacingLeft=5;spacingRight=5;fillColor=#e1d5e7;strokeColor=#9673a6;" vertex="1" parent="1">
+          <mxGeometry x="70" y="1029.75" width="360.25" height="360.25" as="geometry" />
+        </mxCell>
+        <mxCell id="3yAuIP4Ww2o2UDmv17cw-8" value="PowerUp Rendszer" style="ellipse;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;" vertex="1" parent="1">
+          <mxGeometry x="575.1199999999999" y="930" width="120" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="3yAuIP4Ww2o2UDmv17cw-9" value="&lt;div&gt;A különféle &quot;PowerUp&quot;-oknak az a céljuk, hogy a nehézséget adó attribútumokon könnyítsen, vagy teljesen kivegye őket a számításból, és ez érződjön is a játékosnak.&amp;nbsp; &lt;br&gt;&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;Akadályok gyorsasága és közti rés ellen -&amp;gt; idő lassítás (több reakció idő)&lt;br&gt;&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;Akadályok sűrűsége és reakció idő ellen -&amp;gt; immunitás/ pajzs&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;Akadályok közti rés és random forgás ellen -&amp;gt; játékos kicsinyítése&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;Összes akadály ellen -&amp;gt;Játékos jövőbeli pozíciójának mutatása&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;" style="whiteSpace=wrap;html=1;aspect=fixed;align=left;verticalAlign=top;spacingTop=5;spacingLeft=5;spacingRight=5;fillColor=#e1d5e7;strokeColor=#9673a6;" vertex="1" parent="1">
+          <mxGeometry x="500" y="1029.75" width="270.25" height="270.25" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>

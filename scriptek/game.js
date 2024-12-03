@@ -1,8 +1,4 @@
 let globalObjectList = [];
-let pipesToAdd = [];
-
-let activeSnapIdx = 0;
-let pipesToSnap = [];
 
 let startTime;
 const GAMECONTAINER = document.getElementById("PlayArea");
@@ -30,11 +26,6 @@ class BaseObject {
         this.setRotation(rotation)
         this.setSize(size);
         this.setPosition(position);
-    }
-
-    isOffScreen() {
-        if(this.position.x + this.size.x <= 0) return true;
-        return false;
     }
 
     setPosition(newPos = new Vector2()) {
@@ -155,7 +146,6 @@ class Pipe extends Object {
         this.pipeCollider = new Collider(new Vector2(size.x, size.y-20));
         this.addChildToRoot(this.pipeCollider);
         this.acceleration = new Vector2(-5, 0);
-        pipesToAdd.push(this);
     }
     move () {
         // if(this.isOffScreen()) {
@@ -194,7 +184,7 @@ class Player extends Object {
 
         this.acceleration.y = this.gravity;
         this.jumpForce = -6;
-        this.isDead = true;
+        this.isDead = false;
         this.isFalling = true;
         this.needToFall = false;
         this.isJumping = false;
@@ -265,25 +255,13 @@ function AddToScene(object) {
 const birdIMAGE = new SpriteImage("kepek/bird.png");
 const pipeIMAGE = new SpriteImage("kepek/pipe.png")
 
-class Pipes {
-    constructor(posX = 0, UpperY, BottomY){
-        this.UpperPipe = new Pipe(pipeIMAGE, new Vector2(100, 200), new Vector2(posX, UpperY), 0.0);
-        this.BottomPipe = new Pipe(pipeIMAGE, new Vector2(100, 200), new Vector2(posX, BottomY), 180);
-    }
-}
-
-class PipeSpawner {
+class PipeManager {
     constructor() {
         this.difficulty = 1;
         this.currentDistance = 400;
         this.distanceBetween = 200;
     }
     spawn() {
-        console.log("Spawned!");
-        let newPipes;
-        newPipes = new Pipes(this.currentDistance, Math.floor(Math.random() * -100), Math.floor(Math.random() * 50)+400);
-        pipesToSnap.push(newPipes.UpperPipe);
-        this.currentDistance += this.distanceBetween;
     }
 }
 
@@ -292,34 +270,22 @@ const PLAYER = new Player(birdIMAGE, new Vector2(80, 50), new Vector2(50, 0), 0.
 
 
 const scoreCounterColl = new Collider(new Vector2(20, 800), new Vector2(245, 0));
-const PIPEMANAGER = new PipeSpawner();
+const PIPEMANAGER = new PipeManager();
 
 function _Start(button) {
-    button.remove();
+    button.style.visibility = "hidden";
+    console.log("Game Started -------------------------------")
+    GAMECONTAINER.focus();
     AddToScene(PLAYER);
     AddToScene(scoreCounterColl);
-    for(let i = 0; i < pipesToAdd.length; i++) {
-        AddToScene(pipesToAdd[i])
-    }
+    
     startTime = Date.now();
     _process()
 }
 
 
-let spawnedDefault = false;
-let defaultCount = 6;
-
-
 function _process() {
-    if(!spawnedDefault) {
-        for(let i = 0; i != defaultCount; i++) {
-            PIPEMANAGER.spawn();
-            console.log(i);
-        }
-        spawnedDefault = true;
-    }
     //if(!PLAYER.isDead) console.log(`Time passed: ${(Date.now() - startTime)/1000} sec`)
-    let activePipe = pipesToSnap[activeSnapIdx];
     globalObjectList.forEach((obj) => {
         if (obj instanceof Object) obj.move();
         if(obj instanceof Pipe){
@@ -327,15 +293,6 @@ function _process() {
             obj.pipeCollider.debugDraw();
         }
     })
-
-    scoreCounterColl.debugDraw();
-    scoreCounterColl.setPosition(new Vector2(activePipe.position.x + activePipe.size.x / 2, scoreCounterColl.position.y));
-
-    if(scoreCounterColl.isColliding(PLAYER)) {
-        if(!PLAYER.isDead) console.log("scored");
-        activeSnapIdx += 1;
-        if(activeSnapIdx == pipesToSnap.length) activeSnapIdx = 0;
-    }
     
     PLAYER_COLL.debugDraw();
     requestAnimationFrame(_process)

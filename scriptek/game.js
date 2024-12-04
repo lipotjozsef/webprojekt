@@ -29,7 +29,7 @@ class BaseObject {
     }
 
     setPosition(newPos = new Vector2()) {
-        if (DEBUGMODE) console.info(`[.] (${newPos.x}, ${newPos.y}) new position has been set for ${this.root}`)
+        //if (DEBUGMODE) console.info(`[.] (${newPos.x}, ${newPos.y}) new position has been set for ${this.root}`)
         this.position = newPos;
         this.root.style.left = this.position.x + "px";
         this.root.style.top = this.position.y + "px";
@@ -256,12 +256,53 @@ const birdIMAGE = new SpriteImage("kepek/bird.png");
 const pipeIMAGE = new SpriteImage("kepek/pipe.png")
 
 class PipeManager {
-    constructor() {
+    constructor(startPos = 0, pipesCount = 0, scoreCounter = new Collider()) {
         this.difficulty = 1;
-        this.currentDistance = 400;
-        this.distanceBetween = 200;
+        this.distBetweenPipes = 500;
+        this.gap = 500;
+        this.activePipeIndx = 0;
+        this.scoreCounterColl = scoreCounter;
+        this.Pipes = new Array();
+        for (var indx = 1; indx <= pipesCount; indx++) {
+            let currentDist = startPos + this.distBetweenPipes*(indx-1); // indx - 1, hogy az első pontosan a startPos-on kezdjen
+            const newUpPipe = new Pipe(pipeIMAGE, new Vector2(100, 200), new Vector2(currentDist, -50), 0.0); 
+            const newBotPipe = new Pipe(pipeIMAGE, new Vector2(100, 200), new Vector2(currentDist, 300), 180.0);
+            this.Pipes.push(newUpPipe);
+            this.Pipes.push(newBotPipe);
+        }
+        this.lastPipe = this.Pipes.slice(-1)[0];
     }
-    spawn() {
+
+    _SpawnPipes() {
+        this.Pipes.forEach((pipe) => {
+            AddToScene(pipe);
+        });
+    }
+
+    _checkOffPipes() {
+        let changedCount = 1;
+        this.Pipes.forEach((pipe) => {
+            if(pipe.position.x+pipe.size.x < 0) { // ha képrenyőn kívül van
+                pipe.setPosition(new Vector2(this.lastPipe.position.x+this.distBetweenPipes, pipe.position.y));
+                if (changedCount == 2) {
+                
+                    this.lastPipe = pipe;
+                    changedCount = 0;
+                }
+                console.log(changedCount)
+                changedCount++;
+            }
+            
+            this._positionScoreCounter();
+        });
+    }
+
+    _positionScoreCounter() {
+        let activePipe = this.Pipes[this.activePipeIndx];
+        if(activePipe != undefined) this.scoreCounterColl.setPosition(activePipe.position);
+        else {
+            console.log("undie")
+        }
     }
 }
 
@@ -270,14 +311,16 @@ const PLAYER = new Player(birdIMAGE, new Vector2(80, 50), new Vector2(50, 0), 0.
 
 
 const scoreCounterColl = new Collider(new Vector2(20, 800), new Vector2(245, 0));
-const PIPEMANAGER = new PipeManager();
-
+let startPos = GAMECONTAINER.getBoundingClientRect().width * 0.6;
+const PIPEMANAGER = new PipeManager(startPos, 6, scoreCounterColl);
+console.log(startPos);
 function _Start(button) {
     button.style.visibility = "hidden";
     console.log("Game Started -------------------------------")
     GAMECONTAINER.focus();
     AddToScene(PLAYER);
     AddToScene(scoreCounterColl);
+    PIPEMANAGER._SpawnPipes();
     
     startTime = Date.now();
     _process()
@@ -293,7 +336,11 @@ function _process() {
             obj.pipeCollider.debugDraw();
         }
     })
-    
+    if(scoreCounterColl.isColliding(PLAYER)) {
+        PIPEMANAGER.scored();
+    }
+    PIPEMANAGER._checkOffPipes();
+    scoreCounterColl.debugDraw();
     PLAYER_COLL.debugDraw();
     requestAnimationFrame(_process)
 }

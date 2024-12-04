@@ -47,7 +47,7 @@ body {
 }
 .settings-menu-head {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     padding: 0 30px;
     border-bottom: 2px solid #585858;
 }
@@ -56,7 +56,7 @@ body {
     font-weight: bold;
 }
 
-#myInput {
+#textInput {
     background: none;
     border: none;
     text-align: center;
@@ -103,6 +103,7 @@ option {
     display: flex;
     justify-content: space-around;
     margin-top: 60px;
+    
 }
 .menu-3 label {
     margin: 0 -75px;
@@ -110,17 +111,21 @@ option {
 .volume-form {
     display: flex;
     justify-content: space-around;
+    margin-left: 15px;
     margin-top: 60px;
 }
-.volume-2 {
-    color: #313131;
-}
-.volume label {
-    margin-left: -60px;
+
+.jump {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 60px;
+    margin-left: -20px;
 }
 
-#volumeControl {
-    position: fixed;
-    right: 450px;
-    top: 596px;
+.save-button {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    font-weight: bold;
+    font-family: cursive;
 }

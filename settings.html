@@ -13,12 +13,13 @@
     <div class="settings-menu">
         <div class="settings-menu-head">
             <h2>Settings</h2>
-            <h2>Exit</h2>
+            <button class="save-button" onclick="storeText()">Save</button>
+            <h2><a style="text-decoration: none; color: black; font-family: cursive; font-size: 1.5rem;" href="#">Exit</a></h2>
         </div>
         <div class="settings-menu-item">
             <form class="item-section">
                 <label for="name">Change Name</label>
-                <input type="text" id="myInput" name="name" onclick="removeBorder()" value="Kolompar007"><br>
+                <input type="text" id="textInput" name="name" onclick="storeText()" placeholder="Kolompar"><br>
             </form>
             <form class="settings-menu-item-2">
                 <label for="fps">FPS</label>
@@ -51,11 +52,11 @@
             </form>
             <form class="jump">
                 <label for="jump">Jump button</label>
-                <div class="number">
-
-                    <button id="csökken">&#11207;</button>
-                    <span id="space">Space</span>
-                    <button id="növekszik">&#11208;</button>
+                <div class="gombok">
+                    <span id="leftArrow" class="arrow">&#11207;</span>
+                    <span id="text">Space</span>
+                    <span id="rightArrow" class="arrow">&#11208;</span>
+            
                 </div>
             </form>
         </div>

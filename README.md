@@ -31,4 +31,6 @@
 - Kinézetek / kozmetikumok tervezése
 
 > A weboldal forrásaként használt oldal: [https://flappybird.io/]
-  
+
+> A kozmetikai menü tervezése: [https://www.figma.com/design/8BXv6neDvcqvLgolOnUo2y/Untitled?node-id=0-1&node-type=canvas&t=dYBp0vrTpQ8ombqe-0]
+

@@ -6,6 +6,7 @@ body{
     background-repeat:  repeat-y;
 }
 
+
 button #gomb{
     width:              40px;
     height:             30px;
@@ -132,6 +133,26 @@ label[for="tema"]{
     padding-right:      15px;
 }
 
+button#gombAlap{
+    cursor:pointer;
+}
+select[name="temajeloles"]{
+    cursor:pointer;
+}
+.card{
+    cursor:pointer;
+}
+
+.card img:active{
+    cursor:pointer;
+}
+
+
+
+.keret2{
+    cursor:default
+}
+
 .keret,.keret2{
     border-bottom:      4px solid black;
     padding-top:        1px;
@@ -167,4 +188,33 @@ label[for="tema"]{
     background-color: lightgray;
 
 }
+
+#cosmeticBase .row{
+    display:flex;
+    flex-wrap: wrap;
+    
+}
+
+#cosmeticBase .card{
+    width:30%;
+    margin:10px;
+    background-color: gray;
+    height:150px;
+    width:150px;
+    
+}
+
+#cosmeticBase{
+    margin-bottom: 20px;
+}
+
+.overlay{
+    position: absolute;
+    display: block;
+    width: 150px;
+    height: 150px;
+    background-color: rgba(0,0,0,0.5);
+    z-index: 2;
+}
+
 

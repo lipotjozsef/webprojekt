@@ -4,6 +4,8 @@ body{
     background-repeat:  no-repeat;
     background-size:    120%;
     background-repeat:  repeat-y;
+    z-index:-1;
+    user-select: none;
 }
 
 
@@ -73,7 +75,7 @@ button{
     font-size:          5px;
 }
 
-.keret span{
+#hs{
     color:            orange;
     -webkit-text-stroke-color: 
     rgb(238, 255, 4);
@@ -177,6 +179,7 @@ select[name="temajeloles"]{
     background-image:   url(/kepek/flappybird-bg.png);
     background-size:    100%;
     background-position-y: bottom;
+    z-index:-1;
 }
 
 #CosmeticMenu{
@@ -217,4 +220,23 @@ select[name="temajeloles"]{
     z-index: 2;
 }
 
+.price{
+    background-color: yellow;
+    width:32px;
+    height:35px;
+    position: absolute;
+    z-index: 3;
+    border-radius:5vh;
+    border: 5px solid darkorange;
+}
 
+.price-n{
+    position: absolute;
+    z-index: 3;
+    -webkit-text-stroke-color: 
+    rgb(0, 0, 0);
+    color:white;
+    -webkit-text-stroke-width: 1.2px;
+    font-size:25px;
+    font-weight:bolder;
+}

@@ -2,6 +2,8 @@ let globalObjectList = [];
 
 let startTime;
 const GAMECONTAINER = document.getElementById("PlayArea");
+const SCORECOUNTER = document.getElementById("ScoreCounter");
+let score = 0;
 
 const DEBUGMODE = false;
 
@@ -180,10 +182,10 @@ class Player extends Object {
         this.pipeCollider = collider;
         this.addChildToRoot(this.pipeCollider);
 
-        this.gravity = 8;
+        this.gravity = 10;
 
         this.acceleration.y = this.gravity;
-        this.jumpForce = -6;
+        this.jumpForce = -4.3;
         this.isDead = false;
         this.isFalling = true;
         this.needToFall = false;
@@ -265,8 +267,8 @@ class PipeManager {
         this.Pipes = new Array();
         for (var indx = 1; indx <= pipesCount; indx++) {
             let currentDist = startPos + this.distBetweenPipes*(indx-1); // indx - 1, hogy az első pontosan a startPos-on kezdjen
-            const newUpPipe = new Pipe(pipeIMAGE, new Vector2(100, 200), new Vector2(currentDist, -50), 0.0); 
-            const newBotPipe = new Pipe(pipeIMAGE, new Vector2(100, 200), new Vector2(currentDist, 300), 180.0);
+            const newUpPipe = new Pipe(pipeIMAGE, new Vector2(125, 300), new Vector2(currentDist, -10), 0.0); 
+            const newBotPipe = new Pipe(pipeIMAGE, new Vector2(125, 300), new Vector2(currentDist, 350), 180.0);
             this.Pipes.push(newUpPipe);
             this.Pipes.push(newBotPipe);
         }
@@ -283,9 +285,7 @@ class PipeManager {
         let changedCount = 1;
         this.Pipes.forEach((pipe) => {
             if(pipe.position.x+pipe.size.x < 0) { // ha képrenyőn kívül van
-                pipe.setPosition(new Vector2(this.lastPipe.position.x+this.distBetweenPipes, pipe.position.y));
                 if (changedCount == 2) {
-                
                     this.lastPipe = pipe;
                     changedCount = 0;
                 }
@@ -304,6 +304,21 @@ class PipeManager {
             console.log("undie")
         }
     }
+
+    scored() {
+        this.activePipeIndx += 2;
+        if(this.activePipeIndx > this.Pipes.length-1) this.activePipeIndx = 0;
+
+    }
+
+    rePositionPipe(checkString = "", pipe){
+        switch(this.difficulty){
+            case 1:
+                if(checkString == "upper") pipe.setPosition(new Vector2(this.lastPipe.position.x+this.distBetweenPipes, -10+(Math.random() * -300)));
+                if(checkString == "bottom") pipe.setPosition(new Vector2(this.lastPipe.position.x+this.distBetweenPipes, 300+(Math.random() * 100)));
+                break;
+        }
+    }
 }
 
 const PLAYER_COLL = new Collider(new Vector2(50, 30));
@@ -316,6 +331,7 @@ const PIPEMANAGER = new PipeManager(startPos, 6, scoreCounterColl);
 console.log(startPos);
 function _Start(button) {
     button.style.visibility = "hidden";
+    SCORECOUNTER.style.visibility = "visible";
     console.log("Game Started -------------------------------")
     GAMECONTAINER.focus();
     AddToScene(PLAYER);
@@ -336,11 +352,15 @@ function _process() {
             obj.pipeCollider.debugDraw();
         }
     })
+
     if(scoreCounterColl.isColliding(PLAYER)) {
         PIPEMANAGER.scored();
+        score++;
     }
+
     PIPEMANAGER._checkOffPipes();
     scoreCounterColl.debugDraw();
     PLAYER_COLL.debugDraw();
+    SCORECOUNTER.innerText = score;
     requestAnimationFrame(_process)
 }

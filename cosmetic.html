@@ -41,9 +41,9 @@
 
               <label for="tema">téma</label>
               <select name="temajeloles" id="" oninput="backgroundChange()" onclick="borderRadiusChange()">
-                <option value="flappybird-bg.png" >Klasszikus</option>
-                <option value="flappybird-bg2.png" >CandyLand</option>
-                <option value="flappybird-bg3.png" >Sunset</option>
+                <option value="flappybird-bg.png">Klasszikus</option>
+                <option value="flappybird-bg2.png">CandyLand</option>
+                <option value="flappybird-bg3.png">Sunset</option>
               </select>
 
             </div>
@@ -53,57 +53,62 @@
             <div class="row">
               <div class="card">
                 <div class="overlay">
-                </div >
-                    <div class="item" style="padding:25px;" draggable="true"  
-                      > 
-                      <!-- onmouseenter = grabcursor() ->> megvizsgálja, hogy a rajta lévő layer átlátszó e (fel van-e oldva), draggable is -->
-                    <img src="kepek/hat1.png" alt="" width="100" >
                 </div>
-                <div class="price"></div>
+                <div class="item" style="padding:25px;" draggable="false">
+                  <!-- onmouseenter = grabcursor() ->> megvizsgálja, hogy a rajta lévő layer átlátszó e (fel van-e oldva), draggable is -->
+                  <img src="kepek/hat1.png" alt="" width="100">
+                </div>
+                <div class="price-n" style="bottom:32%;right:68%;"> 1</div>
+                <div class="price" style="right:55%;bottom:32%;"></div>
               </div>
               <div class="card">
                 <div class="overlay">
                 </div>
-                    <div class="item" style="padding-top:25px; margin:15px;">
-                    <img src="kepek/hat2.png" alt="" width="100%" >
-                  </div>
-                <div class="price"></div>
+                <div class="item" style="padding-top:25px; margin:15px;">
+                  <img src="kepek/hat2.png" alt="" width="100%">
+                </div>
+                <div class="price-n" style="bottom:32%;right:22%;"> 12</div>
+                <div class="price" style="right:9%;bottom:32%;"></div>
               </div>
             </div>
             <div class="row">
               <div class="card">
                 <div class="overlay">
-                </div >
-                    <div class="item" style="">
-                    <img src="kepek/wing1.png" alt="" width="80%" style="padding-left:15px;padding-top:10px;"  >
-                    </div>
-                <div class="price"></div>
+                </div>
+                <div class="item">
+                  <img src="kepek/wing1.png" alt="" width="80%" style="padding-left:15px;padding-top:10px;">
+                </div>
+                <div class="price-n" style="bottom:-92px; left:90px;"> 25</div>
+                <div class="price" style="left:125px; bottom:-92px;"></div>
               </div>
               <div class="card">
                 <div class="overlay">
-                </div >
-                    <div class="item" style="padding:25px;">
-                    <img src="kepek/wing2.png" alt="" width="100%" >
-                    </div>
-                <div class="price"></div>
+                </div>
+                <div class="item" style="padding:25px;">
+                  <img src="kepek/wing2.png" alt="" width="100%">
+                </div>
+                <div class="price-n" style="bottom:-92px;right:80px;"> 50</div>
+                <div class="price" style="right:34px;bottom:-92px;"></div>
               </div>
             </div>
             <div class="row">
               <div class="card">
                 <div class="overlay">
-                </div >
-                    <div class="item" style="padding:25px;">
-                    <img src="kepek/wing3.png" alt="" width="100%" >
-                    </div>
-                <div class="price"></div>
+                </div>
+                <div class="item" style="padding:25px;">
+                  <img src="kepek/wing3.png" alt="" width="100%">
+                </div>
+                <div class="price-n" style="bottom:-262px; left:93px;"> 89</div>
+                <div class="price" style="left:125px;bottom:-262px;"></div>
               </div>
               <div class="card">
                 <div class="overlay">
-                </div >
-                    <div class="item" style="padding:25px;">
-                    <img src="kepek/wing4.png" alt="" width="100%" >
-                    </div>
-                <div class="price"></div>
+                </div>
+                <div class="item" style="padding:25px;">
+                  <img src="kepek/wing4.png" alt="" width="100%">
+                </div>
+                <div class="price-n" style="bottom:-262px; right:80px;"> 140</div>
+                <div class="price" style="right:34px;bottom:-262px;"></div>
               </div>
             </div>
           </div>
@@ -113,10 +118,13 @@
       <div id="gameContainer">
         <div class="keret">
           <p>HIGHSCORE - <span id="hs">0</span></p>
+        </div>
           <section id="PlayArea"></section>
+          <section id="CosmMenu" >
+            <div ></div>
+          </section>
           <section class="menu" id="PauseMenu"></section>
           <section class="menu" id="StartMenu"></section>
-        </div>
       </div>
     </div>
   </main>

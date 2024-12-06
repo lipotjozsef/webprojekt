@@ -60,6 +60,7 @@ body {
     background: none;
     border: none;
     text-align: center;
+    border-bottom: 1px solid black;
 }
 .item-section {
     margin: 30px;
@@ -95,6 +96,7 @@ input {
 #priority {
     background: none;
     border: none;
+    font-size: 1.2rem;
 }
 option {
     background-color: transparent;
@@ -119,7 +121,7 @@ option {
     display: flex;
     justify-content: space-around;
     margin-top: 60px;
-    margin-left: -20px;
+    margin-left: 20px;
 }
 
 .save-button {
@@ -128,4 +130,8 @@ option {
     font-size: 1.5rem;
     font-weight: bold;
     font-family: cursive;
+}
+
+.arrow {
+    margin: 0 20px;
 }

@@ -1,6 +1,7 @@
 let globalObjectList = [];
 
 let startTime;
+let elapsedTime = 0;
 const GAMECONTAINER = document.getElementById("PlayArea");
 const SCORECOUNTER = document.getElementById("ScoreCounter");
 let score = 0;
@@ -33,6 +34,9 @@ class BaseObject {
     setPosition(newPos = new Vector2()) {
         //if (DEBUGMODE) console.info(`[.] (${newPos.x}, ${newPos.y}) new position has been set for ${this.root}`)
         this.position = newPos;
+        if(isNaN(newPos.y)) {
+            console.log(newPos)
+        }
         this.root.style.left = this.position.x + "px";
         this.root.style.top = this.position.y + "px";
     }
@@ -148,17 +152,16 @@ class Pipe extends Object {
         this.pipeCollider = new Collider(new Vector2(size.x, size.y-20));
         this.addChildToRoot(this.pipeCollider);
         this.acceleration = new Vector2(-5, 0);
+        this.amplitude = 0;
     }
     move () {
-        this.pipeCollider.position = this.position;
+        this.pipeCollider.position.x = this.position.x;
 
         if(this.acceleration) {
             this.velocity.x = this.acceleration.x;
-            this.velocity.y = this.acceleration.y;
         }
         this.position.x += this.velocity.x
-        this.position.y += this.velocity.y
-
+        this.position.y += Math.sin(elapsedTime * 0.01) * this.amplitude;
         this.setPosition(this.position);
 
     }
@@ -175,9 +178,9 @@ document.addEventListener("keyup", (ev) => {
 class Player extends Object {
     constructor(sprite_image = new SpriteImage(), size = new Vector2(), position = new Vector2(), rotationDeg = 0.0, collider) {
         super(sprite_image, size, position, rotationDeg)
-        this.pipeRoot = this.root;
-        this.pipeCollider = collider;
-        this.addChildToRoot(this.pipeCollider);
+        this.playerRoot = this.root;
+        this.playerCollider = collider;
+        this.addChildToRoot(this.playerCollider);
 
         this.gravity = 10;
 
@@ -256,15 +259,15 @@ const pipeIMAGE = new SpriteImage("kepek/pipe.png")
 
 class PipeManager {
     constructor(startPos = 0, pipesCount = 0, scoreCounter = new Collider()) {
-        this.difficulty = 1;
+        this.difficulty = 8;
         this.distBetweenPipes = 500;
         this.activePipeIndx = 0;
         this.scoreCounterColl = scoreCounter;
         this.Pipes = new Array();
         for (var indx = 1; indx <= pipesCount; indx++) {
             let currentDist = startPos + this.distBetweenPipes*(indx-1); // indx - 1, hogy az első pontosan a startPos-on kezdjen
-            const newUpPipe = new Pipe(pipeIMAGE, new Vector2(125, 300), new Vector2(currentDist, -100+(Math.floor(Math.random()*-100))), 0.0);
-            const newBotPipe = new Pipe(pipeIMAGE, new Vector2(125, 300), new Vector2(currentDist, 350+(Math.floor(Math.random()*50))), 180.0);
+            const newUpPipe = new Pipe(pipeIMAGE, new Vector2(125, 300), new Vector2(currentDist, rand_int_range(-100, -100)), 0.0);
+            const newBotPipe = new Pipe(pipeIMAGE, new Vector2(125, 300), new Vector2(currentDist, rand_int_range(350, 50)), 180.0);
             this.Pipes.push(newUpPipe);
             this.Pipes.push(newBotPipe);
         }
@@ -285,7 +288,6 @@ class PipeManager {
                 if(upper) this.rePositionPipe("upper", pipe);
                 else this.rePositionPipe("bottom", pipe);
                 upper = !upper;
-
                 if (changedCount == 2) {
                     this.lastPipe = pipe;
                     changedCount = 0;
@@ -299,7 +301,7 @@ class PipeManager {
 
     _positionScoreCounter() {
         let activePipe = this.Pipes[this.activePipeIndx];
-        if(activePipe != undefined) this.scoreCounterColl.setPosition(activePipe.position);
+        if(activePipe != undefined) this.scoreCounterColl.setPosition(new Vector2(activePipe.position.x, this.scoreCounterColl.position.y));
         else {
             console.log("undie")
         }
@@ -308,28 +310,86 @@ class PipeManager {
     scored() {
         this.activePipeIndx += 2;
         if(this.activePipeIndx > this.Pipes.length-1) this.activePipeIndx = 0;
-        if (score > 10) this.difficulty++;
+        if (score > 100) this.difficulty = 2;
+        if (score > 30) this.difficulty = 3;
+        if(score > 40) this.difficulty = 4;
+        if(score > 50) this.difficulty = 5;
+        if(score > 70) this.difficulty = 6;
+        if(score > 90) this.difficulty = 7;
+        if(score > 100) this.difficulty = 8;
+        if (score > 110) this.difficulty = 9;
     }
 
     rePositionPipe(checkString = "", pipe){
+        let bottom = new Array(2);
+        let upper = new Array(2);
+        let dist = new Array(2);
+        let amp = 0;
         switch(this.difficulty){
             case 1:
-                if(checkString == "upper") pipe.setPosition(new Vector2(this.lastPipe.position.x+this.distBetweenPipes, -100+(Math.floor(Math.random()*-100))));
-                if(checkString == "bottom") pipe.setPosition(new Vector2(this.lastPipe.position.x+this.distBetweenPipes, 350+(Math.floor(Math.random()*50))));
+                upper = [-100, -100];
+                bottom = [350, 50];
                 break;
             case 2:
-                if(checkString == "upper") pipe.setPosition(new Vector2(this.lastPipe.position.x+this.distBetweenPipes, -100+(Math.floor(Math.random()*-100))));
-                if(checkString == "bottom") pipe.setPosition(new Vector2(this.lastPipe.position.x+this.distBetweenPipes, 350+(Math.floor(Math.random()*50))));
+                dist = [300, 100];
+                upper = [-100, -25];
+                bottom = [350, 100];
                 break;
+            case 3:
+                dist = [200, 100];
+                upper = [-75, -25];
+                bottom = [300, 50];
+                break;
+            case 4:
+                upper = [-100, -100];
+                bottom = [250, 50];
+            case 5:
+                dist = [300, 100];    
+                upper = [-75, -25];
+                bottom = [300, 50];
+                if (pipe.acceleration.x != -10) this.Pipes.forEach((pipe) => {pipe.acceleration.x -= 1});
+                break;
+            case 6:
+                if (pipe.acceleration.x != -7) this.Pipes.forEach((pipe) => {pipe.acceleration.x = -7});
+                dist = [300, 100];
+                upper = [-100, -100];
+                bottom = [250, 50];
+                break;
+            case 7:
+                if (pipe.amp != 5) this.Pipes.forEach((pipe) => {pipe.amplitude = 5});
+                dist = [300, 100];
+                upper = [-100, -100];
+                break;
+            case 8:
+                if (pipe.amp != 10) this.Pipes.forEach((pipe) => {pipe.amplitude = 10});
+                break;
+            case 9:
+                // Rotate the Pipes
         }
+        if (checkString == "upper") {
+            if (dist[0] != null) this.distBetweenPipes = rand_int_range(dist[0], dist[1]);
+            let newY = rand_int_range(upper[0], upper[1]);
+            pipe.setPosition(new Vector2(this.lastPipe.position.x+this.distBetweenPipes, newY == 0 ? pipe.position.y : newY));
+        }
+        else {
+            let newY = rand_int_range(bottom[0], bottom[1])
+            pipe.setPosition(new Vector2(this.lastPipe.position.x+this.distBetweenPipes, newY == 0 ? pipe.position.y : newY));
+        }
+        console.log(pipe.position)
     }
+}
+
+
+function rand_int_range(min, variable) {
+    if(isNaN(min) || isNaN(variable)) return 0;
+    return min+(Math.floor(Math.random()*variable));
 }
 
 const PLAYER_COLL = new Collider(new Vector2(50, 30));
 const PLAYER = new Player(birdIMAGE, new Vector2(80, 50), new Vector2(50, 0), 0.0, PLAYER_COLL);
 
 
-const scoreCounterColl = new Collider(new Vector2(20, 800), new Vector2(245, 0));
+const scoreCounterColl = new Collider(new Vector2(100, 800), new Vector2(245, 0));
 let startPos = GAMECONTAINER.getBoundingClientRect().width * 0.6;
 const PIPEMANAGER = new PipeManager(startPos, 6, scoreCounterColl);
 console.log(startPos);
@@ -349,6 +409,7 @@ function _Start(button) {
 
 function _process() {
     //if(!PLAYER.isDead) console.log(`Time passed: ${(Date.now() - startTime)/1000} sec`)
+    elapsedTime = Date.now() - startTime;
     globalObjectList.forEach((obj) => {
         if (obj instanceof Object) obj.move();
         if(obj instanceof Pipe){

@@ -4,8 +4,8 @@ body{
     background-repeat:  no-repeat;
     background-size:    120%;
     background-repeat:  repeat-y;
-    z-index:-1;
-    user-select: none;
+    z-index:            -1;
+    user-select:        none;
 }
 
 
@@ -87,11 +87,17 @@ button{
     justify-content:    space-between;
 }
 
-.keret2 span{
+#balance{
     font-size:          30px;
     font-weight:        bold;
     color:            white;
-    vertical-align:     top;
+    bottom :            10%;
+    position:           relative;
+
+}
+.coin{
+    position:           relative;
+    top:                10%;
 }
 
 .CosmeticOptions div{
@@ -101,20 +107,20 @@ button{
 
 select[name="temajeloles"]{
     background-color: gray;
-    border:none;
-    border-radius:2vh;
-    padding:10px;
-    width:125px;
-    margin-left:40px;
-    align-self:flex-end;
+    border:             none;
+    border-radius:      2vh;
+    padding:            10px;
+    width:              125px;
+    margin-left:        40px;
+    align-self:         flex-end;
 }
 
 select:focus{
-    outline:none;
+    outline:            none;
 }
 
 option{
-    border-radius:5vh;
+    border-radius:      5vh;
 }
 
 label[for="gomb"]{
@@ -136,23 +142,27 @@ label[for="tema"]{
 }
 
 button#gombAlap{
-    cursor:pointer;
+    cursor:             pointer;
 }
 select[name="temajeloles"]{
-    cursor:pointer;
+    cursor:             pointer;
 }
 .card{
-    cursor:pointer;
+    cursor:             pointer;
 }
 
 .card img:active{
-    cursor:pointer;
+    cursor:             pointer;
 }
 
 
 
 .keret2{
-    cursor:default
+    cursor:             default;
+}
+
+.keret{
+    height:             70px;
 }
 
 .keret,.keret2{
@@ -179,7 +189,12 @@ select[name="temajeloles"]{
     background-image:   url(/kepek/flappybird-bg.png);
     background-size:    100%;
     background-position-y: bottom;
-    z-index:-1;
+    z-index:            -1;
+    height:             570px;
+}
+
+#PlayArea{
+    position: relative;
 }
 
 #CosmeticMenu{
@@ -193,50 +208,64 @@ select[name="temajeloles"]{
 }
 
 #cosmeticBase .row{
-    display:flex;
-    flex-wrap: wrap;
+    display:            flex;
+    flex-wrap:          wrap;
     
 }
 
 #cosmeticBase .card{
-    width:30%;
-    margin:10px;
+    width:              30%;
+    margin:             10px;
     background-color: gray;
-    height:150px;
-    width:150px;
+    height:             155px;
+    width:              155px;
     
 }
 
 #cosmeticBase{
-    margin-bottom: 20px;
+    margin-bottom:      20px;
+    visibility: hidden;
 }
 
 .overlay{
-    position: absolute;
-    display: block;
-    width: 150px;
-    height: 150px;
+    position:           absolute;
+    display:            block;
+    width:              155px;
+    height:             155px;
     background-color: rgba(0,0,0,0.5);
-    z-index: 2;
+    z-index:            2;
 }
+
+.overlay-window{
+    position:           absolute;
+    width:100%;
+    background-position: bottom;
+    height: 500px;
+    background-image: url(/kepek/flappybird-bg.png);
+    background-size:    100%;
+    z-index:            2;
+    visibility: hidden;
+}
+
 
 .price{
     background-color: yellow;
-    width:32px;
-    height:35px;
-    position: absolute;
-    z-index: 3;
-    border-radius:5vh;
-    border: 5px solid darkorange;
+    width:              32px;
+    height:             35px;
+    position:           absolute;
+    z-index:            3;
+    border-radius:      5vh;
+    border:             5px solid darkorange;
 }
 
 .price-n{
-    position: absolute;
-    z-index: 3;
+    position:           absolute;
+    z-index:            3;
     -webkit-text-stroke-color: 
     rgb(0, 0, 0);
-    color:white;
+    color:              white;
     -webkit-text-stroke-width: 1.2px;
-    font-size:25px;
-    font-weight:bolder;
+    font-size:          25px;
+    font-weight:        bolder;
+
 }

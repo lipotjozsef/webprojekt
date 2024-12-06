@@ -83,8 +83,21 @@ function backgroundChange(){
   let fileName = document.querySelector('select').value;
 
   document.getElementById("gameContainer").style.backgroundImage = `url(/kepek/${fileName})`;
-
+  document.querySelector(".overlay-window").style.backgroundImage = `url(/kepek/${fileName})`;
   number = 1;
 
+}
+
+//#cosmeticBase
+//.overflay-window
+
+function megnyitas(){
+  document.getElementById("cosmeticBase").style.visibility = "visible";
+  document.querySelector(".overlay-window").style.visibility = "visible";
+}
+
+function vissza(){
+  document.getElementById("cosmeticBase").style.visibility = "hidden";
+  document.querySelector(".overlay-window").style.visibility = "hidden";
 }
 

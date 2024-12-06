@@ -5,7 +5,7 @@ const GAMECONTAINER = document.getElementById("PlayArea");
 const SCORECOUNTER = document.getElementById("ScoreCounter");
 let score = 0;
 
-const DEBUGMODE = false;
+const DEBUGMODE = true;
 
 class Vector2 {
     constructor(posX = 0, posY = 0) {
@@ -263,8 +263,8 @@ class PipeManager {
         this.Pipes = new Array();
         for (var indx = 1; indx <= pipesCount; indx++) {
             let currentDist = startPos + this.distBetweenPipes*(indx-1); // indx - 1, hogy az első pontosan a startPos-on kezdjen
-            const newUpPipe = new Pipe(pipeIMAGE, new Vector2(125, 300), new Vector2(currentDist, -100+(Math.floor(Math.random()*-100))), 0.0);
-            const newBotPipe = new Pipe(pipeIMAGE, new Vector2(125, 300), new Vector2(currentDist, 350+(Math.floor(Math.random()*50))), 180.0);
+            const newUpPipe = new Pipe(pipeIMAGE, new Vector2(125, 300), new Vector2(currentDist, rand_int_range(-100, -100)), 0.0);
+            const newBotPipe = new Pipe(pipeIMAGE, new Vector2(125, 300), new Vector2(currentDist, rand_int_range(350, 50)), 180.0);
             this.Pipes.push(newUpPipe);
             this.Pipes.push(newBotPipe);
         }
@@ -285,9 +285,10 @@ class PipeManager {
                 if(upper) this.rePositionPipe("upper", pipe);
                 else this.rePositionPipe("bottom", pipe);
                 upper = !upper;
-
+                console.log("repos")
                 if (changedCount == 2) {
                     this.lastPipe = pipe;
+                    if(pipe.position > 0) assert("asdasd");
                     changedCount = 0;
                 }
                 changedCount++;
@@ -314,15 +315,24 @@ class PipeManager {
     rePositionPipe(checkString = "", pipe){
         switch(this.difficulty){
             case 1:
-                if(checkString == "upper") pipe.setPosition(new Vector2(this.lastPipe.position.x+this.distBetweenPipes, -100+(Math.floor(Math.random()*-100))));
-                if(checkString == "bottom") pipe.setPosition(new Vector2(this.lastPipe.position.x+this.distBetweenPipes, 350+(Math.floor(Math.random()*50))));
+                if(checkString == "upper") pipe.setPosition(new Vector2(this.lastPipe.position.x+this.distBetweenPipes, rand_int_range(-100, -100)));
+                if(checkString == "bottom") pipe.setPosition(new Vector2(this.lastPipe.position.x+this.distBetweenPipes, rand_int_range(350, 50)));
                 break;
             case 2:
-                if(checkString == "upper") pipe.setPosition(new Vector2(this.lastPipe.position.x+this.distBetweenPipes, -100+(Math.floor(Math.random()*-100))));
-                if(checkString == "bottom") pipe.setPosition(new Vector2(this.lastPipe.position.x+this.distBetweenPipes, 350+(Math.floor(Math.random()*50))));
+                if(checkString == "upper")  {
+                    this.distBetweenPipes = rand_int_range(300, 100);
+                    pipe.setPosition(new Vector2(this.lastPipe.position.x+this.distBetweenPipes, rand_int_range(-100, -100)));
+                }
+                if(checkString == "bottom") pipe.setPosition(new Vector2(this.lastPipe.position.x+this.distBetweenPipes, rand_int_range(350, 50)));
                 break;
         }
+        //console.log(pipe.position);
     }
+}
+
+
+function rand_int_range(min, variable) {
+    return min+(Math.floor(Math.random()*variable));
 }
 
 const PLAYER_COLL = new Collider(new Vector2(50, 30));

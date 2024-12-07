@@ -23,15 +23,86 @@ header {
 #ScoreCounter {
     visibility: hidden;
     text-align: center;
+    color: white;
+    -webkit-text-stroke: 3px black;
     font-size: 75px;
+}
+
+#Countdown {
+    position: absolute;
+    visibility: hidden;
+    top: 50%;
+    left: 50%;
+    color: white;
+    -webkit-text-stroke: 3px black;
+    transform: translate(-50%, -50%);
+    font-size: 150px;
+}
+
+#PlayArea {
+    image-rendering: pixelated;
+    filter: blur(10px) brightness(0.2);
+    -webkit-touch-callout: none;
+    -webkit-user-select: none; 
+    -khtml-user-select: none; 
+    -moz-user-select: none; 
+    -ms-user-select: none; 
+    user-select: none;
+    background-color: #70c5cd;
+    width: 100%;
+    height: 100%;
+    position: relative;
     font-family: 'Courier New', Courier, monospace;
     font-weight: bolder;
 }
 
-#PlayArea {
+.gameTransition {
+    animation: filterOut 0.5s forwards;
+}
+
+@keyframes filterOut {
+    0% {
+        filter: blur(10px) brightness(0.2);
+    }
+    100% {
+        filter: blur(0) brightness(1);
+    }
+}
+
+.paralex {
+    position: absolute;
     width: 100%;
-    height: 100%;
-    position: relative;
+    background-repeat: repeat-x;
+    background-size: 100% 100%;
+}
+
+#ground {
+    top: 90%;
+    z-index: 10;
+    height: 150px;
+    background-image: url("/kepek/game/ground.png");
+    background-size: 30% 50%;
+}
+
+#backgroundTrees {
+    top: 71%;
+    opacity: 0.8;
+    height: 100px;
+    background-image: url("/kepek/game/trees.png");
+    
+}
+
+#backgroundBuildings {
+    top: 65%;
+    height: 100px;
+    background-image: url("/kepek/game/buildings.png");
+}
+
+#backgroundClouds {
+    top: 57%;
+    height: 100px;
+    background-image: url("/kepek/game/clouds.png");
+    background-size: 60% 100%;
 }
 
 footer {

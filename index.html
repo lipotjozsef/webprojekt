@@ -15,8 +15,13 @@
     <main>
       <div id="gameContainer">
         <section id="PlayArea">
-          <button id="TestButton" onclick="_Start(this)">Play</button>
+          <div class="paralex" id="ground"></div>
+          <div class="paralex" id="backgroundClouds"></div>
+          <div class="paralex" id="backgroundBuildings"></div>
+          <div class="paralex" id="backgroundTrees"></div>
           <div id="ScoreCounter">1</div>
+          <div id="Countdown">3</div>
+          <input type="range" onchange="_changeMainVolume(this.value)" value="1" min="0" max="1" step="0.1" name="mainVol" id="mainVol">
         </section>
 
         <section class="menu" id="PauseMenu"></section>
@@ -24,6 +29,7 @@
         <section class="menu" id="StartMenu"></section>
 
         <section class="menu" id="CosmeticMenu"></section>
+        <button id="TestButton" onclick="_Start(this)">Play</button>
       </div>
     </main>
     <!-- ///////////// MAIN ///////////// -->

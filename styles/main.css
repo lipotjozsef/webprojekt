@@ -80,7 +80,7 @@ header {
     top: 90%;
     z-index: 10;
     height: 150px;
-    background-image: url("/kepek/game/ground.png");
+    background-image: url("../kepek/game/ground.png");
     background-size: 30% 50%;
 }
 
@@ -88,20 +88,21 @@ header {
     top: 71%;
     opacity: 0.8;
     height: 100px;
-    background-image: url("/kepek/game/trees.png");
+    background-image: url("../kepek/game/trees.png");
     
 }
 
 #backgroundBuildings {
-    top: 65%;
+    top: 67%;
     height: 100px;
-    background-image: url("/kepek/game/buildings.png");
+    background-image: url("../kepek/game/buildings.png");
+    background-size: 75% 75%;
 }
 
 #backgroundClouds {
     top: 57%;
     height: 100px;
-    background-image: url("/kepek/game/clouds.png");
+    background-image: url("../kepek/game/clouds.png");
     background-size: 60% 100%;
 }
 

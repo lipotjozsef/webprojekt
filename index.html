@@ -22,15 +22,21 @@
           <div class="paralex" id="backgroundTrees"></div>
           <div id="ScoreCounter">1</div>
           <div id="Countdown">3</div>
+          <div id="levelUpGIF"><img src="./kepek/game/levelUp.gif"></div>
+          <div id="playerConfetti"> <img src="./kepek/game/confetti.gif" alt=""></div>
           <input type="range" onchange="_changeMainVolume(this.value)" value="1" min="0" max="1" step="0.1" name="mainVol" id="mainVol">
         </section>
 
-        <section class="menu" id="PauseMenu"></section>
+        <section class="menu" id="PauseMenu">
 
-        <section class="menu" id="StartMenu"></section>
+        </section>
+
+        <section class="menu" id="StartMenu">
+          <button id="TestButton" onclick="_Start(this)">Play</button>
+        </section>
 
         <section class="menu" id="CosmeticMenu"></section>
-        <button id="TestButton" onclick="_Start(this)">Play</button>
+        
       </div>
     </main>
     <!-- ///////////// MAIN ///////////// -->

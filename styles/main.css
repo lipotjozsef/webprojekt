@@ -56,18 +56,6 @@ header {
     font-weight: bolder;
 }
 
-.gameTransition {
-    animation: filterOut 0.5s forwards;
-}
-
-@keyframes filterOut {
-    0% {
-        filter: blur(10px) brightness(0.2);
-    }
-    100% {
-        filter: blur(0) brightness(1);
-    }
-}
 
 .paralex {
     position: absolute;
@@ -78,7 +66,7 @@ header {
 
 #ground {
     top: 90%;
-    z-index: 10;
+    z-index: 8;
     height: 150px;
     background-image: url("../kepek/game/ground.png");
     background-size: 30% 50%;
@@ -106,6 +94,37 @@ header {
     background-size: 60% 100%;
 }
 
+#levelUpGIF {
+    visibility: hidden;
+    
+    z-index: 10;
+}
+
+#playerConfetti {
+    visibility: hidden;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    z-index: 10;
+}
+
+#playerConfetti img {
+    width: 200px;
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    transform: translate(-25%, -25%);
+}
+
+#levelUpGIF img {
+    position: absolute;
+    left: 50%;
+    top: 8%;
+    width: 25%;
+    transform: translate(-50%, -50%);
+}
+
+
 footer {
     position: absolute;
     bottom: 0;
@@ -132,4 +151,57 @@ footer {
     position: absolute;
     width: 100px;
     height: 100px;
+}
+
+
+
+.gameTransitionInAnim {
+    animation: filterOut 0.5s forwards;
+}
+
+.gameTransitionOutAnim {
+    animation: filterOut 0.5s reverse;
+}
+
+.confettiAnim {
+    animation: fadeIn 2s forwards;
+}
+
+.levelUpAnim {
+    animation: fadeIn 3s forwards;
+}
+
+.shakeAnim {
+    animation: shake 0.2s infinite;
+    filter: blur(0px) brightness(1)!important;
+}
+
+@keyframes filterOut {
+    0% {
+        filter: blur(10px) brightness(0.2);
+    }
+    100% {
+        filter: blur(0px) brightness(1);
+    }
+}
+
+@keyframes shake {
+    0% { transform: translate(1px, 1px) rotate(0deg); }
+    10% { transform: translate(-1px, -2px) rotate(-1deg); }
+    20% { transform: translate(-3px, 0px) rotate(1deg); }
+    30% { transform: translate(3px, 2px) rotate(0deg); }
+    40% { transform: translate(1px, -1px) rotate(1deg); }
+    50% { transform: translate(-1px, 2px) rotate(-1deg); }
+    60% { transform: translate(-3px, 1px) rotate(0deg); }
+    70% { transform: translate(3px, 1px) rotate(-1deg); }
+    80% { transform: translate(-1px, -1px) rotate(1deg); }
+    90% { transform: translate(1px, 2px) rotate(0deg); }
+    100% { transform: translate(1px, -2px) rotate(-1deg); }
+}
+
+@keyframes fadeIn {
+    0% {opacity: 0;}
+    50% {opacity: 1;}
+    75% {opacity: 1;}
+    100% {opacity: 0;}
 }

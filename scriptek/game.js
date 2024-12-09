@@ -4,12 +4,15 @@ let globalAudioList = [];
 let startTime;
 let elapsedTime = 0;
 const GAMECONTAINER = document.getElementById("PlayArea");
+const gameRECT = GAMECONTAINER.getBoundingClientRect();
 const SCORECOUNTER = document.getElementById("ScoreCounter");
 const COUNTDOWN = document.getElementById("Countdown");
 const GROUNDTILE = document.getElementById("ground");
 const BACKGROUNDTREES = document.getElementById("backgroundTrees");
 const BACKGROUNDBUILDINGS = document.getElementById("backgroundBuildings");
 const BACKGROUNDCLOUDS = document.getElementById("backgroundClouds");
+const LEVELUPGIF = document.getElementById("levelUpGIF");
+const CONFETTI = document.getElementById("playerConfetti");
 let MAINVOLUME = 1;
 let score = 0;
 
@@ -40,7 +43,8 @@ class Vector2 {
 class BaseObject {
     constructor(elementName = "", classNameList = [""], size = new Vector2(), position = new Vector2(), rotation = 0.0) {
         this.root = document.createElement(elementName);
-        this.root.classList.add(classNameList);
+        
+        if(classNameList[0] != "") this.root.classList.add(classNameList);
 
         this.setRotation(rotation)
         this.setSize(size);
@@ -191,7 +195,6 @@ class AudioPlayer {
             setTimeout(() =>{
                 self.play();
             }, this.getDuration()*1000)
-            console.log("asd")
         }
     }
 
@@ -212,7 +215,7 @@ class AudioPlayer {
         this.volume = newVolume;
         this.settedVolume = newVolume;
         this.stream.volume = newVolume * MAINVOLUME;
-        console.log("New volume: ", this.stream.volume);
+        //console.log("New volume: ", this.stream.volume);
     }
 
     muteToggle() {
@@ -264,6 +267,7 @@ class Player extends Object {
             "hangok/hop.mp3",
             "hangok/score.mp3"
         ]
+        this.playerRoot.style.zIndex = "9";
         this.audioPlayer = new AudioPlayer(this.soundEffectsPaths[2], 1);
 
         this.gravity = 10;
@@ -276,6 +280,7 @@ class Player extends Object {
         this.needToFall = false;
         this.isJumping = false;
         this.x = 0;
+        this.fallAnim = 0;
         this.maxVel = new Vector2();
     }
 
@@ -288,10 +293,15 @@ class Player extends Object {
             this.audioPlayer.setAudio(this.soundEffectsPaths[0]);
             this.audioPlayer.play();
         }, 300);
+        GAMECONTAINER.classList.add("shakeAnim");
+        setTimeout(() => {
+            GAMECONTAINER.className = "";
+            GAMECONTAINER.classList.add("gameTransitionOutAnim");
+        }, 610);
     }
 
     move() {
-        if(this.isDead || this.frozen) return;
+        if(this.frozen) return;
         if(this.acceleration && !this.isJumping) {
             if (!this.isFalling) {
                 this.acceleration.y += 0.4;
@@ -299,7 +309,7 @@ class Player extends Object {
                     this.isFalling = true;
                 }
             }
-        } else if(this.isJumping && !this.needToFall) {
+        } else if(this.isJumping && !this.needToFal) {
             if(this.isFalling) this.acceleration.y = 0;
             if ((this.acceleration.y >= this.jumpForce)) this.acceleration.y -= Math.pow(3*this.x, 2);
             else {
@@ -325,7 +335,7 @@ class Player extends Object {
         if(keyboardEvent.type == "keydown") {
             switch(keyboardEvent.keyCode) {
                 case 32:
-                    if(this.needToFall) return;
+                    if(this.needToFall || this.isDead) return;
                     if(this.frozen) this.frozen = false;
                     this.audioPlayer.play(0, true);
                     //console.log("Jumping");
@@ -364,12 +374,16 @@ class PipeManager {
         this.distBetweenPipes = 500;
         this.scoreSFX = new AudioPlayer("hangok/score.mp3", 0.5);
         this.activePipeIndx = 0;
+        this.gap = 200;
+        this.newScore = 50;
+        this.newY = 0;
         this.scoreCounterColl = scoreCounter;
         this.Pipes = new Array();
         for (var indx = 1; indx <= pipesCount; indx++) {
             let currentDist = startPos + this.distBetweenPipes*(indx-1); // indx - 1, hogy az első pontosan a startPos-on kezdjen
-            const newUpPipe = new Pipe(pipeIMAGE, new Vector2(125, 300), new Vector2(currentDist, rand_int_range(-100, -100)), 0.0);
-            const newBotPipe = new Pipe(pipeIMAGE, new Vector2(125, 300), new Vector2(currentDist, rand_int_range(350, 50)), 180.0);
+            this.newY = rand_int_range(-350, -450);
+            const newUpPipe = new Pipe(pipeIMAGE, new Vector2(125, 500), new Vector2(currentDist, this.newY), 0.0);
+            const newBotPipe = new Pipe(pipeIMAGE, new Vector2(125, 500), new Vector2(currentDist, 500+this.newY+this.gap), 180.0);
             this.Pipes.push(newUpPipe);
             this.Pipes.push(newBotPipe);
         }
@@ -405,7 +419,23 @@ class PipeManager {
         let activePipe = this.Pipes[this.activePipeIndx];
         if(activePipe != undefined) this.scoreCounterColl.setPosition(new Vector2(activePipe.position.x, this.scoreCounterColl.position.y));
         else {
-            console.log("undie")
+            console.log("undefined active PIPE!")
+        }
+    }
+
+    increaseDifficulty() {
+        this.scoreSFX.setAudio("hangok/levelUp.wav");
+        console.log(score)
+        if (this.newScore != 500)
+        {
+            CONFETTI.style.visibility = "visible";
+            LEVELUPGIF.style.visibility = "visible";
+            CONFETTI.classList.add("confettiAnim");
+            LEVELUPGIF.classList.add("levelUpAnim");
+            setTimeout(() => { CONFETTI.classList.remove("confettiAnim"); CONFETTI.style.visibility = "hidden"; }, 2100);
+            setTimeout(() => { LEVELUPGIF.classList.remove("levelUpAnim"); LEVELUPGIF.style.visibility = "hidden"; }, 3100);
+            this.newScore += 50;
+            this.difficulty++;
         }
     }
 
@@ -413,91 +443,88 @@ class PipeManager {
         this.scoreSFX.play();
         this.activePipeIndx += 2;
         if(this.activePipeIndx > this.Pipes.length-1) this.activePipeIndx = 0;
-        if (score > 100) this.difficulty = 2;
-        if (score > 30) this.difficulty = 3;
-        if(score > 40) this.difficulty = 4;
-        if(score > 50) this.difficulty = 5;
-        if(score > 70) this.difficulty = 6;
-        if(score > 90) this.difficulty = 7;
-        if(score > 100) this.difficulty = 8;
-        if (score > 110) this.difficulty = 9;
+        if (score == this.newScore
+        ) {
+            this.increaseDifficulty();
+        } else this.scoreSFX.setAudio("hangok/score.mp3");
+
     }
 
     rePositionPipe(checkString = "", pipe){
-        let bottom = new Array(2);
         let upper = new Array(2);
         let dist = new Array(2);
         let amp = 0;
         switch(this.difficulty){
             case 1:
-                upper = [-100, -100];
-                bottom = [350, 50];
+                upper = [-350, -450];
+                dist = [500, 500];
                 break;
             case 2:
-                dist = [300, 100];
-                upper = [-100, -25];
-                bottom = [350, 100];
+                upper = [-350, -450];
+                dist = [300, 500];
                 break;
             case 3:
-                dist = [200, 100];
-                upper = [-75, -25];
-                bottom = [300, 50];
+                dist = [200, 300];
+                upper = [-350, -450];
                 break;
             case 4:
-                upper = [-100, -100];
-                bottom = [250, 50];
+                upper = [-350, -450];
+                this.gap = 75;
+                break;
             case 5:
-                dist = [300, 100];    
-                upper = [-75, -25];
-                bottom = [300, 50];
                 if (pipe.acceleration.x != -10) this.Pipes.forEach((pipe) => {pipe.acceleration.x -= 1});
+                upper = [-350, -450];
                 break;
             case 6:
+                upper = [-350, -250];
+                dist = [200, 300];
                 if (pipe.acceleration.x != -7) this.Pipes.forEach((pipe) => {pipe.acceleration.x = -7});
-                dist = [300, 100];
-                upper = [-100, -100];
-                bottom = [250, 50];
                 break;
             case 7:
-                if (pipe.amp != 5) this.Pipes.forEach((pipe) => {pipe.amplitude = 5});
-                upper = [-100, -100];
-                bottom = [250, 50];
+                amp = 5;
+                this.gap = 75;
                 break;
             case 8:
-                if (pipe.amp != 10) this.Pipes.forEach((pipe) => {pipe.amplitude = 10});
-                upper = [-100, -25];
-                bottom = [350, 100];
+                amp = 10;
+                upper = [-350, -450];
+                dist = [300, 500];
                 break;
             case 9:
                 // Rotate the Pipes
         }
         if (checkString == "upper") {
             if (dist[0] != null) this.distBetweenPipes = rand_int_range(dist[0], dist[1]);
-            let newY = rand_int_range(upper[0], upper[1]);
-            pipe.setPosition(new Vector2(this.lastPipe.position.x+this.distBetweenPipes, newY == 0 ? pipe.position.y : newY));
+            this.newY = rand_int_range(upper[0], upper[1]);
+            pipe.setPosition(new Vector2(this.lastPipe.position.x+this.distBetweenPipes, this.newY == 0 ? pipe.position.y : this.newY));
+            if (pipe.amp != amp) this.Pipes.forEach((pipe) => {pipe.amplitude = amp});
         }
         else {
-            let newY = rand_int_range(bottom[0], bottom[1])
-            pipe.setPosition(new Vector2(this.lastPipe.position.x+this.distBetweenPipes, newY == 0 ? pipe.position.y : newY));
+            this.newY = pipe.size.y + this.newY + this.gap;
+            pipe.setPosition(new Vector2(this.lastPipe.position.x+this.distBetweenPipes, this.newY == 0 ? pipe.position.y : this.newY));
         }
-        console.log(pipe.position)
+        // console.log(this.newY);
+        // console.log(pipe.position)
     }
 }
 
-function rand_int_range(min, variable) {
-    if(isNaN(min) || isNaN(variable)) return 0;
-    return min+(Math.floor(Math.random()*variable));
+function rand_int_range(min, max) {
+    if(isNaN(min) || isNaN(max)) return 0;
+    return Math.floor(Math.random()* (max - min + 1) + min);
 }
 
+
 const PLAYER_COLL = new Collider(new Vector2(50, 30));
-let playerStartPos = GAMECONTAINER.getBoundingClientRect().height * 0.5;
+let playerStartPos = gameRECT.height * 0.5;
 const PLAYER = new Player(birdIMAGE, new Vector2(80, 50), new Vector2(50, playerStartPos), 0.0, PLAYER_COLL);
 
 
 const scoreCounterColl = new Collider(new Vector2(100, 800), new Vector2(245, 0));
-let startPos = Math.floor(GAMECONTAINER.getBoundingClientRect().width * 1.2);
+const GROUNDCOLLIDER = new Collider(new Vector2(gameRECT.width, 200), new Vector2(0, 450));
+const ROOFCOLLIDER = new Collider(new Vector2(gameRECT.width, 200), new Vector2(0, -200));
+
+let startPos = Math.floor(gameRECT.width * 1.2);
 const PIPEMANAGER = new PipeManager(startPos, 6, scoreCounterColl);
-console.log(startPos);
+//console.log(startPos);
 
 const blipCountDown = new AudioPlayer("hangok/countdownBlip.wav", 0.3);
 const blipStart = new AudioPlayer("hangok/startBlip.wav", 0.3);
@@ -512,6 +539,8 @@ function _startCountdown() {
         COUNTDOWN.style.visibility = "hidden";
         clearInterval(startCount)
         AddToScene(scoreCounterColl);
+        AddToScene(GROUNDCOLLIDER);
+        AddToScene(ROOFCOLLIDER);
         PIPEMANAGER._SpawnPipes();
         SCORECOUNTER.style.visibility = "visible";
         blipStart.play();
@@ -520,17 +549,17 @@ function _startCountdown() {
 
 const BACKGROUNDMUSIC = new AudioPlayer("hangok/peacful_TAD_ON.mp3", 0.3, true);
 let maxVol = BACKGROUNDMUSIC.settedVolume;
-BACKGROUNDMUSIC.setVolume(0.01)
 let faderFunc;
 function fadeBGMusicIn() {
     if (BACKGROUNDMUSIC.settedVolume < maxVol) BACKGROUNDMUSIC.settedVolume += 0.01;
     else clearInterval(faderFunc);
+    BACKGROUNDMUSIC.settedVolume = Number(BACKGROUNDMUSIC.settedVolume.toFixed(3));
     BACKGROUNDMUSIC.setVolume(BACKGROUNDMUSIC.settedVolume);
 }
 
 function _changeMainVolume(newVal) {
     MAINVOLUME = newVal;
-    console.log(MAINVOLUME);
+    console.log(MAINVOLUME, "is the new Main volume");
     globalAudioList.forEach((audio) => {
         audio.setVolume(audio.volume);
     })
@@ -539,8 +568,10 @@ function _changeMainVolume(newVal) {
 const startBlip = new AudioPlayer("hangok/start.wav", 0.5);
 
 function _Start(button) {
+    _changeMainVolume(document.getElementById("mainVol").value)
     startBlip.play();
-    GAMECONTAINER.classList.add("gameTransition")
+    GAMECONTAINER.className = "";
+    GAMECONTAINER.classList.add("gameTransitionInAnim");
     BACKGROUNDMUSIC.play(100, false, true, 0);
     button.style.visibility = "hidden";
     COUNTDOWN.style.visibility = "visible";
@@ -566,23 +597,28 @@ function _process() {
         if(obj instanceof Pipe){
             paralexVec.x += obj.velocity.x;
             if (obj.pipeCollider.isColliding(PLAYER)) PLAYER.die();
-            obj.pipeCollider.debugDraw();
+            //obj.pipeCollider.debugDraw();
         }
     })
+
+    if(GROUNDCOLLIDER.isColliding(PLAYER) || ROOFCOLLIDER.isColliding(PLAYER)) PLAYER.die();
 
     GROUNDTILE.style.backgroundPosition = paralexVec.x + "px 0px";
     BACKGROUNDTREES.style.backgroundPosition = (paralexVec.x * 0.01) + "px 0px";
     BACKGROUNDBUILDINGS.style.backgroundPosition = (paralexVec.x * 0.005) + "px 0px";
-    BACKGROUNDCLOUDS.style.backgroundPosition = (paralexVec.x * 0.0001) + "px 0px";
+    BACKGROUNDCLOUDS.style.backgroundPosition = (paralexVec.x * 0.001) + "px 0px";
 
-    if(scoreCounterColl.isColliding(PLAYER)) {
-        PIPEMANAGER.scored();
+    if(scoreCounterColl.isColliding(PLAYER) && !PLAYER.isDead) {
         score++;
+        PIPEMANAGER.scored();
     }
 
+    CONFETTI.style.left = PLAYER.position.x +"px";
+    CONFETTI.style.top = PLAYER.position.y +"px";
+
     PIPEMANAGER._checkOffPipes();
-    scoreCounterColl.debugDraw();
-    PLAYER_COLL.debugDraw();
+    //scoreCounterColl.debugDraw();
+    //PLAYER_COLL.debugDraw();
     SCORECOUNTER.innerText = score;
     requestAnimationFrame(_process)
 }

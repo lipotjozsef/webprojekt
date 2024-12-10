@@ -86,3 +86,32 @@ function storeText() {
 // }
 
 //id="output"
+
+document.querySelectorAll('input, select').forEach(element => {
+    element.addEventListener('input', () => {
+        document.getElementById('saveButton').style.display = 'block';
+    });
+});
+
+function saveSettings() {
+    const settings = {
+        name: document.getElementById('textInput').value,
+        fps: document.getElementById('fps').textContent,
+        quality: document.getElementById('priority').value,
+        volume: document.getElementById('volumeControl').value,
+    };
+
+    localStorage.setItem('settings', JSON.stringify(settings));
+    document.getElementById('saveButton').style.display = 'none'; 
+}
+
+window.onload = function () {
+    const savedSettings = JSON.parse(localStorage.getItem('settings'));
+    if (savedSettings) {
+        document.getElementById('textInput').value = savedSettings.name || '';
+        document.getElementById('fps').textContent = savedSettings.fps || '30';
+        document.getElementById('priority').value = savedSettings.quality || 'low';
+        document.getElementById('volumeControl').value = savedSettings.volume || '50';
+        document.getElementById('volumeValue').textContent = savedSettings.volume || '50';
+    }
+};

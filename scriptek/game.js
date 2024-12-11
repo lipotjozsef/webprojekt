@@ -3,6 +3,8 @@ let globalAudioList = [];
 
 let startTime;
 let elapsedTime = 0;
+
+const WINDOWS = document.getElementById("gameContainer").children;
 const GAMECONTAINER = document.getElementById("PlayArea");
 const gameRECT = GAMECONTAINER.getBoundingClientRect();
 const SCORECOUNTER = document.getElementById("ScoreCounter");
@@ -17,6 +19,16 @@ let MAINVOLUME = 1;
 let score = 0;
 
 const DEBUGMODE = false;
+
+// ---- _InitDefaultScene()-be állítjuk be őket ----
+
+let PLAYER;
+let scoreCounterColl;
+let GROUNDCOLLIDER;
+let ROOFCOLLIDER;
+let PIPEMANAGER;
+
+// -------------------------------------------------
 
 class Vector2 {
     constructor(posX = 0, posY = 0) {
@@ -118,6 +130,7 @@ class Object extends BaseObject {
     constructor(sprite_image = new SpriteImage(), size = new Vector2(), position = new Vector2(), rotationDeg = 0.0) {
         super("div", ["object"], size, position, rotationDeg)
         
+        this.aduioPlayer;
         this.sprite_image = new SpriteImage(sprite_image.imagePath, sprite_image.size);
         this.rotation = rotationDeg;
         this.velocity = new Vector2();
@@ -296,7 +309,9 @@ class Player extends Object {
         GAMECONTAINER.classList.add("shakeAnim");
         setTimeout(() => {
             GAMECONTAINER.className = "";
+            GAMECONTAINER.classList.add("active");
             GAMECONTAINER.classList.add("gameTransitionOutAnim");
+            SCORECOUNTER.style.visibility = "hidden";
         }, 610);
     }
 
@@ -372,10 +387,10 @@ class PipeManager {
     constructor(startPos = 0, pipesCount = 0, scoreCounter = new Collider()) {
         this.difficulty = 1;
         this.distBetweenPipes = 500;
-        this.scoreSFX = new AudioPlayer("hangok/score.mp3", 0.5);
+        this.audioPlayer = new AudioPlayer("hangok/score.mp3", 0.5);
         this.activePipeIndx = 0;
         this.gap = 200;
-        this.newScore = 50;
+        this.newScore = 10;
         this.newY = 0;
         this.scoreCounterColl = scoreCounter;
         this.Pipes = new Array();
@@ -424,9 +439,9 @@ class PipeManager {
     }
 
     increaseDifficulty() {
-        this.scoreSFX.setAudio("hangok/levelUp.wav");
+        this.audioPlayer.setAudio("hangok/levelUp.wav");
         console.log(score)
-        if (this.newScore != 500)
+        if (this.newScore != 100)
         {
             CONFETTI.style.visibility = "visible";
             LEVELUPGIF.style.visibility = "visible";
@@ -434,19 +449,19 @@ class PipeManager {
             LEVELUPGIF.classList.add("levelUpAnim");
             setTimeout(() => { CONFETTI.classList.remove("confettiAnim"); CONFETTI.style.visibility = "hidden"; }, 2100);
             setTimeout(() => { LEVELUPGIF.classList.remove("levelUpAnim"); LEVELUPGIF.style.visibility = "hidden"; }, 3100);
-            this.newScore += 50;
+            this.newScore += 10;
             this.difficulty++;
         }
     }
 
     scored() {
-        this.scoreSFX.play();
+        this.audioPlayer.play();
         this.activePipeIndx += 2;
         if(this.activePipeIndx > this.Pipes.length-1) this.activePipeIndx = 0;
         if (score == this.newScore
         ) {
             this.increaseDifficulty();
-        } else this.scoreSFX.setAudio("hangok/score.mp3");
+        } else this.audioPlayer.setAudio("hangok/score.mp3");
 
     }
 
@@ -469,7 +484,7 @@ class PipeManager {
                 break;
             case 4:
                 upper = [-350, -450];
-                this.gap = 75;
+                this.gap = 120;
                 break;
             case 5:
                 if (pipe.acceleration.x != -10) this.Pipes.forEach((pipe) => {pipe.acceleration.x -= 1});
@@ -512,20 +527,6 @@ function rand_int_range(min, max) {
     return Math.floor(Math.random()* (max - min + 1) + min);
 }
 
-
-const PLAYER_COLL = new Collider(new Vector2(50, 30));
-let playerStartPos = gameRECT.height * 0.5;
-const PLAYER = new Player(birdIMAGE, new Vector2(80, 50), new Vector2(50, playerStartPos), 0.0, PLAYER_COLL);
-
-
-const scoreCounterColl = new Collider(new Vector2(100, 800), new Vector2(245, 0));
-const GROUNDCOLLIDER = new Collider(new Vector2(gameRECT.width, 200), new Vector2(0, 450));
-const ROOFCOLLIDER = new Collider(new Vector2(gameRECT.width, 200), new Vector2(0, -200));
-
-let startPos = Math.floor(gameRECT.width * 1.2);
-const PIPEMANAGER = new PipeManager(startPos, 6, scoreCounterColl);
-//console.log(startPos);
-
 const blipCountDown = new AudioPlayer("hangok/countdownBlip.wav", 0.3);
 const blipStart = new AudioPlayer("hangok/startBlip.wav", 0.3);
 let startCount;
@@ -567,28 +568,60 @@ function _changeMainVolume(newVal) {
 
 const startBlip = new AudioPlayer("hangok/start.wav", 0.5);
 
-function _Start(button) {
+function _Restart() {
+    const len = globalObjectList.length;
+    console.log(globalAudioList);
+    for(let i = 0; i < len; i++) {
+        let obj = globalObjectList.pop();
+        if(obj instanceof Object) globalAudioList.pop(globalAudioList.indexOf(obj.audioPlayer));
+        GAMECONTAINER.removeChild(obj.root);
+        console.log(obj.root);
+    }
+    
+    _Start();
+    //globalObjectList.forEach((obj) => {console.log(obj.root)})
+}
+
+function _Start() {
     _changeMainVolume(document.getElementById("mainVol").value)
+    changeActiveWindow("PlayArea");
     startBlip.play();
-    GAMECONTAINER.className = "";
     GAMECONTAINER.classList.add("gameTransitionInAnim");
     BACKGROUNDMUSIC.play(100, false, true, 0);
-    button.style.visibility = "hidden";
     COUNTDOWN.style.visibility = "visible";
     COUNTDOWN.innerText = "3";
     SCORECOUNTER.innerText = "0"
     faderFunc = setInterval(fadeBGMusicIn, 100);
     console.log("Game Started -------------------------------")
     GAMECONTAINER.focus();
-    AddToScene(PLAYER);
     startCount = setInterval(_startCountdown, 1000);
     startTime = Date.now();
+    _InitDefaultScene();
     _process()
 }
 
+function _InitDefaultScene() {
+    let PLAYER_COLL = new Collider(new Vector2(50, 30));
+    PLAYER = new Player(birdIMAGE, new Vector2(80, 50), new Vector2(50, 250), 0.0, PLAYER_COLL);
+    AddToScene(PLAYER);
+    scoreCounterColl = new Collider(new Vector2(100, 800), new Vector2(245, 0));
+    GROUNDCOLLIDER = new Collider(new Vector2(gameRECT.width, 200), new Vector2(0, 450));
+    ROOFCOLLIDER = new Collider(new Vector2(gameRECT.width, 200), new Vector2(0, -200));
 
+    let startPos = Math.floor(gameRECT.width * 1.2);
+    PIPEMANAGER = new PipeManager(startPos, 6, scoreCounterColl);
+}
 
-let paralexVec = new Vector2(-5, 0);
+function changeActiveWindow(activeID) {
+    for(let i = 0; i < WINDOWS.length; i++) {
+        let currWindow = WINDOWS.item(i);
+        currWindow.classList = "";
+        if(currWindow.id == activeID) currWindow.classList.add("active");
+        else currWindow.classList.add("disabled");
+    }
+}
+
+let paralexVec = new Vector2(0, 0);
 function _process() {
     //if(!PLAYER.isDead) console.log(`Time passed: ${(Date.now() - startTime)/1000} sec`)
     elapsedTime = Date.now() - startTime;
@@ -597,7 +630,7 @@ function _process() {
         if(obj instanceof Pipe){
             paralexVec.x += obj.velocity.x;
             if (obj.pipeCollider.isColliding(PLAYER)) PLAYER.die();
-            //obj.pipeCollider.debugDraw();
+            
         }
     })
 
@@ -618,7 +651,7 @@ function _process() {
 
     PIPEMANAGER._checkOffPipes();
     //scoreCounterColl.debugDraw();
-    //PLAYER_COLL.debugDraw();
     SCORECOUNTER.innerText = score;
-    requestAnimationFrame(_process)
+    if(PLAYER.position.y < 1500)requestAnimationFrame(_process);
+    else changeActiveWindow("RestartMenu");
 }

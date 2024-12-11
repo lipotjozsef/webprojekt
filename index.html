@@ -15,7 +15,7 @@
      
     <main>
       <div id="gameContainer">
-        <section id="PlayArea">
+        <section class="disabled" id="PlayArea">
           <div class="paralex" id="ground"></div>
           <div class="paralex" id="backgroundClouds"></div>
           <div class="paralex" id="backgroundBuildings"></div>
@@ -27,16 +27,19 @@
           <input type="range" onchange="_changeMainVolume(this.value)" value="1" min="0" max="1" step="0.1" name="mainVol" id="mainVol">
         </section>
 
-        <section class="menu" id="PauseMenu">
+        <section class="disabled" id="RestartMenu">
+          <button id="TestButton" onclick="_Restart()">Restart</button>
+        </section>
+
+        <section class="disabled" id="PauseMenu">
 
         </section>
 
-        <section class="menu" id="StartMenu">
-          <button id="TestButton" onclick="_Start(this)">Play</button>
-        </section>
-
-        <section class="menu" id="CosmeticMenu"></section>
+        <section class="disabled" id="CosmeticMenu"></section>
         
+        <section class="active" id="StartMenu">
+          <button id="TestButton" onclick="_Start()">Play</button>
+        </section>
       </div>
     </main>
     <!-- ///////////// MAIN ///////////// -->

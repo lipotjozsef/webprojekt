@@ -39,30 +39,30 @@ volumeControl.addEventListener('input', function () {
 
 
 
-// Kiválasztjuk az elemet, aminek a szövegét változtatjuk
+
 const textElement = document.getElementById('text');
         
-// Az összes lehetséges szöveg, amit megjeleníthetünk
+
 const values = ['Space', 'Left Click'];
 
-// Kezdeti érték: Space
+
 let currentIndex = 0;
 
-// Funkció, ami beállítja az új szöveget az aktuális index alapján
+
 function updateText() {
     textElement.textContent = values[currentIndex];
 }
 
-// Bal nyíl kattintás eseménykezelője
+
 document.getElementById('leftArrow').addEventListener('click', function() {
-    // Csökkentjük az indexet és körbeérünk, ha túl megyünk
+    
     currentIndex = (currentIndex - 1 + values.length) % values.length;
     updateText();
 });
 
-// Jobb nyíl kattintás eseménykezelője
+
 document.getElementById('rightArrow').addEventListener('click', function() {
-    // Növeljük az indexet és körbeérünk, ha túl megyünk
+    
     currentIndex = (currentIndex + 1) % values.length;
     updateText();
 });

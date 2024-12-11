@@ -1,12 +1,11 @@
 .menu-border {
-    background-image: url("kepek/flappybird-bg.png");
-    background-size: 180%;
+    background-image: url("kepek/menu-bg.png");
+    background-size: 100%;
+    background-repeat: no-repeat;
     height: 500px;
     width: 500px;
-    border-radius: 30px;
+    padding-top: 8px;
     margin: auto;
-    border: 2px solid #000000;
-    color: white;
     text-align: center;
     margin-top: 200px;
 }
@@ -19,26 +18,30 @@
     
 }
 .menu-item {
-    margin: 25px 0;
+    margin: 20px 0;
     transition: ease-in-out 0.2s;
 }
-.menu-item:hover {
-    scale: 110%;
-    text-decoration: underline black;
+.menu-item a:hover {
+    color: rgb(49, 49, 49);
+    background-image: url("kepek/menu-button2.png");
+    background-repeat: no-repeat;
+    background-size: 100%;
+    background-position: center;
+    padding: 20px;
 }
-
 .menu-item a {
-    color: #2b2b2b;
+    color: rgb(214, 214, 214);
     font-weight: bold;
     text-decoration: none;
-
+    
+    
 }
 body {
+    
     background-image: url("kepek/background.png");
     font-family: cursive;
 }
 .game-menu{
-    border-bottom: 2px solid black;
     font-size: 1.15rem;
     color: black;
 }

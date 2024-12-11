@@ -1,5 +1,5 @@
-let globalCoinCount = 0;
-let globalHighscore = 0;
+var globalCoinCount = 0;
+var globalHighscore = 0;
 
 if(getCookie("coinCount") != "") {
     globalCoinCount = Number(getCookie("coinCount"));
@@ -17,13 +17,14 @@ function saveCoins() {
 
 function saveHighscore() {
     setCookie("savedHighscore", globalHighscore);
+    console.log("Saved Highscore: ", globalHighscore);
 }
 
 function setCookie(cname, cvalue, exdays = 1000) {
     const d = new Date();
     d.setTime(d.getTime() + (exdays*24*60*60*1000));
     let expires = "expires="+ d.toUTCString();
-    document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+    document.cookie = cname + "=" + cvalue + ";" + expires + "SameSite=None; Secure" + ";path=/";
 }
 
 function getCookie(cname) {

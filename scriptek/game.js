@@ -260,14 +260,6 @@ class Pipe extends Object {
     }
 }
 
-document.addEventListener("keydown", (ev) => {
-    PLAYER._input(ev);
-})
-
-document.addEventListener("keyup", (ev) => {
-    PLAYER._input(ev);
-})
-
 class Player extends Object {
     constructor(sprite_image = new SpriteImage(), size = new Vector2(), position = new Vector2(), rotationDeg = 0.0, collider) {
         super(sprite_image, size, position, rotationDeg)
@@ -295,6 +287,13 @@ class Player extends Object {
         this.x = 0;
         this.fallAnim = 0;
         this.maxVel = new Vector2();
+        document.addEventListener("keydown", (ev) => {
+            PLAYER._input(ev);
+        })
+        
+        document.addEventListener("keyup", (ev) => {
+            PLAYER._input(ev);
+        })
     }
 
     die () {
@@ -306,6 +305,8 @@ class Player extends Object {
             this.audioPlayer.setAudio(this.soundEffectsPaths[0]);
             this.audioPlayer.play();
         }, 300);
+        
+        window.sethighScore(score);
         GAMECONTAINER.classList.add("shakeAnim");
         setTimeout(() => {
             GAMECONTAINER.className = "";
@@ -577,12 +578,12 @@ function _Restart() {
         GAMECONTAINER.removeChild(obj.root);
         console.log(obj.root);
     }
-    
     _Start();
     //globalObjectList.forEach((obj) => {console.log(obj.root)})
 }
 
 function _Start() {
+    score = 0;
     _changeMainVolume(document.getElementById("mainVol").value)
     changeActiveWindow("PlayArea");
     startBlip.play();
@@ -625,14 +626,15 @@ let paralexVec = new Vector2(0, 0);
 function _process() {
     //if(!PLAYER.isDead) console.log(`Time passed: ${(Date.now() - startTime)/1000} sec`)
     elapsedTime = Date.now() - startTime;
-    globalObjectList.forEach((obj) => {
-        if (obj instanceof Object) obj.move();
-        if(obj instanceof Pipe){
-            paralexVec.x += obj.velocity.x;
-            if (obj.pipeCollider.isColliding(PLAYER)) PLAYER.die();
-            
-        }
-    })
+    if(!PLAYER.frozen) {
+        globalObjectList.forEach((obj) => {
+            if (obj instanceof Object) obj.move();
+            if(obj instanceof Pipe){
+                paralexVec.x += obj.velocity.x;
+                if (obj.pipeCollider.isColliding(PLAYER)) PLAYER.die();
+            }
+        })
+    }
 
     if(GROUNDCOLLIDER.isColliding(PLAYER) || ROOFCOLLIDER.isColliding(PLAYER)) PLAYER.die();
 

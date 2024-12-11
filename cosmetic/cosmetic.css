@@ -186,15 +186,15 @@ select[name="temajeloles"]{
     width:              65%;
     border-radius:      5vh;
     border:             5px solid black;
-    background-image:   url(/kepek/flappybird-bg.png);
-    background-size:    100%;
-    background-position-y: bottom;
-    z-index:            -1;
+    z-index:            1;
     height:             570px;
 }
 
 #PlayArea{
     position: relative;
+    background-image:   url(/kepek/flappybird-bg.png);
+    background-size: contain;
+    height:87%;
 }
 
 #CosmeticMenu{
@@ -224,7 +224,6 @@ select[name="temajeloles"]{
 
 #cosmeticBase{
     margin-bottom:      20px;
-    visibility: hidden;
 }
 
 .overlay{
@@ -247,6 +246,23 @@ select[name="temajeloles"]{
     visibility: hidden;
 }
 
+.visszagomb{
+    color:            white;
+    font-size:          30px;
+    font-weight:        bold;
+    background-color: green;  
+    border-radius:      2vh; 
+    margin:             15px; 
+    border:             2px solid black;
+    width:              7%;
+    padding:            15px;
+    position:           absolute;
+}
+
+
+#PlayArea{
+    filter:             none;
+}
 
 .price{
     background-color: yellow;

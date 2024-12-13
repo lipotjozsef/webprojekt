@@ -1,92 +1,123 @@
 <!DOCTYPE html>
 <html lang="hu">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Flappy Bird</title>
-    <link rel="stylesheet" href="styles/main.css" />
-    <link rel="shortcut icon" href="../kepek/flappybirdICO.ico" type="image/x-icon">
-    <link rel="stylesheet" href="menu.css">
-  </head>
-  <body>
-    <header id="title">
-      <h1>Flappy Bird</h1>
-    </header>
-    <!-- ///////////// HEADER ///////////// -->
-     
-    <main>
-      <div id="gameContainer">
-        <section class="disabled" id="PlayArea">
-          <div class="paralex" id="ground"></div>
-          <div class="paralex" id="backgroundClouds"></div>
-          <div class="paralex" id="backgroundBuildings"></div>
-          <div class="paralex" id="backgroundTrees"></div>
-          <div id="ScoreCounter">1</div>
-          <div id="Countdown">3</div>
-          <div id="levelUpGIF"><img src="./kepek/game/levelUp.gif"></div>
-          <div id="playerConfetti"> <img src="./kepek/game/confetti.gif" alt=""></div>
-        </section>
 
-        <section class="disabled" id="RestartMenu">
-          <button id="TestButton" onclick="_Restart()">Restart</button>
-        </section>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Flappy Bird</title>
+  <link rel="stylesheet" href="styles/main.css" />
+  <link rel="shortcut icon" href="../kepek/flappybirdICO.ico" type="image/x-icon">
+  <link rel="stylesheet" href="styles/menu.css">
+</head>
 
-        <section class="disabled" id="PauseMenu">
-          <div class="menu-border">
-            <div class="game-menu">
-                <h2>Game Menu</h2>
-    
-            </div>
-            <div class="buttons">
-    
-                <div class="menu-item"><a onclick="_Resume()">Resume Game</a></div>
-                <div class="menu-item">
-                    <a href="settings.html">Game Settings</a>
-                </div>
-                <div class="menu-item">
-                    <a href="">Edit Character</a>
-                </div>
-                <div class="menu-item">
-                    <a href="">Leave Game</a>
-                </div>
-            </div>
-        </section>
+<body>
+  <header id="title">
+    <h1>Flappy Bird</h1>
+  </header>
+  <!-- ///////////// HEADER ///////////// -->
 
-        <section class="disabled" id="CosmeticMenu"></section>
-        
-        <section class="active" id="StartMenu">
-          <div class="menu-border">
-            <div class="game-menu">
-                <h2>Game Menu</h2>
-    
+  <main>
+    <div id="gameContainer">
+      <section class="disabled" id="PlayArea">
+        <div class="paralex" id="ground"></div>
+        <div class="paralex" id="backgroundClouds"></div>
+        <div class="paralex" id="backgroundBuildings"></div>
+        <div class="paralex" id="backgroundTrees"></div>
+        <div id="ScoreCounter">1</div>
+        <div id="Countdown">3</div>
+        <div id="levelUpGIF"><img src="./kepek/game/levelUp.gif"></div>
+        <div id="playerConfetti"> <img src="./kepek/game/confetti.gif" alt=""></div>
+      </section>
+
+      <section class="disabled" id="RestartMenu">
+        <div class="menu-border">
+          <div class="game-menu">
+            <h2>You Died!</h2>
+          </div>
+          <div class="buttons">
+            <div class="menu-item">
+              <span id="FinalScore">0</span>
+              <span id="addedCoins">+ <span id="coins"></span><img src="kepek/coin.png"></span>
             </div>
-            <div class="buttons">
-    
-                <div class="menu-item"><a onclick="_Start()">Start Game</a></div>
-                <div class="menu-item">
-                    <a href="settings.html">Game Settings</a>
-                </div>
-                <div class="menu-item">
-                    <a href="">Edit Character</a>
-                </div>
-                <div class="menu-item">
-                    <a href="">Leave Game</a>
-                </div>
+            <div class="menu-item">
+              <a href="" onclick="_Restart()">Restart Game</a>
             </div>
+            <div class="menu-item">
+              <a href="">Edit Character</a>
+            </div>
+            <div class="menu-item">
+              <a href="">Leave Game</a>
+            </div>
+          </div>
         </div>
-          <!-- <button id="TestButton" onclick="_Start()">Play</button> -->
-          <input type="range" onchange="_changeMainVolume(this.value)" value="1" min="0" max="1" step="0.1" name="mainVol" id="mainVol">
+      </section>
 
-        </section>
-      </div>
-    </main>
-    <!-- ///////////// MAIN ///////////// -->
-     
-    <footer>
-      <p>Jedlik 2024 - Web</p>
-    </footer>
-    <!-- ///////////// FOOTER ///////////// -->
-    <script src="scriptek/game.js"></script>
-    <script src="scriptek/CS_system.js"></script>
-  </body>
+      <section class="disabled" id="PauseMenu">
+        <div class="menu-border">
+          <div class="game-menu">
+            <h2>Game Menu</h2>
+
+          </div>
+          <div class="buttons">
+
+            <div class="menu-item"><a onclick="_Resume()">Resume Game</a></div>
+            <div class="menu-item">
+              <a href="settings.html">Game Settings</a>odfg
+            </div>
+            <div class="menu-item">
+              <a href="">Edit Character</a>
+            </div>
+            <div class="menu-item">
+              <a href="">Leave Game</a>
+            </div>
+          </div>
+      </section>
+
+      <section class="disabled" id="CosmeticMenu"></section>
+
+      <section class="active" id="StartMenu">
+        <p id="output"></p>
+        <div class="menu-border">
+          <div class="game-menu">
+            <h2>Game Menu</h2>
+
+          </div>
+          <div class="buttons">
+
+            <div class="menu-item"><a onclick="_Start()">Start Game</a></div>
+            <div class="menu-item">
+              <a href="settings.html">Game Settings</a>
+            </div>
+            <div class="menu-item">
+              <a href="">Edit Character</a>
+            </div>
+          </div>
+        </div>
+        <!-- <button id="TestButton" onclick="_Start()">Play</button> -->
+        <input type="range" onchange="_changeMainVolume(this.value)" value="1" min="0" max="1" step="0.1" name="mainVol"
+          id="mainVol">
+
+      </section>
+    </div>
+    <script>
+      window.onload = function() {
+ var storedText = localStorage.getItem("storedText");
+     if (storedText) {
+         document.getElementById("output").innerText = storedText;
+     } else {
+         document.getElementById("output").innerText = "Player";
+     }
+ }
+    </script>
+  </main>
+  <!-- ///////////// MAIN ///////////// -->
+
+  <footer>
+    <p>Jedlik 2024 - Web</p>
+  </footer>
+  <!-- ///////////// FOOTER ///////////// -->
+  <script src="scriptek/game.js"></script>
+  <script src="scriptek/CS_system.js"></script>
+</body>
+
 </html>

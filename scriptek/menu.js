@@ -34,7 +34,7 @@ const volumeValue = document.getElementById('volumeValue');
 
 volumeControl.addEventListener('input', function () {
 
-    volumeValue.textContent = volumeControl.value;
+    volumeValue.textContent = Math.floor(volumeControl.value * 100);
 });
 
 

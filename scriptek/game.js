@@ -15,7 +15,11 @@ const BACKGROUNDBUILDINGS = document.getElementById("backgroundBuildings");
 const BACKGROUNDCLOUDS = document.getElementById("backgroundClouds");
 const LEVELUPGIF = document.getElementById("levelUpGIF");
 const CONFETTI = document.getElementById("playerConfetti");
+const FinalScoreSPAN = document.getElementById("FinalScore");
+const COINSSPAN = document.getElementById("coins");
 let gameStarted = false;
+let gottenCoins = 0;
+let multi = 1;
 let MAINVOLUME = 1;
 let score = 0;
 
@@ -313,6 +317,8 @@ class Player extends Object {
             GAMECONTAINER.className = "";
             GAMECONTAINER.classList.add("active");
             GAMECONTAINER.classList.add("gameTransitionOutAnim");
+            FinalScoreSPAN.innerText = score;
+            COINSSPAN.innerText = gottenCoins;
             SCORECOUNTER.style.visibility = "hidden";
         }, 610);
     }
@@ -486,36 +492,44 @@ class PipeManager {
             case 1:
                 upper = [-350, -450];
                 dist = [500, 500];
+                multi = 1.1;
                 break;
             case 2:
                 upper = [-350, -450];
                 dist = [300, 500];
+                multi = 1.5;
                 break;
             case 3:
                 dist = [200, 300];
                 upper = [-350, -450];
+                multi = 1.7;
                 break;
             case 4:
                 upper = [-350, -450];
                 this.gap = 120;
+                multi = 2;
                 break;
             case 5:
                 if (pipe.acceleration.x != -10) this.Pipes.forEach((pipe) => {pipe.acceleration.x -= 1});
                 upper = [-350, -450];
+                multi = 2.5;
                 break;
             case 6:
                 upper = [-350, -250];
                 dist = [200, 300];
+                multi = 3;
                 if (pipe.acceleration.x != -7) this.Pipes.forEach((pipe) => {pipe.acceleration.x = -7});
                 break;
             case 7:
                 amp = 5;
                 this.gap = 75;
+                multi = 3.5;
                 break;
             case 8:
                 amp = 10;
                 upper = [-350, -450];
                 dist = [300, 500];
+                multi = 4;
                 break;
             case 9:
                 // Rotate the Pipes
@@ -530,6 +544,7 @@ class PipeManager {
             this.newY = pipe.size.y + this.newY + this.gap;
             pipe.setPosition(new Vector2(this.lastPipe.position.x+this.distBetweenPipes, this.newY == 0 ? pipe.position.y : this.newY));
         }
+        calcCoins();
         // console.log(this.newY);
         // console.log(pipe.position)
     }
@@ -583,6 +598,12 @@ function _changeMainVolume(newVal) {
 
 const startBlip = new AudioPlayer("hangok/start.wav", 0.5);
 
+function calcCoins() {
+    let coins = Math.round(score * multi);
+    gottenCoins += coins
+    window.addCoins(coins)
+}
+
 function _Resume() {
     changeActiveWindow("PlayArea");
     SCORECOUNTER.style.visibility = "visible";
@@ -604,6 +625,8 @@ function _Restart() {
 
 function _Start() {
     score = 0;
+    multi = 0;
+    gottenCoins = 0;
     _changeMainVolume(document.getElementById("mainVol").value)
     changeActiveWindow("PlayArea");
     startBlip.play();

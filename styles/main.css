@@ -15,10 +15,24 @@ header {
     height: 0%;
 }
 
+#FinalScore {
+    color: white;
+    font-size: 75px;
+}
+#addedCoins img {
+    width: 5%;
+}
+#addedCoins {
+    color: white;
+}
+
+#RestartMenu .buttons {
+    margin: 0px!important;
+}
+
 #gameContainer {
     width: 100%;
     height: 500px;
-    border: 1px solid black;
     position: relative;
     overflow: hidden;
 }

@@ -15,6 +15,7 @@ const BACKGROUNDBUILDINGS = document.getElementById("backgroundBuildings");
 const BACKGROUNDCLOUDS = document.getElementById("backgroundClouds");
 const LEVELUPGIF = document.getElementById("levelUpGIF");
 const CONFETTI = document.getElementById("playerConfetti");
+let gameStarted = false;
 let MAINVOLUME = 1;
 let score = 0;
 
@@ -348,8 +349,17 @@ class Player extends Object {
     }
 
     _input(keyboardEvent) {
+        if(!gameStarted) return;
         if(keyboardEvent.type == "keydown") {
             switch(keyboardEvent.keyCode) {
+                case 27:
+                    this.frozen = !this.frozen;
+                    if (this.frozen) {
+                        SCORECOUNTER.style.visibility = "hidden";
+                        changeActiveWindow("PauseMenu");
+                    }
+                    else _Resume();
+                    break;
                 case 32:
                     if(this.needToFall || this.isDead) return;
                     if(this.frozen) this.frozen = false;
@@ -357,6 +367,7 @@ class Player extends Object {
                     //console.log("Jumping");
                     this.x+=0.4;
                     this.isJumping = true;
+                    break;
             }
         }
         else 
@@ -367,6 +378,7 @@ class Player extends Object {
                     //console.log("NotJumping");
                     this.x=0;
                     this.isJumping = false;
+                    break;
             }
         }
         
@@ -533,6 +545,7 @@ const blipStart = new AudioPlayer("hangok/startBlip.wav", 0.3);
 let startCount;
 
 function _startCountdown() {
+    gameStarted = false;
     let currText = Number(COUNTDOWN.innerText);
     currText -= 1
     COUNTDOWN.innerText = currText;
@@ -545,6 +558,7 @@ function _startCountdown() {
         AddToScene(ROOFCOLLIDER);
         PIPEMANAGER._SpawnPipes();
         SCORECOUNTER.style.visibility = "visible";
+        gameStarted = true;
         blipStart.play();
     } else blipCountDown.play();
 }
@@ -568,6 +582,12 @@ function _changeMainVolume(newVal) {
 }
 
 const startBlip = new AudioPlayer("hangok/start.wav", 0.5);
+
+function _Resume() {
+    changeActiveWindow("PlayArea");
+    SCORECOUNTER.style.visibility = "visible";
+    GAMECONTAINER.classList.add("gameTransitionInAnim")
+}
 
 function _Restart() {
     const len = globalObjectList.length;
@@ -626,7 +646,7 @@ let paralexVec = new Vector2(0, 0);
 function _process() {
     //if(!PLAYER.isDead) console.log(`Time passed: ${(Date.now() - startTime)/1000} sec`)
     elapsedTime = Date.now() - startTime;
-    if(!PLAYER.frozen) {
+    if(!PLAYER.frozen || this.gameStarted) {
         globalObjectList.forEach((obj) => {
             if (obj instanceof Object) obj.move();
             if(obj instanceof Pipe){

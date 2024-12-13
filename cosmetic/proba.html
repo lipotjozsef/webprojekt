@@ -1,26 +1,49 @@
+
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="/styles/main.css">
-    <link rel="stylesheet" href="cosmetic.css">
+<head>
+<style>
+#div1 {
+  width: 350px;
+  height: 70px;
+  padding: 10px;
+  border: 1px solid #aaaaaa;
+}
+</style>
+<script>
+function allowDrop(ev) {
+  ev.preventDefault();
+}
+
+function drag(ev) {
+  ev.dataTransfer.setData("text", ev.target.id);
+}
+
+function drop(ev) {
+  ev.preventDefault();
+  var data = ev.dataTransfer.getData("text");
+  ev.target.appendChild(document.getElementById(data));
+}
+</script>
 </head>
 <body>
-    <style>
-        #kocka{
-            background-color: beige; 
-            padding:35px; 
-            visibility: visible;
-        }
-       
-    </style>
-    <div style="background-color: black; padding:35px; width: 10%;" onclick="megnyitas()"></div>
-    <div id="kocka"></div>
 
-<script>
 
-</script>
+    <div>
+        <div id="div1" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+
+    </div>
+<br>
+
+
+<div>
+    <img id="drag1" src="/kepek/background.png" draggable="true" ondragstart="drag(event)" width="336" height="69">
+</div>
+
 </body>
 </html>

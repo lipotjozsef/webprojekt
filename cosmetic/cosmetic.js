@@ -114,4 +114,3 @@ function vissza(){
   document.getElementById("cosmeticBase").style.visibility = "hidden";
 }
 
-

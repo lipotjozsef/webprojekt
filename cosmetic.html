@@ -51,7 +51,7 @@
             <hr style="border:1px solid black;margin-top:25px;">
           </div>
           <div style="position:relative; overflow-y: scroll; padding:10px; height:290px;">
-            <div class="row">
+            <div id="cosmeticBaseRow">
               <div class="card">
                 <div class="overlay">
                 </div>
@@ -72,7 +72,7 @@
                 <div class="price" style="right:9%;bottom:46%;"></div>
               </div>
             </div>
-            <div class="row">
+            <div id="cosmeticBaseRow">
               <div class="card">
                 <div class="overlay">
                 </div>
@@ -92,7 +92,7 @@
                 <div class="price" style="right:34px;top:94%;"></div>
               </div>
             </div>
-            <div class="row">
+            <div id="cosmeticBaseRow">
               <div class="card">
                 <div class="overlay">
                 </div>
@@ -123,15 +123,22 @@
         <section id="PlayArea">
           <div class="overlay-window" >
             <button onclick="vissza()" class="visszagomb"> < </button>
-            <img src="kepek/flappybird.png" alt="" height="100%" width="75%"   style="position:relative; left:12%; ">
+            <img src="kepek/flappybird.png" alt="" height="100%" width="75%"   style="position:relative; left:12%; top:100px; ">
+            <div style="width:100px;height:100px;border:3px dashed rgba(0, 0, 0, 0.274); position: relative; bottom:350px; margin:15px;">
+              
             </div>
+            <div style="width:100px;height:100px;border:3px dashed rgba(0, 0, 0, 0.274); position: relative; bottom:350px; margin:15px;">
+              
+            </div>
+          </div>
         </section>
           <section class="menu" id="PauseMenu"></section>
           <section class="menu" id="StartMenu"></section>
       </div>
     </div>
 
-    <div onclick="megnyitas()" style="background-color: rgb(0, 0, 0);cursor:pointer; width:fit-content; color:white; margin-top: 55px; padding:20px; border-radius:5vh; " >megnyitás</div>
+    <div onclick = "megnyitas()" style="padding:15px; background-color: gainsboro; width:20%; margin:15px;">megnyitás</div>
+
   </main>
 
   <!-- ///////////// FOOTER ///////////// -->

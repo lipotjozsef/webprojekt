@@ -10,6 +10,7 @@ function animacio()
   const Tema = document.querySelector('select[name="temajeloles"]')
   const div = document.getElementById("gomb");
   const balance = document.getElementById("balance");
+  const visszagomb = document.querySelector(".visszagomb");
 
 
   if (div.style.marginRight == "75px"){
@@ -21,21 +22,27 @@ function animacio()
 
       document.querySelector("hr").style.border = "1px solid gray";
 
-      GameCont.style.border = "4px solid gray";
+      GameCont.style.border = "4px solid black";
       keret.style.backgroundColor ="white";
       keret.style.borderBottom= "4px solid gray";
       document.getElementById("hs").style.color = "black";
 
       keret2.style.borderBottom = "4px solid gray";
       keret2.style.backgroundColor = "white";
-      CosmOpt.style.border = "4px solid gray";
-
+      CosmOpt.style.border = "4px solid black";
+      
       GombHatter.style.backgroundColor = "white";
       div.style.backgroundColor = "gray";
       Tema.style.backgroundColor= "white";
-
+      
+      Header.style.backgroundColor = "lightgreen";
       Header.style.border = "2px solid white";
       balance.style.color = "gray";
+
+      visszagomb.style.border = "2px solid gray";
+      visszagomb.style.color = "white";
+      visszagomb.style.backgroundColor = "lightgreen";
+
   }
   else {
       div.style.marginLeft = "0";
@@ -59,7 +66,12 @@ function animacio()
       Tema.style.backgroundColor= "gray";
 
       Header.style.border = "2px solid black";
+      Header.style.backgroundColor = "green";
       balance.style.color = "white";
+
+      visszagomb.style.border = "2px solid black";
+      visszagomb.style.color = "white";
+      visszagomb.style.backgroundColor = "green";
     }
 
 }
@@ -80,23 +92,25 @@ function borderRadiusChange(){
 
 
 function backgroundChange(){
-  let fileName = document.querySelector('select').value;
 
-  document.getElementById("playArea").style.backgroundImage = `url(/kepek/${fileName})`;
-  document.querySelector(".overlay-window").style.backgroundImage = `url(/kepek/${fileName})`;
+  const MegnyitottFelulet = document.querySelector(".overlay-window");
+  let fileName = document.querySelector('select').value;
+  
+    MegnyitottFelulet.style.backgroundImage = `url(/kepek/${fileName})`;
+    document.getElementById("PlayArea").style.backgroundImage = `url(/kepek/${fileName})`;  
 
 }
 
-//#cosmeticBase
-//.overflay-window
-
 function megnyitas(){
+  document.querySelector(".overlay-window").style.zIndex= 2;
+  document.getElementById("cosmeticBase").style.visibility = "visible";
+
+
 
 }
 
 function vissza(){
-  
+  document.querySelector(".overlay-window").style.zIndex = -1;
+  document.getElementById("cosmeticBase").style.visibility = "hidden";
 }
-
-
 

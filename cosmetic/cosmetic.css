@@ -105,6 +105,8 @@ button{
     justify-content:    space-evenly; 
 }
 
+
+
 select[name="temajeloles"]{
     background-color: gray;
     border:             none;
@@ -191,10 +193,11 @@ select[name="temajeloles"]{
 }
 
 #PlayArea{
-    position: relative;
+    position:           relative;
     background-image:   url(/kepek/flappybird-bg.png);
-    background-size: contain;
-    height:87%;
+    background-size:    contain;
+    height:             87%;
+    
 }
 
 #CosmeticMenu{
@@ -204,13 +207,13 @@ select[name="temajeloles"]{
     border-radius:      5vh;
     margin-right:       20px;
     background-color: lightgray;
-
 }
 
-#cosmeticBase .row{
+
+#cosmeticBaseRow{
     display:            flex;
     flex-wrap:          wrap;
-    
+
 }
 
 #cosmeticBase .card{
@@ -222,8 +225,10 @@ select[name="temajeloles"]{
     
 }
 
+
 #cosmeticBase{
     margin-bottom:      20px;
+    visibility:         hidden;
 }
 
 .overlay{
@@ -237,16 +242,15 @@ select[name="temajeloles"]{
 
 .overlay-window{
     position:           absolute;
-    width:100%;
+    width:              100%;
     background-position: bottom;
-    height: 500px;
-    background-image: url(/kepek/flappybird-bg.png);
+height:                 500px;
     background-size:    100%;
-    z-index:            2;
-    visibility: hidden;
+    z-index:            -1;
 }
 
 .visszagomb{
+    cursor:pointer;
     color:            white;
     font-size:          30px;
     font-weight:        bold;

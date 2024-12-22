@@ -1,7 +1,7 @@
 function removeBorder() {
     document.getElementById("textInput").style.border = "none";
 }
-
+console.log(window.MAINVOLUME)
 let fpsValue = 30;
 
 
@@ -30,7 +30,7 @@ function updateDisplay() {
 }
 const volumeControl = document.getElementById('volumeControl');
 const volumeValue = document.getElementById('volumeValue');
-
+volumeValue.textContent = Math.floor(volumeControl.value * 100);
 
 volumeControl.addEventListener('input', function () {
 

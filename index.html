@@ -62,7 +62,7 @@
 
             <div class="menu-item"><a onclick="_Resume()">Resume Game</a></div>
             <div class="menu-item">
-              <a href="settings.html">Game Settings</a>odfg
+              <a href="settings.html">Game Settings</a>
             </div>
             <div class="menu-item">
               <a href="">Edit Character</a>
@@ -76,7 +76,6 @@
       <section class="disabled" id="CosmeticMenu"></section>
 
       <section class="active" id="StartMenu">
-        <p id="output"></p>
         <div class="menu-border">
           <div class="game-menu">
             <h2>Game Menu</h2>
@@ -93,9 +92,6 @@
             </div>
           </div>
         </div>
-        <!-- <button id="TestButton" onclick="_Start()">Play</button> -->
-        <input type="range" onchange="_changeMainVolume(this.value)" value="1" min="0" max="1" step="0.1" name="mainVol"
-          id="mainVol">
 
       </section>
     </div>
@@ -103,9 +99,9 @@
       window.onload = function() {
  var storedText = localStorage.getItem("storedText");
      if (storedText) {
-         document.getElementById("output").innerText = storedText;
+         //document.getElementById("output").innerText = storedText;
      } else {
-         document.getElementById("output").innerText = "Player";
+         //document.getElementById("output").innerText = "Player";
      }
  }
     </script>

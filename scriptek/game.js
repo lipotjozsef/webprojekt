@@ -20,9 +20,9 @@ const COINSSPAN = document.getElementById("coins");
 let gameStarted = false;
 let gottenCoins = 0;
 let multi = 1;
-let MAINVOLUME = 1;
+const savedSettings = JSON.parse(localStorage.getItem('settings'));
+var MAINVOLUME = savedSettings.volume/100 || 1;
 let score = 0;
-
 const DEBUGMODE = false;
 
 // ---- _InitDefaultScene()-be állítjuk be őket ----
@@ -627,7 +627,7 @@ function _Start() {
     score = 0;
     multi = 0;
     gottenCoins = 0;
-    _changeMainVolume(document.getElementById("mainVol").value)
+    _changeMainVolume(savedSettings.volume)
     changeActiveWindow("PlayArea");
     startBlip.play();
     GAMECONTAINER.classList.add("gameTransitionInAnim");

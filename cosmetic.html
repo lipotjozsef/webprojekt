@@ -1,3 +1,6 @@
+<!-- TODO:flappy bird kinézet, üres kezelése, 
+ base sapka szárny kinézet, sapkát 
+ sapkás részre szárnyat szárnyas részre-->
 <!DOCTYPE html>
 <html lang="hu">
 
@@ -9,8 +12,7 @@
   <link rel="stylesheet" href="cosmetic/cosmetic.css">
 </head>
 
-<body>
-  <!-- TODO: Flappy bird kinézetek png, megnyíló ablak + közelített nézet, drag & drop -->
+<body onload="moneyAppear(),alreadybought()"> 
   <!-- ///////////// HEADER ///////////// -->
   <header id="title">
     <div class="titleDiv">
@@ -26,7 +28,8 @@
           <div class="keret2">
             <img src="kepek/kozmetikai_logo.png" alt="" width="40px" class="cosm_logo">
             <div>
-              <span id="balance">0</span>
+              <div id="balance"  style="position: static; padding-bottom:10px ; display:inline-block">
+              </div>
               <img src="kepek/coin.png" alt="" height="50px" width="55px" class="coin">
             </div>
 
@@ -53,64 +56,82 @@
           <div style="position:relative; overflow-y: scroll; padding:10px; height:290px;">
             <div id="cosmeticBaseRow">
               <div class="card">
-                <div class="overlay" style="visibility: hidden;"> 
+                <div class="overlay "  id="1" onclick="buy(1)"> 
                   <!-- !! -->
                 </div>
-                <div class="item" style="padding:25px;">
-                  <!-- onmouseenter = grabcursor() ->> megvizsgálja, hogy a rajta lévő layer átlátszó e (fel van-e oldva), draggable is -->
-                  <img src="kepek/hat1.png" alt="" width="100"  draggable="true" ondragstart="drag(event)">
+                <div class="item" style="padding:25px;" ondrop="drop(event,this)" ondragover="allowDrop(event)">
+                  <img src="kepek/hat1.png" id="hat-1" alt="" width="100"  draggable="true" ondragstart="drag(event)">
+                  <div  style="width:100px;height:100px;"></div>
                 </div>
-                <div class="price-n" style="bottom:46%;right:68%;"> 1</div>
-                <div class="price" style="right:55%;bottom:46%;"></div>
+                <div id="1">
+                  <div class="price-n" style="bottom:46%;right:68%;"> 1</div>
+                  <div class="price" style="right:55%;bottom:46%;"></div>
+                </div>
               </div>
-              <div class="card">
-                <div class="overlay">
+              <div class="card" >
+                <div class="overlay " id="12" onclick="buy(12)" >
                 </div>
-                <div class="item" style="padding-top:25px; margin:15px;">
-                  <img src="kepek/hat2.png" alt="" width="100%">
+                <div class="item" style="padding-top:25px; margin:15px;" ondrop="drop(event,this)" ondragover="allowDrop(event)">
+                  <img src="kepek/hat2.png"  draggable="true" id="hat-2" alt="" width="100%" ondragstart="drag(event)">
+                  <div  style="width:100px;height:100px;"></div>
                 </div>
-                <div class="price-n" style="bottom:46%;right:22%;"> 12</div>
-                <div class="price" style="right:9%;bottom:46%;"></div>
+                <div id="12">
+
+                  <div class="price-n" style="bottom:46%;right:22%;"> 12</div>
+                  <div class="price" style="right:9%;bottom:46%;"></div>
+                </div>
               </div>
             </div>
             <div id="cosmeticBaseRow" >
-              <div class="card">
-                <div class="overlay">
+              <div class="card " >
+                <div class="overlay " id="25" onclick="buy(25)">
                 </div>
-                <div class="item">
-                  <img src="kepek/wing1.png" alt="" width="80%" style="padding-left:15px;padding-top:10px;">
+                <div class="item" ondrop="drop(event,this)" ondragover="allowDrop(event)">
+                  <img src="kepek/wing1.png" draggable="true" ondragstart="drag(event)" alt="" id="wing-1" width="80%" style="padding-left:15px;padding-top:10px;">
+                  <div  style="width:100px;height:100px;"></div>
                 </div>
-                <div class="price-n" style="top:98%; left:90px;"> 25</div>
-                <div class="price" style="left:125px; top:94%;"></div>
+                <div id="25">
+                  <div class="price-n" style="top:98%; left:90px;"> 25</div>
+                  <div class="price" style="left:125px; top:94%;"></div>
+                </div>
               </div>
-              <div class="card">
-                <div class="overlay">
+              <div class="card"  >
+                <div class="overlay" id="50" onclick="buy(50)">
                 </div>
-                <div class="item" style="padding:25px;">
-                  <img src="kepek/wing2.png" alt="" width="100%">
+                <div class="item" style="padding:25px;" ondrop="drop(event,this)" ondragover="allowDrop(event)">
+                  <img src="kepek/wing2.png" draggable="true" ondragstart="drag(event)" id="wing-2" alt="" width="100%">
+                  <div  style="width:100px;height:100px;"></div>
                 </div>
-                <div class="price-n" style="top:98%;right:80px;"> 50</div>
-                <div class="price" style="right:34px;top:94%;"></div>
+                <div id="50">
+                  <div class="price-n" style="top:98%;right:80px;"> 50</div>
+                  <div class="price" style="right:34px;top:94%;"></div>
+                </div>
               </div>
             </div>
             <div id="cosmeticBaseRow">
               <div class="card">
-                <div class="overlay">
+                <div class="overlay" id="89" onclick="buy(89)" >
                 </div>
-                <div class="item" style="padding:25px;">
-                  <img src="kepek/wing3.png" alt="" width="100%">
+                <div class="item" style="padding:25px;" ondrop="drop(event,this)" ondragover="allowDrop(event)">
+                  <img src="kepek/wing3.png"  draggable="true" ondragstart="drag(event)" id="wing-3" alt="" width="100%">
+                  <div  style="width:100px;height:100px;"></div>
                 </div>
-                <div class="price-n" style="top:156%; left:93px;"> 89</div>
-                <div class="price" style="left:125px;top:153%;"></div>
+                <div id="89">
+                  <div class="price-n" style="top:156%; left:93px;"> 89</div>
+                  <div class="price" style="left:125px;top:153%;"></div>
+                </div>
               </div>
               <div class="card">
-                <div class="overlay">
+                <div class="overlay" id="140" onclick="buy(140)">
                 </div>
-                <div class="item" style="padding:25px;">
-                  <img src="kepek/wing4.png" alt="" width="100%">
+                <div class="item" style="padding:25px;" ondrop="drop(event,this)" ondragover="allowDrop(event)">
+                  <img src="kepek/wing4.png"  draggable="true" ondragstart="drag(event)" id="wing-4" alt="" width="100%">
+                  <div  style="width:100px;height:100px;"></div>
                 </div>
-                <div class="price-n" style="top:156%; right:80px;"> 140</div>
-                <div class="price" style="right:34px;top:153%;"></div>
+                <div id="140">
+                  <div class="price-n" style="top:156%; right:80px;"> 140</div>
+                  <div class="price" style="right:34px;top:153%;"></div>
+                </div>
               </div>
             </div>
           </div>
@@ -121,12 +142,13 @@
         <div class="keret">
           <p>HIGHSCORE - <span id="hs">0</span></p>
         </div>
-        <section id="PlayArea">
+        <section id="playArea"></section>
+        <section id="cosmeticsArea">
           <div class="overlay-window">
             <button onclick="vissza()" class="visszagomb"> < </button>
             <img src="kepek/flappybird.png" alt="" height="100%" width="75%"   style="position:relative; left:12%; top:100px; ">
             <div id="div1" ondrop="drop(event,this)" ondragover="allowDrop(event)" style="width:100px;height:100px;border:3px dashed rgba(0, 0, 0, 0.274); position: relative; bottom:350px; margin:15px;"></div>
-            <div id="div1" ondrop="drop(event,this)" ondragover="allowDrop(event)" style="width:100px;height:100px;border:3px dashed rgba(0, 0, 0, 0.274); position: relative; bottom:350px; margin:15px;"></div>
+            <div id="div2" ondrop="drop(event,this)" ondragover="allowDrop(event)" style="width:100px;height:100px;border:3px dashed rgba(0, 0, 0, 0.274); position: relative; bottom:350px; margin:15px;"></div>
           </div>
         </section>
           <section class="menu" id="PauseMenu"></section>
@@ -152,15 +174,14 @@
       
     }
 
-    function drop(ev,this) {
+    function drop(ev) {
       ev.preventDefault();
       var data = ev.dataTransfer.getData("text");
       ev.target.appendChild(document.getElementById(data));
-
-     this.innerHTML += $``; 
-
     }
+
   </script>
+  <script src="scriptek/CS_system_kiegeszites.js"></script>
   <script src="scriptek/game.js"></script>
   <script src="cosmetic/cosmetic.js"></script>
 </body>

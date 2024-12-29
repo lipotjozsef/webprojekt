@@ -1,6 +1,6 @@
 <!-- TODO:flappy bird kinézet, üres kezelése, 
  base sapka szárny kinézet, sapkát 
- sapkás részre szárnyat szárnyas részre-->
+ sapkás részre szárnyat szárnyas részre, ne lehessen többet egyhelyre-->
 <!DOCTYPE html>
 <html lang="hu">
 
@@ -59,9 +59,8 @@
                 <div class="overlay "  id="1" onclick="buy(1)"> 
                   <!-- !! -->
                 </div>
-                <div class="item" style="padding:25px;" ondrop="drop(event,this)" ondragover="allowDrop(event)">
-                  <img src="kepek/hat1.png" id="hat-1" alt="" width="100"  draggable="true" ondragstart="drag(event)">
-                  <div  style="width:100px;height:100px;"></div>
+                <div class="item" style="width:100px;height:100px;padding:25px;" ondrop="drop(event,this.id)" id="item1" ondragover="allowDrop(event)">
+                  <img src="kepek/hat1.png" id="hat-1" alt="" width="100"  draggable="true" ondragstart="drag(event, this.id)">
                 </div>
                 <div id="1">
                   <div class="price-n" style="bottom:46%;right:68%;"> 1</div>
@@ -71,9 +70,8 @@
               <div class="card" >
                 <div class="overlay " id="12" onclick="buy(12)" >
                 </div>
-                <div class="item" style="padding-top:25px; margin:15px;" ondrop="drop(event,this)" ondragover="allowDrop(event)">
-                  <img src="kepek/hat2.png"  draggable="true" id="hat-2" alt="" width="100%" ondragstart="drag(event)">
-                  <div  style="width:100px;height:100px;"></div>
+                <div class="item" style="padding-top:25px; margin:15px; width:100px;height:100px;" ondrop="drop(event,this.id)" id="item2" ondragover="allowDrop(event)">
+                  <img src="kepek/hat2.png"  draggable="true" id="hat-2" alt="" width="100%" ondragstart="drag(event, this.id)">
                 </div>
                 <div id="12">
 
@@ -86,9 +84,8 @@
               <div class="card " >
                 <div class="overlay " id="25" onclick="buy(25)">
                 </div>
-                <div class="item" ondrop="drop(event,this)" ondragover="allowDrop(event)">
-                  <img src="kepek/wing1.png" draggable="true" ondragstart="drag(event)" alt="" id="wing-1" width="80%" style="padding-left:15px;padding-top:10px;">
-                  <div  style="width:100px;height:100px;"></div>
+                <div class="item" ondrop="drop(event,this.id)" id="item3"  ondragover="allowDrop(event)" style="width:100px;height:100px;">
+                  <img src="kepek/wing1.png" draggable="true" ondragstart="drag(event,this.id)" alt="" id="wing-3" width="80%" style="padding-left:15px;padding-top:10px;">
                 </div>
                 <div id="25">
                   <div class="price-n" style="top:98%; left:90px;"> 25</div>
@@ -98,9 +95,8 @@
               <div class="card"  >
                 <div class="overlay" id="50" onclick="buy(50)">
                 </div>
-                <div class="item" style="padding:25px;" ondrop="drop(event,this)" ondragover="allowDrop(event)">
-                  <img src="kepek/wing2.png" draggable="true" ondragstart="drag(event)" id="wing-2" alt="" width="100%">
-                  <div  style="width:100px;height:100px;"></div>
+                <div class="item" style="padding:25px;width:100px;height:100px;" id="item4"  ondrop="drop(event,this.id)" ondragover="allowDrop(event)">
+                  <img src="kepek/wing2.png" draggable="true" ondragstart="drag(event,this.id)" id="wing-4" alt="" width="100%">
                 </div>
                 <div id="50">
                   <div class="price-n" style="top:98%;right:80px;"> 50</div>
@@ -112,9 +108,8 @@
               <div class="card">
                 <div class="overlay" id="89" onclick="buy(89)" >
                 </div>
-                <div class="item" style="padding:25px;" ondrop="drop(event,this)" ondragover="allowDrop(event)">
-                  <img src="kepek/wing3.png"  draggable="true" ondragstart="drag(event)" id="wing-3" alt="" width="100%">
-                  <div  style="width:100px;height:100px;"></div>
+                <div class="item" style="padding:25px;width:100px;height:100px;" id="item5"  ondrop="drop(event,this.id)" ondragover="allowDrop(event)">
+                  <img src="kepek/wing3.png"  draggable="true" ondragstart="drag(event,this.id)" id="wing-5" alt="" width="100%">
                 </div>
                 <div id="89">
                   <div class="price-n" style="top:156%; left:93px;"> 89</div>
@@ -124,9 +119,8 @@
               <div class="card">
                 <div class="overlay" id="140" onclick="buy(140)">
                 </div>
-                <div class="item" style="padding:25px;" ondrop="drop(event,this)" ondragover="allowDrop(event)">
-                  <img src="kepek/wing4.png"  draggable="true" ondragstart="drag(event)" id="wing-4" alt="" width="100%">
-                  <div  style="width:100px;height:100px;"></div>
+                <div class="item" style="padding:25px;width:100px;height:100px;" id="item6"  ondrop="drop(event,this.id)" ondragover="allowDrop(event)">
+                  <img src="kepek/wing4.png"  draggable="true" ondragstart="drag(event, this.id)" id="wing-6" alt="" width="100%">
                 </div>
                 <div id="140">
                   <div class="price-n" style="top:156%; right:80px;"> 140</div>
@@ -147,8 +141,8 @@
           <div class="overlay-window">
             <button onclick="vissza()" class="visszagomb"> < </button>
             <img src="kepek/flappybird.png" alt="" height="100%" width="75%"   style="position:relative; left:12%; top:100px; ">
-            <div id="div1" ondrop="drop(event,this)" ondragover="allowDrop(event)" style="width:100px;height:100px;border:3px dashed rgba(0, 0, 0, 0.274); position: relative; bottom:350px; margin:15px;"></div>
-            <div id="div2" ondrop="drop(event,this)" ondragover="allowDrop(event)" style="width:100px;height:100px;border:3px dashed rgba(0, 0, 0, 0.274); position: relative; bottom:350px; margin:15px;"></div>
+            <div id="div1" ondrop="drop(event, this.id)" ondragover="allowDrop(event)" style="width:100px;height:100px;border:3px dashed rgba(0, 0, 0, 0.274); position: relative; bottom:350px; margin:15px;"></div>
+            <div id="div2" ondrop="drop(event, this.id)" ondragover="allowDrop(event)" style="width:100px;height:100px;border:3px dashed rgba(0, 0, 0, 0.274); position: relative; bottom:350px; margin:15px;"></div>
           </div>
         </section>
           <section class="menu" id="PauseMenu"></section>
@@ -164,23 +158,50 @@
   <footer>
     <p>Jedlik 2024 - Web</p>
   </footer>
-  <script>
-        function allowDrop(ev) {
-      ev.preventDefault();
-    }
+<script>
+  function allowDrop(ev) {
+    ev.preventDefault();
+  }
 
-    function drag(ev) {
-      ev.dataTransfer.setData("text", ev.target.id);
+  function drag(ev, id) {
+    ev.dataTransfer.setData("text", ev.target.id);
+ 
+  }
+
+
+  function drop(ev, id) {
+    let elementCount = document.getElementById(id).childNodes.length;
+    var data = ev.dataTransfer.getData("text");
+
+    if ((elementCount == 0 && (id == "div1" || id == "div2")))
+      {
+        
+        if (id == "div1" && data.includes("hat")){
+          ev.preventDefault();
+          ev.target.appendChild(document.getElementById(data));
+          
+        }
+        else if (id == "div2" && data.includes("wing")){
+          ev.preventDefault();
+          ev.target.appendChild(document.getElementById(data));
+          
+        }
+      }
+      /// ha az id utolsó karaktere benne van a datában 
+      let index = id.length - 1;
+      let lastChar = id.charAt(index);
+      
+      let index2 = data.length - 1;
+      let lastChar2 = data.charAt(index2);
+      if (id != "div1" && (id != "div2") && (lastChar == lastChar2)){
+        ev.preventDefault();
+        ev.target.appendChild(document.getElementById(data));
+        
+      }
+      console.log(ev.target.childNodes.length);
       
     }
-
-    function drop(ev) {
-      ev.preventDefault();
-      var data = ev.dataTransfer.getData("text");
-      ev.target.appendChild(document.getElementById(data));
-    }
-
-  </script>
+</script>
   <script src="scriptek/CS_system_kiegeszites.js"></script>
   <script src="scriptek/game.js"></script>
   <script src="cosmetic/cosmetic.js"></script>

@@ -80,17 +80,22 @@ function subCoins(amount) {
 
 
 /////
-
-
+addCoins(1);
 function moneyAppear(){
     const div = document.getElementById('balance');
     globalCoinCount = getCookie("coinCount")
     div.innerText = globalCoinCount; 
     
 }
-
-
 let boughtlist = [];
+let string_of_id = "0";
+
+if(getCookie("BoughtItems") != "") {
+    string_of_id = getCookie("BoughtItems");
+} else {
+    setCookie("BoughtItems", 0);
+}
+
 
 function buy(value){
     let globalCoin = getCookie("coinCount");
@@ -98,27 +103,26 @@ function buy(value){
         alert("Nem elegendő pénzösszeg!");
     }
     if (globalCoin >= Number(value)){
-        document.querySelectorAll(`[id='${value}']`).style.visibility = "hidden";
+        let azonositok =  document.querySelectorAll(`[id='${value}']`);
+        for (let j = 0; j < azonositok.length; j++){
+            azonositok[j].style.visibility = "hidden";
+        }
         subCoins(Number(value));
         console.log("Money deducted!");
 
         boughtlist.push(value);
         saveBoughtItems(boughtlist);
-
-    
+        
     }
 }
 
 function saveBoughtItems(lista) {
-    let string_of_id = "";
     if (lista.length != 0){
         for(let i = 0; i < lista.length; i++){
-            if (i == lista.length - 1 ){
-                string_of_id += JSON.stringify(lista[i]);
+            if (string_of_id.length == 1){
+                string_of_id += "-";
             }
-            else{
-                string_of_id += JSON.stringify(lista[i]) + ";";
-                }
+            string_of_id += (`${JSON.stringify(lista[i])}-`);
         }
     }
     setCookie("BoughtItems", string_of_id);
@@ -127,8 +131,8 @@ function saveBoughtItems(lista) {
 
 
 function alreadybought(){
-    let string_of_id = getCookie("BoughtItems");
-    let data = string_of_id.split(";");
+    string_of_id = getCookie("BoughtItems");
+    let data = string_of_id.split("-");
     for (let i = 0; i < data.length; i++){
         var azonositok = document.querySelectorAll(`[id='${data[i]}']`);
        for (let j = 0; j < azonositok.length;j++){

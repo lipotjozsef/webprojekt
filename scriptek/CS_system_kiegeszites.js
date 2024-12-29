@@ -80,7 +80,6 @@ function subCoins(amount) {
 
 
 /////
-addCoins(1);
 function moneyAppear(){
     const div = document.getElementById('balance');
     globalCoinCount = getCookie("coinCount")

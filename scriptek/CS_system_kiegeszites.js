@@ -95,7 +95,6 @@ if(getCookie("BoughtItems") != "") {
     setCookie("BoughtItems", 0);
 }
 
-
 function buy(value){
     let globalCoin = getCookie("coinCount");
     if (globalCoin < Number(value)){

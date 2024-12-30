@@ -59,7 +59,7 @@
                 <div class="overlay "  id="1" onclick="buy(1)"> 
                   <!-- !! -->
                 </div>
-                <div class="item" style="width:100px;height:100px;padding:25px;" ondrop="drop(event,this.id)" id="item1" ondragover="allowDrop(event)">
+                <div class="item" style="width:100px;height:100px;padding:25px;" ondrop="drop(event,this.id),kinezet()" id="item1" ondragover="allowDrop(event)">
                   <img src="kepek/hat1.png" id="hat-1" alt="" width="100"  draggable="true" ondragstart="drag(event, this.id)">
                 </div>
                 <div id="1">
@@ -70,7 +70,7 @@
               <div class="card" >
                 <div class="overlay " id="12" onclick="buy(12)" >
                 </div>
-                <div class="item" style="padding-top:25px; margin:15px; width:100px;height:100px;" ondrop="drop(event,this.id)" id="item2" ondragover="allowDrop(event)">
+                <div class="item" style="padding-top:25px; margin:15px; width:100px;height:100px;" ondrop="drop(event,this.id),kinezet()" id="item2" ondragover="allowDrop(event)">
                   <img src="kepek/hat2.png"  draggable="true" id="hat-2" alt="" width="100%" ondragstart="drag(event, this.id)">
                 </div>
                 <div id="12">
@@ -84,8 +84,8 @@
               <div class="card " >
                 <div class="overlay " id="25" onclick="buy(25)">
                 </div>
-                <div class="item" ondrop="drop(event,this.id)" id="item3"  ondragover="allowDrop(event)" style="width:100px;height:100px;">
-                  <img src="kepek/wing1.png" draggable="true" ondragstart="drag(event,this.id)" alt="" id="wing-3" width="80%" style="padding-left:15px;padding-top:10px;">
+                <div class="item" ondrop="drop(event,this.id),kinezet()" id="item3"  ondragover="allowDrop(event)" style="width:100px;height:100px;">
+                  <img src="kepek/wing1.png" draggable="true" ondragstart="drag(event,this.id)" alt="" id="wing-3" width="105%" style="padding-left:25px;padding-top:15px;">
                 </div>
                 <div id="25">
                   <div class="price-n" style="top:98%; left:90px;"> 25</div>
@@ -95,7 +95,7 @@
               <div class="card"  >
                 <div class="overlay" id="50" onclick="buy(50)">
                 </div>
-                <div class="item" style="padding:25px;width:100px;height:100px;" id="item4"  ondrop="drop(event,this.id)" ondragover="allowDrop(event)">
+                <div class="item" style="padding:25px;width:100px;height:100px;" id="item4"  ondrop="drop(event,this.id),kinezet()" ondragover="allowDrop(event)">
                   <img src="kepek/wing2.png" draggable="true" ondragstart="drag(event,this.id)" id="wing-4" alt="" width="100%">
                 </div>
                 <div id="50">
@@ -108,7 +108,7 @@
               <div class="card">
                 <div class="overlay" id="89" onclick="buy(89)" >
                 </div>
-                <div class="item" style="padding:25px;width:100px;height:100px;" id="item5"  ondrop="drop(event,this.id)" ondragover="allowDrop(event)">
+                <div class="item" style="padding:25px;width:100px;height:100px;" id="item5"  ondrop="drop(event,this.id),kinezet()" ondragover="allowDrop(event)">
                   <img src="kepek/wing3.png"  draggable="true" ondragstart="drag(event,this.id)" id="wing-5" alt="" width="100%">
                 </div>
                 <div id="89">
@@ -119,7 +119,7 @@
               <div class="card">
                 <div class="overlay" id="140" onclick="buy(140)">
                 </div>
-                <div class="item" style="padding:25px;width:100px;height:100px;" id="item6"  ondrop="drop(event,this.id)" ondragover="allowDrop(event)">
+                <div class="item" style="padding:25px;width:100px;height:100px;" id="item6"  ondrop="drop(event,this.id),kinezet()" ondragover="allowDrop(event)">
                   <img src="kepek/wing4.png"  draggable="true" ondragstart="drag(event, this.id)" id="wing-6" alt="" width="100%">
                 </div>
                 <div id="140">
@@ -140,9 +140,9 @@
         <section id="cosmeticsArea">
           <div class="overlay-window">
             <button onclick="vissza()" class="visszagomb"> < </button>
-            <img src="kepek/flappybird.png" alt="" height="100%" width="75%"   style="position:relative; left:12%; top:100px; ">
-            <div id="div1" ondrop="drop(event, this.id)" ondragover="allowDrop(event)" style="width:100px;height:100px;border:3px dashed rgba(0, 0, 0, 0.274); position: relative; bottom:350px; margin:15px;"></div>
-            <div id="div2" ondrop="drop(event, this.id)" ondragover="allowDrop(event)" style="width:100px;height:100px;border:3px dashed rgba(0, 0, 0, 0.274); position: relative; bottom:350px; margin:15px;"></div>
+            <img src="kepek/flappybird.png" alt="" height="100%" width="35%"    style="position:relative; left:30%; top:40px;" id="bird-skin">
+            <div id="div1" ondrop="drop(event, this.id), kinezet()" ondragover="allowDrop(event)" style="width:100px;height:100px;border:3px dashed rgba(0, 0, 0, 0.274); position: relative; bottom:350px; margin:15px;"></div>
+            <div id="div2" ondrop="drop(event, this.id), kinezet()" ondragover="allowDrop(event)" style="width:100px;height:100px;border:3px dashed rgba(0, 0, 0, 0.274); position: relative; bottom:350px; margin:15px;"></div>
           </div>
         </section>
           <section class="menu" id="PauseMenu"></section>
@@ -200,6 +200,40 @@
       }
       console.log(ev.target.childNodes.length);
       
+    }
+    function kinezet(){
+      const div1 = document.getElementById("div1");
+      const div2 = document.getElementById("div2");
+      const div1Nodes = div1.childNodes.length;
+      const div2Nodes = div2.childNodes.length;
+
+      console.log(div1Nodes);
+      let bird = document.getElementById("bird-skin");
+      if (div1Nodes == 0 && div2Nodes == 0){
+        bird.src = "kepek/flappybird.png";
+      }
+      if(div1Nodes == 0 && div2Nodes != 0){
+        let id1 = "_";
+        let id2 = div2.getElementsByTagName("img")[0].id;
+        
+        let kepSrc = "kepek/" + id1 + id2 + ".png" ;
+        bird.src = kepSrc;
+      }
+      if (div1Nodes != 0 && div2Nodes == 0){
+        let id2 = "_";
+        let id1 = div1.getElementsByTagName("img")[0].id;
+        
+        let kepSrc = "kepek/" + id1 + id2 + ".png" ;
+        bird.src = kepSrc;
+      }
+      if (div1Nodes != 0 && div2Nodes != 0){
+        let id1 = div1.getElementsByTagName("img")[0].id;
+        let id2 = div2.getElementsByTagName("img")[0].id;
+
+        let kepSrc = "kepek/" + id1 + id2 + ".png" ;
+        bird.src = kepSrc;
+      }
+
     }
 </script>
   <script src="scriptek/CS_system_kiegeszites.js"></script>

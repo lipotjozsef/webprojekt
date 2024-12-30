@@ -17,7 +17,7 @@ function animacio()
       div.style.marginLeft = "75px";
       div.style.marginRight = "0";
 
-      document.querySelector('label[for="gomb"]').innerText = "világosmód";
+      document.querySelector('label[for="gomb"]').innerText = "világos mód";
       document.querySelector('label[for="gomb"]').style.marginLeft = "-30px";
 
       document.querySelector("hr").style.border = "1px solid gray";
@@ -48,7 +48,7 @@ function animacio()
       div.style.marginLeft = "0";
       div.style.marginRight = "75px";
 
-      document.querySelector('label[for="gomb"]').innerText = "sötétmód";
+      document.querySelector('label[for="gomb"]').innerText = "sötét mód";
       document.querySelector('label[for="gomb"]').style.marginLeft = "0";
 
       document.querySelector("hr").style.border = "1px solid black";
@@ -114,3 +114,79 @@ function vissza(){
   document.getElementById("cosmeticBase").style.visibility = "hidden";
 }
 
+function allowDrop(ev) {
+  ev.preventDefault();
+}
+
+function drag(ev, id) {
+  ev.dataTransfer.setData("text", ev.target.id);
+
+}
+
+
+function drop(ev, id) {
+  let elementCount = document.getElementById(id).childNodes.length;
+  var data = ev.dataTransfer.getData("text");
+
+  if ((elementCount == 0 && (id == "div1" || id == "div2")))
+    {
+      
+      if (id == "div1" && data.includes("hat")){
+        ev.preventDefault();
+        ev.target.appendChild(document.getElementById(data));
+        
+      }
+      else if (id == "div2" && data.includes("wing")){
+        ev.preventDefault();
+        ev.target.appendChild(document.getElementById(data));
+        
+      }
+    }
+    /// ha az id utolsó karaktere benne van a datában 
+    let index = id.length - 1;
+    let lastChar = id.charAt(index);
+    
+    let index2 = data.length - 1;
+    let lastChar2 = data.charAt(index2);
+    if (id != "div1" && (id != "div2") && (lastChar == lastChar2)){
+      ev.preventDefault();
+      ev.target.appendChild(document.getElementById(data));
+      
+    }
+    console.log(ev.target.childNodes.length);
+    
+  }
+  function kinezet(){
+    const div1 = document.getElementById("div1");
+    const div2 = document.getElementById("div2");
+    const div1Nodes = div1.childNodes.length;
+    const div2Nodes = div2.childNodes.length;
+
+    console.log(div1Nodes);
+    let bird = document.getElementById("bird-skin");
+    if (div1Nodes == 0 && div2Nodes == 0){
+      bird.src = "kepek/flappybird.png";
+    }
+    if(div1Nodes == 0 && div2Nodes != 0){
+      let id1 = "_";
+      let id2 = div2.getElementsByTagName("img")[0].id;
+      
+      let kepSrc = "kepek/" + id1 + id2 + ".png" ;
+      bird.src = kepSrc;
+    }
+    if (div1Nodes != 0 && div2Nodes == 0){
+      let id2 = "_";
+      let id1 = div1.getElementsByTagName("img")[0].id;
+      
+      let kepSrc = "kepek/" + id1 + id2 + ".png" ;
+      bird.src = kepSrc;
+    }
+    if (div1Nodes != 0 && div2Nodes != 0){
+      let id1 = div1.getElementsByTagName("img")[0].id;
+      let id2 = div2.getElementsByTagName("img")[0].id;
+
+      let kepSrc = "kepek/" + id1 + id2 + ".png" ;
+      bird.src = kepSrc;
+    }
+
+  }

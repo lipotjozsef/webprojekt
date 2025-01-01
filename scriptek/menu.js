@@ -112,6 +112,6 @@ window.onload = function () {
         document.getElementById('fps').textContent = savedSettings.fps || '30';
         document.getElementById('priority').value = savedSettings.quality || 'low';
         document.getElementById('volumeControl').value = savedSettings.volume || '50';
-        document.getElementById('volumeValue').textContent = savedSettings.volume || '50';
+        document.getElementById('volumeValue').textContent = Math.floor(savedSettings.volume * 100) || '50';
     }
 };

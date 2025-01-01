@@ -5,14 +5,18 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Flappy Bird</title>
+  <link rel="stylesheet" href="cosmetic/cosmetic.css">
   <link rel="stylesheet" href="styles/main.css" />
   <link rel="shortcut icon" href="../kepek/flappybirdICO.ico" type="image/x-icon">
   <link rel="stylesheet" href="styles/menu.css">
+  
 </head>
 
 <body>
   <header id="title">
-    <h1>Flappy Bird</h1>
+    <div class="titleDiv">
+      <img src="kepek/title.png" alt="">
+    </div>
   </header>
   <!-- ///////////// HEADER ///////////// -->
 
@@ -27,6 +31,7 @@
         <div id="Countdown">3</div>
         <div id="levelUpGIF"><img src="./kepek/game/levelUp.gif"></div>
         <div id="playerConfetti"> <img src="./kepek/game/confetti.gif" alt=""></div>
+        <span id="playerNameTag">PLAYER</span>
       </section>
 
       <section class="disabled" id="RestartMenu">
@@ -40,10 +45,10 @@
               <span id="addedCoins">+ <span id="coins"></span><img src="kepek/coin.png"></span>
             </div>
             <div class="menu-item">
-              <a href="" onclick="_Restart()">Restart Game</a>
+              <a href="javascript:void(0);" onclick="_Restart()">Restart Game</a>
             </div>
             <div class="menu-item">
-              <a href="">Edit Character</a>
+              <a href="cosmetic.html">Edit Character</a>
             </div>
             <div class="menu-item">
               <a href="">Leave Game</a>
@@ -65,7 +70,7 @@
               <a href="settings.html">Game Settings</a>
             </div>
             <div class="menu-item">
-              <a href="">Edit Character</a>
+              <a href="cosmetic.html">Edit Character</a>
             </div>
             <div class="menu-item">
               <a href="">Leave Game</a>
@@ -88,7 +93,7 @@
               <a href="settings.html">Game Settings</a>
             </div>
             <div class="menu-item">
-              <a href="">Edit Character</a>
+              <a href="cosmetic.html">Edit Character</a>
             </div>
           </div>
         </div>

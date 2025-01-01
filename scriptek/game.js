@@ -584,8 +584,7 @@ function _startCountdown() {
 const BACKGROUNDMUSIC = new AudioPlayer("hangok/royal_days.mp3", 0.2, true);
 const MAINMENUMUSIC = new AudioPlayer("hangok/phantom.mp3", 0, true);
 const RESTARTMENUMUSIC = new AudioPlayer("hangok/days_off.mp3", 0.2, true);
-//if (GAMECONTAINER != null) MAINMENUMUSIC.play();
-if(confirm("Főmenü zenejét szeretné lejátszani?")) {
+if(confirm("Főmenü zenejét szeretné lejátszani?") && GAMECONTAINER != null) {
     MAINMENUMUSIC.play()
     MAINMENUMUSIC.setVolume(0.1)
 }

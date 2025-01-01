@@ -408,7 +408,7 @@ const pipeIMAGE = new SpriteImage("kepek/game/pipe.png");
 
 class PipeManager {
     constructor(startPos = 0, pipesCount = 0, scoreCounter = new Collider()) {
-        this.difficulty = 7;
+        this.difficulty = 1;
         this.distBetweenPipes = 500;
         this.audioPlayer = new AudioPlayer("hangok/score.mp3", 0.5);
         this.activePipeIndx = 0;
@@ -585,8 +585,10 @@ const BACKGROUNDMUSIC = new AudioPlayer("hangok/royal_days.mp3", 0.2, true);
 const MAINMENUMUSIC = new AudioPlayer("hangok/phantom.mp3", 0, true);
 const RESTARTMENUMUSIC = new AudioPlayer("hangok/days_off.mp3", 0.2, true);
 if(confirm("Főmenü zenejét szeretné lejátszani?") && GAMECONTAINER != null) {
-    MAINMENUMUSIC.play()
-    MAINMENUMUSIC.setVolume(0.1)
+    setTimeout(() => {
+        MAINMENUMUSIC.play()
+        MAINMENUMUSIC.setVolume(0.1)
+    }, 1000);
 }
 let maxVol = BACKGROUNDMUSIC.settedVolume;
 let faderFunc;

@@ -100,14 +100,13 @@ header {
     opacity: 0.8;
     height: 100px;
     background-image: url("../kepek/game/trees.png");
-    
 }
 
 #backgroundBuildings {
     top: 65%;
     height: 100px;
     background-image: url("../kepek/game/buildings.png");
-    background-size: 80% 120%;
+    background-size: 60% 120%;
 }
 
 #backgroundClouds {

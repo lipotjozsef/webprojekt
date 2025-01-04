@@ -80,10 +80,17 @@ function subCoins(amount) {
 
 
 /////
+addCoins(12);
 function moneyAppear(){
     const div = document.getElementById('balance');
     globalCoinCount = getCookie("coinCount")
     div.innerText = globalCoinCount; 
+    
+}
+function highscoreAppear(){
+    const div = document.getElementById('hs');
+    globalHighscore = getCookie("savedHighscore");
+    div.innerText = globalHighscore; 
     
 }
 let boughtlist = [];

@@ -1,3 +1,27 @@
+function setCookie(cname, cvalue, exdays = 1000) {
+  const d = new Date();
+  d.setTime(d.getTime() + (exdays*24*60*60*1000));
+  let expires = "expires="+ d.toUTCString();
+  document.cookie = cname + "=" + cvalue + ";" + expires + "SameSite=None; Secure" + ";path=/";
+}
+
+function getCookie(cname) {
+  let name = cname + "=";
+  let decodedCookie = decodeURIComponent(document.cookie);
+  let ca = decodedCookie.split(';');
+  for(let i = 0; i <ca.length; i++) {
+      let c = ca[i];
+      while (c.charAt(0) == ' ') {
+          c = c.substring(1);
+      }
+      if (c.indexOf(name) == 0) {
+          return c.substring(name.length, c.length);
+      }
+  }
+  return "";
+}
+
+
 function animacio()
 {
 // if (document.getElementById("cosmeticBase").style.visibility != "hidden"){
@@ -109,10 +133,7 @@ function megnyitas(){
 
 }
 
-function vissza(){
-  document.querySelector(".overlay-window").style.zIndex = -1;
-  document.getElementById("cosmeticBase").style.visibility = "hidden";
-}
+
 
 function allowDrop(ev) {
   ev.preventDefault();
@@ -166,6 +187,7 @@ function drop(ev, id) {
     let bird = document.getElementById("bird-skin");
     if (div1Nodes == 0 && div2Nodes == 0){
       bird.src = "kepek/flappybird.png";
+      setCookie("flappybird","kepek/flappybird.png");
     }
     if(div1Nodes == 0 && div2Nodes != 0){
       let id1 = "_";
@@ -173,6 +195,7 @@ function drop(ev, id) {
       
       let kepSrc = "kepek/" + id1 + id2 + ".png" ;
       bird.src = kepSrc;
+      setCookie("flappybird",kepSrc);
     }
     if (div1Nodes != 0 && div2Nodes == 0){
       let id2 = "_";
@@ -180,6 +203,7 @@ function drop(ev, id) {
       
       let kepSrc = "kepek/" + id1 + id2 + ".png" ;
       bird.src = kepSrc;
+      setCookie("flappybird",kepSrc);
     }
     if (div1Nodes != 0 && div2Nodes != 0){
       let id1 = div1.getElementsByTagName("img")[0].id;
@@ -187,6 +211,8 @@ function drop(ev, id) {
 
       let kepSrc = "kepek/" + id1 + id2 + ".png" ;
       bird.src = kepSrc;
+      setCookie("flappybird",kepSrc);
     }
+
 
   }

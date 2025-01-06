@@ -8,11 +8,12 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Flappy Bird</title>
+  <link rel="shortcut icon" href="kepek/flappybirdICO.ico" type="image/x-icon">
   <link rel="stylesheet" href="styles/main.css" />
   <link rel="stylesheet" href="cosmetic/cosmetic.css">
 </head>
 
-<body onload="moneyAppear(),highscoreAppear(),alreadybought(),megnyitas()"> 
+<body onload="moneyAppear(),highscoreAppear(),alreadybought(),megnyitas(),background()"> 
   <!-- ///////////// HEADER ///////////// -->
   <header id="title">
     <div class="titleDiv">
@@ -44,7 +45,7 @@
             <div>
 
               <label for="tema">téma</label>
-              <select name="temajeloles" id="" oninput="backgroundChange()" onclick="borderRadiusChange()" >
+              <select name="temajeloles" id="select-bg" oninput="backgroundChange()" onclick="borderRadiusChange()" >
                 <option value="flappybird-bg.png" >Klasszikus</option>
                 <option value="flappybird-bg2.png">CandyLand</option>
                 <option value="flappybird-bg3.png">Sunset</option>

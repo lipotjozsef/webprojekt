@@ -120,8 +120,30 @@ function backgroundChange(){
   const MegnyitottFelulet = document.querySelector(".overlay-window");
   let fileName = document.querySelector('select').value;
   
-    MegnyitottFelulet.style.backgroundImage = `url(/kepek/${fileName})`;
-    document.getElementById("PlayArea").style.backgroundImage = `url(/kepek/${fileName})`;  
+  let src = `url(/kepek/${fileName})`;
+    MegnyitottFelulet.style.backgroundImage = src;
+
+  setCookie("background",fileName); 
+
+}
+
+function background(){
+    if(getCookie("background") != "") {
+      src = `url(/kepek/${getCookie("background")})`;
+      const MegnyitottFelulet = document.querySelector(".overlay-window");
+      MegnyitottFelulet.style.backgroundImage = src;
+  
+      let options = document.getElementById("select-bg").options;
+      for (let i = 0; i < options.length; i++){
+        if (`url(/kepek/${options[i].value})` == src )
+        {
+          options[i].selected = 'selected';
+        }
+      }
+      console.log("Background loaded");
+  
+    } else {setCookie("background", 0); }
+
 
 }
 

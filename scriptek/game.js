@@ -18,6 +18,8 @@ const CONFETTI = document.getElementById("playerConfetti");
 const FinalScoreSPAN = document.getElementById("FinalScore");
 const COINSSPAN = document.getElementById("coins");
 const savedSettings = JSON.parse(localStorage.getItem('settings')) || [];
+
+
 var MAINVOLUME = savedSettings.volume || 1;
 
 let startTime = Date.now();
@@ -372,11 +374,13 @@ class Player extends Object {
     }
 
     _input(keyboardEvent) {
-        if(!gameStarted) return;
+        if(!gameStarted || this.isDead) return;
         if(keyboardEvent.type == "keydown") {
             switch(keyboardEvent.keyCode) {
                 case 27:
-                    this.frozen = !this.frozen;
+                    if(GAMECONTAINER.classList.contains("active")) this.frozen = true;
+                    else this.frozen = false;
+                    
                     if (this.frozen) {
                         SCORECOUNTER.style.visibility = "hidden";
                         this.paused = true;
@@ -549,7 +553,7 @@ class PipeManager {
                 if (pipe.acceleration.x != -12) this.Pipes.forEach((pipe) => {pipe.acceleration.x = -12});
                 break;
         }
-        console.log(this.difficulty);
+        //console.log(this.difficulty);
         if (checkString == "upper") {
             if (dist[0] != null) this.distBetweenPipes = rand_int_range(dist[0], dist[1]);
             this.newY = rand_int_range(upper[0], upper[1]);
@@ -568,7 +572,7 @@ class PipeManager {
 
 // GAME CONSTS -----------------------------------------------------------
 
-const birdIMAGE = new SpriteImage("kepek/game/bird.png");
+let birdIMAGE;
 const pipeIMAGE = new SpriteImage("kepek/game/pipe.png");
 
 const BACKGROUNDMUSIC = new AudioPlayer("hangok/royal_days.mp3", 0.2, true);
@@ -619,11 +623,39 @@ function _Restart() {
     _Start();
 }
 
+function _InitBackgroundImages() {
+    let cBackground = Number(window.getCookie("background").replace("flappybird-bg", '')[0]) || 1;
+    switch(cBackground) {
+        case 1:
+            GAMECONTAINER.style.backgroundColor = "#70c5cd"; // SET BACKGROUND COLOR
+            GROUNDTILE.style.backgroundImage = "url(../kepek/game/ground.png)"; // SET GROUND IMAGE
+            BACKGROUNDTREES.style.backgroundImage = "url(../kepek/game/trees.png)"; // SET TREES IMAGE
+            BACKGROUNDBUILDINGS.style.backgroundImage = "url(../kepek/game/buildings.png)"; // SET BUILDINGS IMAGE
+            BACKGROUNDCLOUDS.style.backgroundImage = "url(../kepek/game/clouds.png)"; // SET CLOUDS IMAGE
+            break;
+        case 2:
+            GAMECONTAINER.style.backgroundColor = "#dab5ff";
+            GROUNDTILE.style.backgroundImage = "url(../kepek/game/ground2.png)";
+            BACKGROUNDTREES.style.backgroundImage = "url(../kepek/game/trees.png)";
+            BACKGROUNDBUILDINGS.style.backgroundImage = "url(../kepek/game/buildings.png)";
+            BACKGROUNDCLOUDS.style.backgroundImage = "url(../kepek/game/clouds.png)";
+            break;
+        case 3:
+            GAMECONTAINER.style.backgroundColor = "#dafeb6";
+            GROUNDTILE.style.backgroundImage = "url(../kepek/game/ground3.png)";
+            BACKGROUNDTREES.style.backgroundImage = "url(../kepek/game/trees3.png)";
+            BACKGROUNDBUILDINGS.style.backgroundImage = "url(../kepek/game/buildings3.png)";
+            BACKGROUNDCLOUDS.style.backgroundImage = "url(../kepek/game/clouds3.png)";
+            break;
+    }
+}
+
 function _InitDefaultScene() {
     BACKGROUNDMUSIC.play(0, false, true, 0);
 
     let PLAYER_COLL = new Collider(new Vector2(50, 30));
-    PLAYER = new Player(birdIMAGE, new Vector2(80, 50), new Vector2(50, 250), 0.0, PLAYER_COLL);
+    birdIMAGE = new SpriteImage(window.getCookie("flappybird"));
+    PLAYER = new Player(birdIMAGE, new Vector2(75, 75), new Vector2(50, 250), 0.0, PLAYER_COLL);
     PLAYER.frozen = true
     AddToScene(PLAYER);
     scoreCounterColl = new Collider(new Vector2(100, 800), new Vector2(245, 0));
@@ -635,6 +667,8 @@ function _InitDefaultScene() {
 }
 
 function _Start() {
+    _InitBackgroundImages();
+
     MAINMENUMUSIC.stop();
     _changeMainVolume(savedSettings.volume)
     startBlip.play();
@@ -653,7 +687,7 @@ function _Start() {
     tagOffSetX = (PLAYERTAG.innerText.length > 6) ? -PLAYERTAG.innerText.length * 2 : 0;
 
     faderFunc = setInterval(fadeBGMusicIn, 100);
-    console.log("Game Started -------------------------------")
+    console.log("Game Started");
     GAMECONTAINER.focus();
     startCount = setInterval(_startCountdown, 1000);
 

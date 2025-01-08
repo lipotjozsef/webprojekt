@@ -58,9 +58,6 @@ function animacio()
       GombHatter.style.backgroundColor = "white";
       div.style.backgroundColor = "gray";
       Tema.style.backgroundColor= "white";
-      
-      Header.style.backgroundColor = "lightgreen";
-      Header.style.border = "2px solid white";
       balance.style.color = "gray";
 
       visszagomb.style.border = "2px solid gray";

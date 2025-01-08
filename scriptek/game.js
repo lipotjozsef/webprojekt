@@ -22,6 +22,7 @@ const savedSettings = JSON.parse(localStorage.getItem('settings')) || [];
 
 var MAINVOLUME = savedSettings.volume || 1;
 
+let godMode = false;
 let startTime = Date.now();
 let elapsedTime;
 let gameStarted = false;
@@ -529,13 +530,13 @@ class PipeManager {
             case 5:
                 if (pipe.acceleration.x != -10) this.Pipes.forEach((pipe) => {pipe.acceleration.x -= 1});
                 upper = [-350, -450];
-                this.gap = 120;
+                this.gap = 130;
                 multi = 2;
                 break;
             case 6:
                 upper = [-350, -250];
                 dist = [400, 500];
-                this.gap = 80;
+                this.gap = 120;
                 if (pipe.acceleration.x != -8) this.Pipes.forEach((pipe) => {pipe.acceleration.x = -8});
                 break;
             case 7:
@@ -725,7 +726,7 @@ function _process() {
         })
     }
 
-    PIPEMANAGER._pipeCollision(PLAYER);
+    if(!godMode) PIPEMANAGER._pipeCollision(PLAYER);
     if(GROUNDCOLLIDER.isColliding(PLAYER) || ROOFCOLLIDER.isColliding(PLAYER)) PLAYER.die();
     if(scoreCounterColl.isColliding(PLAYER) && !PLAYER.isDead) PIPEMANAGER.scored();
     
@@ -807,4 +808,16 @@ function wantToContine(sitePath) {
     if(confirm("FIGYELEM!\nHa megnyitja ezt a menüt, akkor a mostani játéknak vége lesz!\nSzeretne így is áttérni az új menübe?")) {
         window.location.href = sitePath;
     }
+}
+
+function god_mode() {
+    godMode = !godMode;
+    console.log("God Mode: ", godMode);
+}
+
+function set_difficulty(newDif) {
+    if(PIPEMANAGER == undefined) console.log("The difficulty cannot be changed before the start of the game!");
+    if(newDif > 8) newDif = 8;
+    PIPEMANAGER.difficulty = newDif;
+    console.log("New Difficulty has been set: ", newDif);
 }

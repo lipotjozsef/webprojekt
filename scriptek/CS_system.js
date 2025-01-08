@@ -11,6 +11,10 @@ if(getCookie("savedHighscore") != "") {
     console.log("Remembered highscore! ", globalHighscore)
 } else setCookie("savedHighscore", 0);
 
+if(getCookie("flappybird") != "") {
+    console.log("Init flappybird image.")
+} else setCookie("flappybird", "../kepek/flappybird.png");
+
 function saveCoins() {
     setCookie("coinCount", globalCoinCount);
 }

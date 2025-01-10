@@ -1,11 +1,12 @@
 body{
-    font-family:        'Segoe UI', Tahoma, Verdana, sans-serif;
+    /* font-family:        'Segoe UI', Tahoma, Verdana, sans-serif; */
     background-image:   url("/kepek/background.png");
     background-repeat:  no-repeat;
     background-size:    120%;
     background-repeat:  repeat-y;
     z-index:            -1;
     user-select:        none;
+    font-family: cursive;
 }
 
 

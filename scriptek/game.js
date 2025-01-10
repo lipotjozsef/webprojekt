@@ -23,6 +23,7 @@ const savedSettings = JSON.parse(localStorage.getItem('settings')) || [];
 var MAINVOLUME = savedSettings.volume || 1;
 
 let godMode = false;
+let isColliderDebug = false;
 let startTime = Date.now();
 let elapsedTime;
 let gameStarted = false;
@@ -629,24 +630,24 @@ function _InitBackgroundImages() {
     switch(cBackground) {
         case 1:
             GAMECONTAINER.style.backgroundColor = "#70c5cd"; // SET BACKGROUND COLOR
-            GROUNDTILE.style.backgroundImage = "url(../kepek/game/ground.png)"; // SET GROUND IMAGE
-            BACKGROUNDTREES.style.backgroundImage = "url(../kepek/game/trees.png)"; // SET TREES IMAGE
-            BACKGROUNDBUILDINGS.style.backgroundImage = "url(../kepek/game/buildings.png)"; // SET BUILDINGS IMAGE
-            BACKGROUNDCLOUDS.style.backgroundImage = "url(../kepek/game/clouds.png)"; // SET CLOUDS IMAGE
+            GROUNDTILE.style.backgroundImage = "url(./kepek/game/ground.png)"; // SET GROUND IMAGE
+            BACKGROUNDTREES.style.backgroundImage = "url(./kepek/game/trees.png)"; // SET TREES IMAGE
+            BACKGROUNDBUILDINGS.style.backgroundImage = "url(./kepek/game/buildings.png)"; // SET BUILDINGS IMAGE
+            BACKGROUNDCLOUDS.style.backgroundImage = "url(./kepek/game/clouds.png)"; // SET CLOUDS IMAGE
             break;
         case 2:
             GAMECONTAINER.style.backgroundColor = "#dab5ff";
-            GROUNDTILE.style.backgroundImage = "url(../kepek/game/ground2.png)";
-            BACKGROUNDTREES.style.backgroundImage = "url(../kepek/game/trees.png)";
-            BACKGROUNDBUILDINGS.style.backgroundImage = "url(../kepek/game/buildings.png)";
-            BACKGROUNDCLOUDS.style.backgroundImage = "url(../kepek/game/clouds.png)";
+            GROUNDTILE.style.backgroundImage = "url(./kepek/game/ground2.png)";
+            BACKGROUNDTREES.style.backgroundImage = "url(./kepek/game/trees.png)";
+            BACKGROUNDBUILDINGS.style.backgroundImage = "url(./kepek/game/buildings.png)";
+            BACKGROUNDCLOUDS.style.backgroundImage = "url(./kepek/game/clouds.png)";
             break;
         case 3:
             GAMECONTAINER.style.backgroundColor = "#dafeb6";
-            GROUNDTILE.style.backgroundImage = "url(../kepek/game/ground3.png)";
-            BACKGROUNDTREES.style.backgroundImage = "url(../kepek/game/trees3.png)";
-            BACKGROUNDBUILDINGS.style.backgroundImage = "url(../kepek/game/buildings3.png)";
-            BACKGROUNDCLOUDS.style.backgroundImage = "url(../kepek/game/clouds3.png)";
+            GROUNDTILE.style.backgroundImage = "url(./kepek/game/ground3.png)";
+            BACKGROUNDTREES.style.backgroundImage = "url(./kepek/game/trees3.png)";
+            BACKGROUNDBUILDINGS.style.backgroundImage = "url(./kepek/game/buildings3.png)";
+            BACKGROUNDCLOUDS.style.backgroundImage = "url(./kepek/game/clouds3.png)";
             break;
     }
 }
@@ -655,7 +656,7 @@ function _InitDefaultScene() {
     BACKGROUNDMUSIC.play(0, false, true, 0);
 
     let PLAYER_COLL = new Collider(new Vector2(50, 30));
-    birdIMAGE = new SpriteImage(window.getCookie("flappybird"));
+    birdIMAGE = window.getCookie("flappybird") == " " ? new SpriteImage(window.getCookie("flappybird")) : new SpriteImage("./kepek/flappybird.png");
     PLAYER = new Player(birdIMAGE, new Vector2(75, 75), new Vector2(50, 250), 0.0, PLAYER_COLL);
     PLAYER.frozen = true
     AddToScene(PLAYER);
@@ -735,6 +736,14 @@ function _process() {
 
     decorationMovement();
 
+    if(isColliderDebug) {
+        PLAYER.playerCollider.debugDraw();
+        scoreCounterColl.debugDraw();
+        PIPEMANAGER.Pipes.forEach((obj) => {
+            obj.pipeCollider.debugDraw();
+        })
+    }
+
     if(PLAYER.position.y < 1500) requestAnimationFrame(_process);
     else changeActiveWindow("RestartMenu");
 }
@@ -813,6 +822,11 @@ function wantToContine(sitePath) {
 function god_mode() {
     godMode = !godMode;
     console.log("God Mode: ", godMode);
+}
+
+function draw_colliders() {
+    isColliderDebug = !isColliderDebug;
+    console.log("Colliders debug draw!")
 }
 
 function set_difficulty(newDif) {

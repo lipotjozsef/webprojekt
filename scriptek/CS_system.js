@@ -13,7 +13,7 @@ if(getCookie("savedHighscore") != "") {
 
 if(getCookie("flappybird") != "") {
     console.log("Init flappybird image.")
-} else setCookie("flappybird", "../kepek/flappybird.png");
+} else setCookie("flappybird", "./kepek/flappybird.png");
 
 function saveCoins() {
     setCookie("coinCount", globalCoinCount);

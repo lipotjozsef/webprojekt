@@ -163,7 +163,7 @@ footer {
 }
 
 .debugCollider {
-    border: 1px solid yellowgreen;
+    border: 3px solid blue;
 }
 
 .debugColliderColliding {

@@ -656,7 +656,7 @@ function _InitDefaultScene() {
     BACKGROUNDMUSIC.play(0, false, true, 0);
 
     let PLAYER_COLL = new Collider(new Vector2(50, 30));
-    birdIMAGE = window.getCookie("flappybird") == " " ? new SpriteImage(window.getCookie("flappybird")) : new SpriteImage("./kepek/flappybird.png");
+    birdIMAGE = window.getCookie("flappybird") == " " ? new SpriteImage("./kepek/flappybird.png") : new SpriteImage(window.getCookie("flappybird"));
     PLAYER = new Player(birdIMAGE, new Vector2(75, 75), new Vector2(50, 250), 0.0, PLAYER_COLL);
     PLAYER.frozen = true
     AddToScene(PLAYER);
